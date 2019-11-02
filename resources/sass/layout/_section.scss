@@ -1,0 +1,90 @@
+.section {
+  &--intro {
+    position: relative;
+    background-color: var(--primary-color);
+    padding: 8rem 0;
+    height: 60rem;
+    margin-top: -10rem;
+    z-index: 100;
+    clip-path: polygon(0 0, 100% 12rem, 100% 100%, 0 75%);
+    color: var(--secondary-color);
+
+    p {
+      width: 70%;
+      color: var(--secondary-color-dark);
+      font-weight: 300;
+    }
+  }
+
+  &--skills {
+    padding-bottom: 5rem;
+
+    p {
+      color: var(--primary-color-light);
+    }
+  }
+
+  &--projects {
+    &__header {
+      clip-path: polygon(0 0, 100% 12rem, 100% 100%, 0 100%);
+      background-image: linear-gradient(to right, #8c00b5 50%, #46005b);
+      color: var(--secondary-color);
+      padding: 15rem 0 12rem 0;
+
+      & > * {
+        p {
+          text-align: center;
+          font-weight: 300;
+          width: 60%;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    &__content {
+      margin-top: -6rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  &--testimonial {
+    padding: 7rem 0 12rem 0;
+    background-color: var(--secondary-color-dark);
+    position: relative;
+    & .heading__centered {
+      &::after {
+        content: none;
+      }
+    }
+
+    .paragraph--primary {
+      text-align: center;
+      font-weight: 300;
+      width: 60%;
+      margin: 0 auto;
+    }
+
+    &::after,
+    &::before {
+      position: absolute;
+      background-image: url("https://image.flaticon.com/icons/svg/98/98868.svg");
+      background-size: 150px auto;
+      display: inline-block;
+      width: 150px;
+      height: 150px;
+      opacity: 0.3;
+      content: "";
+    }
+
+    &::before {
+      top: -7rem;
+      left: 10%;
+    }
+
+    &::after {
+      bottom: -7rem;
+      right: 10%;
+      transform: rotate(180deg);
+    }
+  }
+}
