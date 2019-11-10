@@ -9,10 +9,36 @@
     clip-path: polygon(0 0, 100% 12rem, 100% 100%, 0 75%);
     color: var(--secondary-color);
 
+    @include respond(laptop) {
+      clip-path: polygon(0 0, 100% 10rem, 100% 100%, 0 80%);
+      height: 50rem;
+    }
+    @include respond(tab-port) {
+      clip-path: polygon(0 0, 100% 10rem, 100% 100%, 0 80%);
+      padding: 9rem 0;
+      height: 55rem;
+    }
+    @include respond(mobile-l) {
+      clip-path: polygon(0 0, 100% 8rem, 100% 100%, 0 85%);
+      padding: 9rem 2rem;
+    }
+    @include respond(mobile-m) {
+      height: 65rem;
+      padding: 9rem 1rem;
+    }
     p {
       width: 70%;
       color: var(--secondary-color-dark);
       font-weight: 300;
+
+      @include respond(laptop) {
+        font-size: 1.7rem;
+        width: 100%;
+      }
+
+      @include respond(tab-port) {
+        font-size: 1.6rem;
+      }
     }
   }
 
@@ -37,6 +63,10 @@
           font-weight: 300;
           width: 60%;
           margin: 0 auto;
+
+          @include respond(laptop) {
+            width: 80%;
+          }
         }
       }
     }

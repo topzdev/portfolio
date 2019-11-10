@@ -1,4 +1,58 @@
 .footer {
   background-color: var(--primary-color);
+  color: var(--secondary-color);
   padding: 10rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  &__brand {
+    img {
+      height: 10rem;
+      width: auto;
+    }
+  }
+
+  &__qoutes {
+    font-size: 1.8rem;
+    width: 40%;
+    margin: 0 auto;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    li {
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+    a {
+    }
+
+    img {
+      height: 4rem;
+    }
+  }
+  &__goodbye {
+    font-weight: 400;
+    margin-top: 10rem;
+    font-size: 1.8rem;
+  }
+
+  &__copyright {
+    font-size: 1.8rem;
+  }
+
+  &__overlay {
+    position: absolute;
+    right: -20%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    opacity: 0.03;
+    z-index: 0;
+    transform: translateY(-50%);
+  }
 }

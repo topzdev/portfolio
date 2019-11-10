@@ -10,15 +10,59 @@
     height: 16rem;
     width: 12rem;
     margin-right: 3rem;
+
+    @include respond(tab-port) {
+      height: 14rem;
+      width: 16rem;
+    }
+
+    @include respond(mobile-l) {
+      height: 12rem;
+      width: 14rem;
+    }
+
+    @include respond(mobile-m) {
+      height: 11rem;
+      width: 15rem;
+    }
+
+    @include respond(mobile-s) {
+      height: 11rem;
+      width: 12rem;
+    }
+
     &__title {
       font-size: 1.6rem;
       font-weight: 400;
+
+      @include respond(tab-port) {
+        font-size: 1.5rem;
+      }
+      @include respond(mobile-l) {
+        font-size: 1.4rem;
+      }
+      @include respond(mobile-s) {
+        font-size: 1.2rem;
+      }
     }
     &__icon {
       position: absolute;
       top: 50%;
       transform: translateY(-70%);
       height: 6rem;
+
+      @include respond(tab-port) {
+        height: 5rem;
+      }
+      @include respond(mobile-l) {
+        height: 6rem;
+      }
+      @include respond(mobile-m) {
+        height: 5rem;
+      }
+      @include respond(mobile-s) {
+        height: 4.5rem;
+      }
 
       img {
         height: 90%;
@@ -40,11 +84,17 @@
     &__image {
       width: 100%;
     }
-
+    @include respond(mobile-l) {
+      margin-left: 1rem;
+    }
     &__logo {
       height: 5rem;
       img {
         height: 100%;
+      }
+
+      @include respond(mobile-l) {
+        height: 4.5rem;
       }
     }
     &:hover {
@@ -69,6 +119,17 @@
       font-weight: 400;
       padding: 3rem;
       cursor: pointer;
+
+      @include respond(tab-port) {
+        p {
+          display: none;
+        }
+
+        img {
+          height: auto;
+          width: 100%;
+        }
+      }
     }
   }
 

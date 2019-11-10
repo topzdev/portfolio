@@ -11,6 +11,11 @@
   &__logo {
     height: 12rem;
     width: 12rem;
+
+    @include respond(laptop) {
+      height: 10rem;
+      width: 10rem;
+    }
   }
 }
 

@@ -4,16 +4,43 @@
     color: var(--primary-color-light);
     font-weight: 400;
     font-size: 4rem;
+
+    @include respond(laptop) {
+      font-size: 3.5rem;
+    }
+    @include respond(mobile-l) {
+      font-size: 3rem;
+      color: var(--primary-color);
+    }
     span {
       display: block;
       color: var(--primary-color);
       line-height: 1.1;
       font-weight: 700;
       font-size: 9rem;
+
+      @include respond(laptop) {
+        font-size: 7.5rem;
+      }
+
+      @include respond(tab-port) {
+        font-size: 6.6rem;
+      }
+
+      @include respond(mobile-l) {
+        font-size: 4.5rem;
+      }
     }
   }
   &--secondary {
     font-size: 4rem;
+
+    @include respond(tab-port) {
+      font-size: 3.5rem;
+    }
+    @include respond(mobile-l) {
+      font-size: 3rem;
+    }
   }
 
   &__centered {
@@ -22,6 +49,10 @@
     width: 30%;
     text-align: center;
     margin: 0 auto;
+
+    @include respond(laptop) {
+      width: 70%;
+    }
 
     &::after {
       position: absolute;
@@ -33,6 +64,10 @@
       border-radius: 5px;
       transform: translateX(-50%);
       background-color: var(--secondary-color);
+
+      @include respond(laptop) {
+        width: 30%;
+      }
     }
   }
 }
@@ -41,5 +76,13 @@
   &--primary {
     font-weight: 400;
     font-size: 2rem;
+
+    @include respond(laptop) {
+      font-size: 1.8rem;
+    }
+
+    @include respond(mobile-l) {
+      font-size: 1.5rem;
+    }
   }
 }
