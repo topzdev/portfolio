@@ -62,7 +62,7 @@
       width: 200%;
       content: "";
       background: #c609ff;
-      // background-image: linear-gradient(to right, #46005b, #c609ff 80%);
+      background-image: linear-gradient(to right, #46005b, #c609ff 80%);
       z-index: 1;
       @include transition;
     }

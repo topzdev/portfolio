@@ -39,6 +39,7 @@
   }
 
   &--skills {
+    padding-top: 3rem;
     padding-bottom: 5rem;
 
     @include respond(tab-port) {
@@ -52,9 +53,9 @@
 
   &--projects {
     &__header {
-      // clip-path: polygon(0 0, 100% 12rem, 100% 100%, 0 100%);
-      // background-image: linear-gradient(to right, #8c00b5 50%, #46005b);
-      background: #8c00b5;
+      clip-path: polygon(0 0, 100% 12rem, 100% 100%, 0 100%);
+      overflow: hidden;
+      background-image: linear-gradient(to right, #8c00b5 50%, #46005b);
       color: var(--secondary-color);
       padding: 15rem 0 12rem 0;
 
