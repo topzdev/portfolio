@@ -15,12 +15,11 @@
     }
     @include respond(tab-port) {
       clip-path: polygon(0 0, 100% 10rem, 100% 100%, 0 80%);
-      padding: 9rem 0;
+      padding: 9rem 2rem;
       height: 55rem;
     }
     @include respond(mobile-l) {
       clip-path: polygon(0 0, 100% 8rem, 100% 100%, 0 85%);
-      padding: 9rem 2rem;
     }
     @include respond(mobile-m) {
       height: 65rem;
@@ -45,6 +44,10 @@
   &--skills {
     padding-bottom: 5rem;
 
+    @include respond(tab-port) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
     p {
       color: var(--primary-color-light);
     }
@@ -67,6 +70,10 @@
           @include respond(laptop) {
             width: 80%;
           }
+
+          @include respond(mobile-l) {
+            width: 100%;
+          }
         }
       }
     }
@@ -81,6 +88,10 @@
     padding: 7rem 0 12rem 0;
     background-color: var(--secondary-color-dark);
     position: relative;
+
+    @include respond(mobile-l) {
+      padding: 7rem 0 8rem 0;
+    }
     & .heading__centered {
       &::after {
         content: none;
@@ -92,6 +103,10 @@
       font-weight: 300;
       width: 60%;
       margin: 0 auto;
+
+      @include respond(mobile-l) {
+        width: 80%;
+      }
     }
 
     &::after,
@@ -103,18 +118,45 @@
       width: 150px;
       height: 150px;
       opacity: 0.3;
+      z-index: 50;
       content: "";
+
+      @include respond(tab-port) {
+        background-size: 120px auto;
+        width: 120px;
+        height: 120px;
+      }
+
+      @include respond(mobile-l) {
+        background-size: 80px auto;
+        width: 80px;
+        height: 80px;
+      }
     }
 
     &::before {
       top: -7rem;
       left: 10%;
+
+      @include respond(mobile-l) {
+        top: -2rem;
+      }
+
+      @include respond(tab-port) {
+        top: -4rem;
+      }
     }
 
     &::after {
       bottom: -7rem;
       right: 10%;
       transform: rotate(180deg);
+      @include respond(mobile-l) {
+        top: -3rem;
+      }
+      @include respond(tab-port) {
+        bottom: -4rem;
+      }
     }
   }
 }

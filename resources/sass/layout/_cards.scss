@@ -84,8 +84,8 @@
     &__image {
       width: 100%;
     }
-    @include respond(mobile-l) {
-      margin-left: 1rem;
+    @include respond(laptop) {
+      margin: 0 auto;
     }
     &__logo {
       height: 5rem;
@@ -118,9 +118,11 @@
       font-size: 1.4rem;
       font-weight: 400;
       padding: 3rem;
+      text-decoration: none;
+      color: var(--secondary-color);
       cursor: pointer;
 
-      @include respond(tab-port) {
+      @include respond(mobile-l) {
         p {
           display: none;
         }
@@ -140,11 +142,17 @@
     text-align: center;
     margin-top: 5rem;
     color: var(--primary-color);
+
     &__icon {
       height: 7rem;
       width: 7rem;
       overflow: hidden;
       border-radius: 100%;
+
+      @include respond(mobile-l) {
+        height: 6rem;
+        width: 6rem;
+      }
       img {
         width: 100%;
       }
@@ -154,6 +162,18 @@
       display: block;
       font-size: 35px;
       width: 80%;
+
+      @include respond(tab-port) {
+        font-size: 28px;
+      }
+
+      @include respond(mobile-l) {
+        width: 100%;
+        font-size: 25px;
+      }
+      @include respond(mobile-s) {
+        font-size: 18px;
+      }
     }
 
     &__client {
@@ -164,14 +184,21 @@
         top: -1rem;
         left: 50%;
         transform: translateX(-50%);
-        height: 3px;
+        height: 1px;
         width: 140%;
         border-radius: 4px;
-        background-color: #9c9c9c;
+        background-color: #c5c5c5;
         margin-top: 2rem;
       }
       margin-top: 2rem;
       font-size: 18px;
+
+      @include respond(mobile-l) {
+        font-size: 16px;
+      }
+      @include respond(mobile-s) {
+        font-size: 15px;
+      }
     }
   }
 }

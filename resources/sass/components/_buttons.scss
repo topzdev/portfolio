@@ -9,6 +9,7 @@
     color: #fff;
     margin: 0 auto;
     font-size: 1.8rem;
+    text-align: center;
     box-shadow: 0 20px 30px rgba(#c609ff, 0.5);
     cursor: pointer;
     text-decoration: none;
@@ -16,8 +17,24 @@
     overflow: hidden;
     @include transition;
 
+    @include respond(tab-port) {
+      width: 25rem;
+      height: 4.5rem;
+      font-size: 1.7rem;
+      padding: 1.2rem 4rem;
+    }
+
     @include respond(mobile-l) {
-      margin-left: 1rem;
+      width: 22rem;
+      height: 4.5rem;
+      font-size: 1.6rem;
+      padding: 1.2rem 3rem;
+    }
+    @include respond(mobile-s) {
+      width: 20rem;
+      height: 4rem;
+      font-size: 1.4rem;
+      padding: 1.2rem 2.5rem;
     }
 
     span {

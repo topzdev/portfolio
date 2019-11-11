@@ -6,9 +6,18 @@
   position: relative;
   overflow: hidden;
   &__brand {
+    display: block;
+    margin-bottom: 4rem;
     img {
       height: 10rem;
       width: auto;
+
+      @include respond(tab-port) {
+        height: 8rem;
+      }
+    }
+    @include respond(tab-port) {
+      margin-bottom: 3rem;
     }
   }
 
@@ -16,6 +25,12 @@
     font-size: 1.8rem;
     width: 40%;
     margin: 0 auto;
+    color: #b9b9b9;
+
+    @include respond(tab-port) {
+      font-size: 1.6rem;
+      width: 80%;
+    }
   }
 
   &__list {
@@ -24,25 +39,51 @@
     justify-content: center;
     list-style: none;
     li {
+      opacity: 0.8;
+      @include transition;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
       &:not(:last-child) {
         margin-right: 2rem;
       }
     }
-    a {
-    }
 
     img {
       height: 4rem;
+
+      @include respond(tab-port) {
+        height: 3.4rem;
+      }
+      @include respond(mobile-l) {
+        height: 3rem;
+      }
     }
   }
   &__goodbye {
     font-weight: 400;
     margin-top: 10rem;
     font-size: 1.8rem;
+    text-align: center;
+
+    @include respond(tab-port) {
+      font-size: 1.6rem;
+    }
+    @include respond(mobile-l) {
+      font-size: 1.5rem;
+    }
   }
 
   &__copyright {
     font-size: 1.8rem;
+
+    @include respond(tab-port) {
+      font-size: 1.6rem;
+    }
+    @include respond(mobile-l) {
+      font-size: 1.5rem;
+    }
   }
 
   &__overlay {
@@ -54,5 +95,9 @@
     opacity: 0.03;
     z-index: 0;
     transform: translateY(-50%);
+
+    @include respond(mobile-l) {
+      display: none;
+    }
   }
 }

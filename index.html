@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./resources/css/main.css">
     <link rel="stylesheet" href="./resources/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="./resources/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./resources/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./resources/favicon/favicon-16x16.png">
@@ -18,6 +19,10 @@
 </head>
 
 <body>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <header>
         <nav class="navbar">
             <div class="container">
@@ -35,7 +40,7 @@
                 <div class="header__main">
 
                     <div class="header__title">
-                        <h1 class="heading--primary">
+                        <h1 class="heading--primary" data-aos="fade-right">
                             Hi, I'm Christopher,
                             <span>
                                 Web designer and Developer.
@@ -43,7 +48,8 @@
                         </h1>
                     </div>
                     <div class="header__image">
-                        <img src="./resources/images/Me.png" alt="">
+                        <img src="./resources/images/Me.png" alt="" data-aos="fade-left" data-aos-duration="500"
+                            data-aos-easing="ease-in-out">
                     </div>
                 </div>
             </div>
@@ -53,14 +59,16 @@
     <main>
         <section class="section--intro">
             <div class="container">
-                <h1 class="heading--secondary mb-2">About Me</h1>
-                <p class="paragraph--primary">Hi I'm Christopher Lugod, 19 years old and currently living in Manila,
+                <h1 class="heading--secondary mb-2" data-aos="fade-down">About Me</h1>
+                <p class="paragraph--primary" data-aos="fade-left">Hi I'm Christopher Lugod, 19 years old and currently
+                    living in Manila,
                     Philippines. 1 year in web development industry currently freelancer web designer and also a
                     sophomore
                     student in Technological University of the Philippines taking Bachelor of Science in Information
                     Technology. </p>
                 <br><br>
-                <p class="paragraph--primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti,
+                <p class="paragraph--primary" data-aos="fade-right">Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. Corrupti,
                     perspiciatis veritatis distinctio eligendi magnam, accusantium nisi rerum quaerat repellendus,
                     repellat optio? Earum soluta mollitia illum impedit quis. Ipsa, porro. Voluptatum saepe pariatur
                     ducimus voluptatibus magnam commodi porro adipisci aliquam quasi. </p>
@@ -72,117 +80,118 @@
                 <h1 class="heading--secondary mb-1">
                     Skills Sets
                 </h1>
-                <p class="paragraph--primary mb-3">My Programming Languages and web technologies that I used.</p>
+                <p class="paragraph--primary mb-3" data-aos="fade-up">My Programming Languages and web technologies that
+                    I used.</p>
 
                 <div class="row">
-                    <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <div class="col-6 col-md-3 col-lg-2 mb-3" data-aos="fade-up" data-aos-delay="60">
                         <div class="card--primary bg-js">
                             <div class="card--primary__icon">
-                                <img src="./resources/images/javascript.svg" alt="Javascript">
+                                <img draggable="false" src="./resources/images/javascript.svg" alt="Javascript">
                             </div>
                             <p class="card--primary__title">Javascript</p>
                         </div>
 
                     </div>
-                    <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <div class="col-6 col-md-3 col-lg-2 mb-3" data-aos="fade-up" data-aos-delay="20">
                         <div class="card--primary bg-react">
                             <div class="card--primary__icon">
-                                <img src="./resources/images/reactjs.svg" alt="ReactJs">
+                                <img draggable="false" src="./resources/images/reactjs.svg" alt="ReactJs">
                             </div>
                             <p class="card--primary__title">ReactJs</p>
                         </div>
 
                     </div>
-                    <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <div class="col-6 col-md-3 col-lg-2 mb-3" data-aos="fade-up" data-aos-delay="30">
                         <div class="card--primary bg-html">
                             <div class="card--primary__icon">
-                                <img src="./resources/images/html5.svg" alt="HTML">
+                                <img draggable="false" src="./resources/images/html5.svg" alt="HTML">
                             </div>
                             <p class="card--primary__title">HTML</p>
                         </div>
 
                     </div>
 
-                    <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <div class="col-6 col-md-3 col-lg-2 mb-3" data-aos="fade-up" data-aos-delay="300">
                         <div class="card--primary bg-css">
                             <div class="card--primary__icon">
-                                <img src="./resources/images/CSS.svg" alt="CSS3">
+                                <img draggable="false" src="./resources/images/CSS.svg" alt="CSS3">
                             </div>
                             <p class="card--primary__title">CSS</p>
                         </div>
 
                     </div>
 
-                    <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <div class="col-6 col-md-3 col-lg-2 mb-3" data-aos="fade-up" data-aos-delay="170">
                         <div class="card--primary bg-nodejs">
                             <div class="card--primary__icon">
-                                <img src="./resources/images/nodejs.svg" alt="NodeJs">
+                                <img draggable="false" src="./resources/images/nodejs.svg" alt="NodeJs">
                             </div>
                             <p class="card--primary__title">Nodejs</p>
                         </div>
                     </div>
 
-                    <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <div class="col-6 col-md-3 col-lg-2 mb-3" data-aos="fade-up" data-aos-delay="150">
                         <div class="card--primary bg-mongodb">
                             <div class="card--primary__icon">
-                                <img src="./resources/images/mongodb.svg" alt="NodeJs">
+                                <img draggable="false" src="./resources/images/mongodb.svg" alt="NodeJs">
                             </div>
                             <p class="card--primary__title">MongoDB</p>
                         </div>
                     </div>
 
-                    <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <div class="col-6 col-md-3 col-lg-2 mb-3" data-aos="fade-up" data-aos-delay="70">
                         <div class="card--primary bg-bootstrap">
                             <div class="card--primary__icon">
-                                <img src="./resources/images/bootstrap.svg" alt="Bootstrap">
+                                <img draggable="false" src="./resources/images/bootstrap.svg" alt="Bootstrap">
                             </div>
                             <p class="card--primary__title">Bootstrap</p>
                         </div>
 
                     </div>
 
-                    <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <div class="col-6 col-md-3 col-lg-2 mb-3" data-aos="fade-up" data-aos-delay="290">
                         <div class="card--primary bg-tailwind">
                             <div class="card--primary__icon">
-                                <img src="./resources/images/tailwind-css.svg" alt="TailwindCSS">
+                                <img draggable="false" src="./resources/images/tailwind-css.svg" alt="TailwindCSS">
                             </div>
                             <p class="card--primary__title">Tailwind CSS</p>
                         </div>
                     </div>
 
-                    <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <div class="col-6 col-md-3 col-lg-2 mb-3" data-aos="fade-up" data-aos-delay="330">
                         <div class="card--primary bg-sass">
                             <div class="card--primary__icon">
-                                <img src="./resources/images/sass.svg" alt="Sass">
+                                <img draggable="false" src="./resources/images/sass.svg" alt="Sass">
                             </div>
                             <p class="card--primary__title">Sass</p>
                         </div>
 
                     </div>
 
-                    <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <div class="col-6 col-md-3 col-lg-2 mb-3" data-aos="fade-up" data-aos-delay="170">
                         <div class="card--primary bg-java">
                             <div class="card--primary__icon">
-                                <img src="./resources/images/java.svg" alt="Java">
+                                <img draggable="false" src="./resources/images/java.svg" alt="Java">
                             </div>
                             <p class="card--primary__title">Java</p>
                         </div>
 
                     </div>
 
-                    <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <div class="col-6 col-md-3 col-lg-2 mb-3" data-aos="fade-up" data-aos-delay="110">
                         <div class="card--primary bg-vscode">
                             <div class="card--primary__icon">
-                                <img src="./resources/images/vscod.svg" alt="Visaul Studio Code">
+                                <img draggable="false" src="./resources/images/vscod.svg" alt="Visaul Studio Code">
                             </div>
                             <p class="card--primary__title">Visual Studio Code</p>
                         </div>
 
                     </div>
-                    <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <div class="col-6 col-md-3 col-lg-2 mb-3" data-aos="fade-up" data-aos-delay="230">
                         <div class="card--primary bg-adobexd">
                             <div class="card--primary__icon">
-                                <img src="./resources/images/adobe-xd.svg" alt="Adobe XD">
+                                <img draggable="false" src="./resources/images/adobe-xd.svg" alt="Adobe XD">
                             </div>
                             <p class="card--primary__title">Adobe XD</p>
                         </div>
@@ -207,7 +216,7 @@
             <div class="section--projects__content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12 col-lg-4 mb-2 mb-lg-0">
+                        <div class="col-12 col-lg-4 mb-2 mb-lg-0" data-aos="zoom-in-up" data-aos-delay="100">
                             <div class="card card--projects bg-shareitinerary">
                                 <div class="card--projects__logo">
                                     <img src="./resources/images/shareitinerary_white.png" alt="">
@@ -216,7 +225,7 @@
                                     <img class="image" src="./resources/images/shareitinerary-1.png" alt="">
                                 </div>
 
-                                <div class="card--projects__description">
+                                <a href="https://www.shareitinerary.com/" class="card--projects__description">
                                     <div class="card--projects__logo mb-1">
                                         <img src="./resources/images/shareitinerary_white.png" alt="">
                                     </div>
@@ -226,16 +235,13 @@
                                         consequuntur consectetur harum odio expedita sit aut est consequatur
                                         exercitationem</p>
 
-                                    <a href="https://www.shareitinerary.com/" class="btn btn--secondary  mt-1">
-                                        www.shareitinerary.com
-                                    </a>
-                                </div>
+                                </a>
 
                             </div>
 
                         </div>
 
-                        <div class="col-12 col-lg-4 mb-2 mb-lg-0">
+                        <div class="col-12 col-lg-4 mb-2 mb-lg-0" data-aos="zoom-in-up" data-aos-delay="400">
                             <div class="card card--projects bg-luzontsc">
                                 <div class="card--projects__logo">
                                     <img src="./resources/images/brand_logo.png" alt="">
@@ -244,23 +250,19 @@
                                     <img class="image" src="./resources/images/luzontsc-1.png" alt="">
                                 </div>
 
-                                <div class="card--projects__description">
+                                <a href="http://luzontsc.com/" class="card--projects__description">
                                     <div class="card--projects__logo mb-1">
                                         <img src="./resources/images/brand_logo.png" alt="">
                                     </div>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi architecto et
                                         possimus saepe consequatur enim. Quo iste mollitia placeat optio.</p>
-
-                                    <a href="http://luzontsc.com/" class="btn btn--secondary  mt-1">
-                                        www.luzontsc.com
-                                    </a>
-                                </div>
+                                </a>
 
                             </div>
 
                         </div>
 
-                        <div class="col-12 col-lg-4 mb-2 mb-lg-0">
+                        <div class="col-12 col-lg-4 mb-2 mb-lg-0" data-aos="zoom-in-up" data-aos-delay="800">
                             <div class="card card--projects bg-brocode">
                                 <div class="card--projects__logo">
                                     <img src="./resources/images/brocode-logo-banner-w.png" alt="">
@@ -269,7 +271,7 @@
                                     <img class="image" src="./resources/images/brocode-1.png" alt="">
                                 </div>
 
-                                <div class="card--projects__description">
+                                <a href="www.brocodemerch.com" class="card--projects__description">
                                     <div class="card--projects__logo mb-1">
                                         <img src="./resources/images/brocode-logo-banner-w.png" alt="">
                                     </div>
@@ -277,17 +279,14 @@
                                         necessitatibus optio hic illo aliquid iste modi tempore accusantium repellat
                                         inventore a labore maiores maxime ratione qui aut quibusdam?</p>
 
-                                    <a href="www.brocodemerch.com" class="btn btn--secondary  mt-1">
-                                        www.brocodemerch.com
-                                    </a>
-                                </div>
+                                </a>
 
                             </div>
 
                         </div>
                     </div>
 
-                    <a href="https://github.com/TopzTheDev" class="btn btn--primary mt-5">
+                    <a href="https://github.com/TopzTheDev" class="btn btn--primary mt-4">
 
                         <span>View All My Projects</span>
                     </a>
@@ -323,7 +322,7 @@
             <a href="" class="footer__brand">
                 <img src="./resources/images/logo.png" alt="" class="image">
             </a>
-            <p class="footer__qoutes mb-2 mt-4">Never stop learning, We don't come here just to lose! Keep fighting for
+            <p class="footer__qoutes mb-2">Never stop learning, We don't come here just to lose! Keep fighting for
                 your
                 dreams.</p>
 
@@ -350,6 +349,8 @@
             <p class="footer__copyright mt-1">All right reserved 2019</p>
         </div>
     </footer>
+
+
 </body>
 
 </html>
