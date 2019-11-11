@@ -102,6 +102,7 @@
       top: -1rem;
       .card--projects__description {
         opacity: 1;
+        visibility: visible;
       }
     }
     &__description {
@@ -116,6 +117,7 @@
       height: 100%;
       width: 100%;
       opacity: 0;
+      visibility: hidden;
       font-size: 1.4rem;
       font-weight: 400;
       padding: 3rem;
@@ -124,13 +126,9 @@
       cursor: pointer;
 
       @include respond(mobile-l) {
+        padding: 2rem;
         p {
           display: none;
-        }
-
-        img {
-          height: auto;
-          width: 100%;
         }
       }
     }

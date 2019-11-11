@@ -421,6 +421,7 @@ header {
 
 .card--projects:hover .card--projects__description {
   opacity: 1;
+  visibility: visible;
 }
 
 .card--projects__description {
@@ -445,6 +446,7 @@ header {
   height: 100%;
   width: 100%;
   opacity: 0;
+  visibility: hidden;
   font-size: 1.4rem;
   font-weight: 400;
   padding: 3rem;
@@ -454,12 +456,11 @@ header {
 }
 
 @media (max-width: 26.5625em) {
+  .card--projects__description {
+    padding: 2rem;
+  }
   .card--projects__description p {
     display: none;
-  }
-  .card--projects__description img {
-    height: auto;
-    width: 100%;
   }
 }
 
@@ -671,7 +672,6 @@ header {
   .section--intro {
     -webkit-clip-path: polygon(0 0, 100% 10rem, 100% 100%, 0 80%);
             clip-path: polygon(0 0, 100% 10rem, 100% 100%, 0 80%);
-    height: 50rem;
   }
 }
 
@@ -680,7 +680,6 @@ header {
     -webkit-clip-path: polygon(0 0, 100% 10rem, 100% 100%, 0 80%);
             clip-path: polygon(0 0, 100% 10rem, 100% 100%, 0 80%);
     padding: 9rem 2rem;
-    height: 55rem;
   }
 }
 
@@ -693,7 +692,6 @@ header {
 
 @media (max-width: 23.4375em) {
   .section--intro {
-    height: 65rem;
     padding: 9rem 1rem;
   }
 }
@@ -735,8 +733,7 @@ header {
 .section--projects__header {
   -webkit-clip-path: polygon(0 0, 100% 12rem, 100% 100%, 0 100%);
           clip-path: polygon(0 0, 100% 12rem, 100% 100%, 0 100%);
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #8c00b5), to(#46005b));
-  background-image: linear-gradient(to right, #8c00b5 50%, #46005b);
+  background: #8c00b5;
   color: var(--secondary-color);
   padding: 15rem 0 12rem 0;
 }
@@ -1097,8 +1094,7 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 100%;
   width: 200%;
   content: "";
-  background-image: -webkit-gradient(linear, left top, right top, from(#46005b), color-stop(80%, #c609ff));
-  background-image: linear-gradient(to right, #46005b, #c609ff 80%);
+  background: #c609ff;
   z-index: 1;
   -webkit-transition: all ease 300ms;
   transition: all ease 300ms;

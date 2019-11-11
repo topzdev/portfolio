@@ -11,18 +11,15 @@
 
     @include respond(laptop) {
       clip-path: polygon(0 0, 100% 10rem, 100% 100%, 0 80%);
-      height: 50rem;
     }
     @include respond(tab-port) {
       clip-path: polygon(0 0, 100% 10rem, 100% 100%, 0 80%);
       padding: 9rem 2rem;
-      height: 55rem;
     }
     @include respond(mobile-l) {
       clip-path: polygon(0 0, 100% 8rem, 100% 100%, 0 85%);
     }
     @include respond(mobile-m) {
-      height: 65rem;
       padding: 9rem 1rem;
     }
     p {
@@ -56,7 +53,8 @@
   &--projects {
     &__header {
       clip-path: polygon(0 0, 100% 12rem, 100% 100%, 0 100%);
-      background-image: linear-gradient(to right, #8c00b5 50%, #46005b);
+      // background-image: linear-gradient(to right, #8c00b5 50%, #46005b);
+      background: #8c00b5;
       color: var(--secondary-color);
       padding: 15rem 0 12rem 0;
 
