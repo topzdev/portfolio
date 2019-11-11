@@ -2,10 +2,11 @@
   &--intro {
     position: relative;
     background-color: var(--primary-color);
-    padding: 8rem 0;
-    height: 60rem;
+    padding: 10rem 0;
+    // height: 60rem;
     margin-top: -10rem;
     z-index: 100;
+    padding-bottom: 15rem;
     clip-path: polygon(0 0, 100% 12rem, 100% 100%, 0 75%);
     color: var(--secondary-color);
 
