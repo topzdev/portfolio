@@ -298,21 +298,14 @@ header {
 @media (max-width: 26.5625em) {
   .card--primary {
     height: 12rem;
-    width: 14rem;
-  }
-}
-
-@media (max-width: 23.4375em) {
-  .card--primary {
-    height: 11rem;
-    width: 15rem;
+    width: 13rem;
   }
 }
 
 @media (max-width: 20em) {
   .card--primary {
     height: 11rem;
-    width: 12rem;
+    width: 11.5rem;
   }
 }
 
@@ -731,8 +724,6 @@ header {
 }
 
 .section--projects__header {
-  -webkit-clip-path: polygon(0 0, 100% 12rem, 100% 100%, 0 100%);
-          clip-path: polygon(0 0, 100% 12rem, 100% 100%, 0 100%);
   background: #8c00b5;
   color: var(--secondary-color);
   padding: 15rem 0 12rem 0;

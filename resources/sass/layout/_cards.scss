@@ -18,17 +18,12 @@
 
     @include respond(mobile-l) {
       height: 12rem;
-      width: 14rem;
-    }
-
-    @include respond(mobile-m) {
-      height: 11rem;
-      width: 15rem;
+      width: 13rem;
     }
 
     @include respond(mobile-s) {
       height: 11rem;
-      width: 12rem;
+      width: 11.5rem;
     }
 
     &__title {
