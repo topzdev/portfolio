@@ -588,6 +588,15 @@ header {
   background-color: rgba(14, 14, 14, 0.98);
 }
 
+.bg-pcmaster {
+  background-color: #FFD306;
+}
+
+.bg-pcmaster .card--projects__description {
+  color: #0e0e0e;
+  background-color: rgba(255, 211, 6, 0.98);
+}
+
 .bg-js {
   background-image: -webkit-gradient(linear, left bottom, right top, from(#fff), to(#ffef5e));
   background-image: linear-gradient(to top right, #fff, #ffef5e);
