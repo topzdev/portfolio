@@ -563,33 +563,42 @@ header {
 
 .bg-shareitinerary {
   background-color: #e6a100;
-  color: var(--secondary-color);
 }
 
 .bg-shareitinerary .card--projects__description {
+  color: var(--secondary-color);
   background-color: rgba(230, 161, 0, 0.98);
+}
+
+.bg-knowvie {
+  background-color: #1df7f7;
+}
+
+.bg-knowvie .card--projects__description {
+  color: var(--primary-color);
+  background-color: rgba(29, 247, 247, 0.98);
 }
 
 .bg-luzontsc {
   background-color: #2a4763;
-  color: var(--secondary-color);
 }
 
 .bg-luzontsc .card--projects__description {
+  color: var(--secondary-color);
   background-color: rgba(42, 71, 99, 0.98);
 }
 
 .bg-brocode {
   background-color: #0e0e0e;
-  color: var(--secondary-color);
 }
 
 .bg-brocode .card--projects__description {
+  color: var(--secondary-color);
   background-color: rgba(14, 14, 14, 0.98);
 }
 
 .bg-pcmaster {
-  background-color: #FFD306;
+  background-color: #ffd306;
 }
 
 .bg-pcmaster .card--projects__description {

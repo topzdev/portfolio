@@ -227,37 +227,46 @@
 
 .bg-shareitinerary {
   background-color: #e6a100;
-  color: var(--secondary-color);
 
   .card--projects__description {
+    color: var(--secondary-color);
     background-color: rgba(#e6a100, 0.98);
+  }
+}
+
+.bg-knowvie {
+  background-color: rgb(29, 247, 247);
+
+  .card--projects__description {
+    color: var(--primary-color);
+    background-color: rgba(29, 247, 247, 0.98);
   }
 }
 
 .bg-luzontsc {
   background-color: #2a4763;
-  color: var(--secondary-color);
 
   .card--projects__description {
+    color: var(--secondary-color);
     background-color: rgba(#2a4763, 0.98);
   }
 }
 
 .bg-brocode {
   background-color: #0e0e0e;
-  color: var(--secondary-color);
 
   .card--projects__description {
+    color: var(--secondary-color);
     background-color: rgba(#0e0e0e, 0.98);
   }
 }
 
 .bg-pcmaster {
-  background-color: #FFD306;
+  background-color: #ffd306;
 
   .card--projects__description {
     color: #0e0e0e;
-    background-color: rgba(#FFD306, 0.98);
+    background-color: rgba(#ffd306, 0.98);
   }
 }
 

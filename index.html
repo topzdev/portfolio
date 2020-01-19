@@ -21,7 +21,10 @@
 <body>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+        AOS.init({
+            offset: 50,
+            once: true
+        });
     </script>
     <header>
         <nav class="navbar">
@@ -217,14 +220,36 @@
                         Recent Projects
                     </h1>
 
-                    <p class="paragraph--primary">4 Websites developed and still growing... </p>
+                    <p class="paragraph--primary">5 Websites developed and still growing... </p>
                 </div>
             </div>
             <div class="section--projects__content">
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-lg-4 mb-2 mb-lg-0" data-aos="zoom-in-up" data-aos-delay="100">
-                            <a href="https://www.shareitinerary.com/" class="card card--projects bg-shareitinerary">
+                            <a href="https://knowvie.herokuapp.com/" target="_blank"
+                                class="card card--projects bg-knowvie">
+                                <div class="card--projects__logo">
+                                    <img src="./resources/images/knowvie-logo.png" alt="">
+                                </div>
+                                <div class="card--projects__image">
+                                    <img class="image" src="./resources/images/knovvie_2.png" alt="">
+                                </div>
+
+                                <div class="card--projects__description">
+                                    <div class="card--projects__logo mb-1">
+                                        <img src="./resources/images/knowvie-logo.png" alt="">
+                                    </div>
+                                    <p>Knovie is a movie information website using Vuejs, Nuxt and TMDB API</p>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+                        <div class="col-12 col-lg-4 mb-2 mb-lg-0" data-aos="zoom-in-up" data-aos-delay="100">
+                            <a href="https://www.shareitinerary.com/" target="_blank"
+                                class="card card--projects bg-shareitinerary">
                                 <div class="card--projects__logo">
                                     <img src="./resources/images/shareitinerary_white.png" alt="">
                                 </div>
@@ -246,7 +271,7 @@
                         </div>
 
                         <div class="col-12 col-lg-4 mb-2 mb-lg-0" data-aos="zoom-in-up" data-aos-delay="400">
-                            <a href="http://luzontsc.com/" class="card card--projects bg-luzontsc">
+                            <a href="http://luzontsc.com/" target="_blank" class="card card--projects bg-luzontsc">
                                 <div class="card--projects__logo">
                                     <img src="./resources/images/brand_logo.png" alt="">
                                 </div>
@@ -265,9 +290,12 @@
                             </a>
 
                         </div>
+                    </div>
 
+                    <div class="row mt-4 justify-content-center">
                         <div class="col-12 col-lg-4 mb-2 mb-lg-0" data-aos="zoom-in-up" data-aos-delay="800">
-                            <a href="https://pcmastershop.herokuapp.com/" class="card card--projects bg-pcmaster">
+                            <a href="https://pcmastershop.herokuapp.com/" target="_blank"
+                                class="card card--projects bg-pcmaster">
                                 <div class="card--projects__logo">
                                     <img src="./resources/images/pc-master-logo.png" alt="">
                                 </div>
@@ -288,11 +316,8 @@
                             </a>
 
                         </div>
-                    </div>
-
-                    <div class="row mt-4">
-                        <div class="col-12 col-lg-4 mb-2 mb-lg-0 mx-auto" data-aos="zoom-in-up" data-aos-delay="800">
-                            <a href="www.brocodemerch.com" class="card card--projects bg-brocode">
+                        <div class="col-12 col-lg-4 mb-2 mb-lg-0" data-aos="zoom-in-up" data-aos-delay="800">
+                            <a href="www.brocodemerch.com" target="_blank" class="card card--projects bg-brocode">
                                 <div class="card--projects__logo">
                                     <img src="./resources/images/brocode-logo-banner-w.png" alt="">
                                 </div>
