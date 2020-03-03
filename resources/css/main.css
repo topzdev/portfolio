@@ -44,6 +44,10 @@
 .footer__brand img {
   height: 10rem;
   width: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 @media (max-width: 48em) {
@@ -161,6 +165,10 @@
   z-index: 0;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 @media (max-width: 26.5625em) {
@@ -460,6 +468,15 @@ header {
   }
 }
 
+.card--projects__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+
 .card--testimonial {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -611,6 +628,16 @@ header {
   background-image: linear-gradient(to top right, #fff, #ffef5e);
 }
 
+.bg-ts {
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#fff), to(#007acc));
+  background-image: linear-gradient(to top right, #fff, #007acc);
+}
+
+.bg-pg {
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#fff), to(#336791));
+  background-image: linear-gradient(to top right, #fff, #336791);
+}
+
 .bg-vue {
   background-image: -webkit-gradient(linear, left bottom, right top, from(#fff), to(#62dba7));
   background-image: linear-gradient(to top right, #fff, #62dba7);
@@ -641,6 +668,11 @@ header {
   background-image: linear-gradient(to top right, #fff, #c8abf2);
 }
 
+.bg-vuetify {
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#fff), to(#aeddff));
+  background-image: linear-gradient(to top right, #fff, #aeddff);
+}
+
 .bg-tailwind {
   background-image: -webkit-gradient(linear, left bottom, right top, from(#fff), to(#a3f1fe));
   background-image: linear-gradient(to top right, #fff, #a3f1fe);
@@ -669,6 +701,11 @@ header {
 .bg-adobexd {
   background-image: -webkit-gradient(linear, left bottom, right top, from(#fff), to(#f76fc7));
   background-image: linear-gradient(to top right, #fff, #f76fc7);
+}
+
+.bg-figma {
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#fff), to(#a259ff));
+  background-image: linear-gradient(to top right, #fff, #a259ff);
 }
 
 .bg-vscode {

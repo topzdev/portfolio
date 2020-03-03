@@ -25,7 +25,6 @@
       height: 11rem;
       width: 11.5rem;
     }
-
     &__title {
       font-size: 1.6rem;
       font-weight: 400;
@@ -143,6 +142,15 @@
           display: none;
         }
       }
+    }
+
+    &__link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 20;
     }
   }
 
@@ -274,6 +282,14 @@
   background-image: linear-gradient(to top right, #fff, #ffef5e);
 }
 
+.bg-ts {
+  background-image: linear-gradient(to top right, #fff, #007acc);
+}
+
+.bg-pg {
+  background-image: linear-gradient(to top right, #fff, #336791);
+}
+
 .bg-vue {
   background-image: linear-gradient(to top right, #fff, #62dba7);
 }
@@ -298,6 +314,10 @@
   background-image: linear-gradient(to top right, #fff, #c8abf2);
 }
 
+.bg-vuetify {
+  background-image: linear-gradient(to top right, #fff, #aeddff);
+}
+
 .bg-tailwind {
   background-image: linear-gradient(to top right, #fff, #a3f1fe);
 }
@@ -320,6 +340,10 @@
 
 .bg-adobexd {
   background-image: linear-gradient(to top right, #fff, #f76fc7);
+}
+
+.bg-figma {
+  background-image: linear-gradient(to top right, #fff, #a259ff);
 }
 
 .bg-vscode {
