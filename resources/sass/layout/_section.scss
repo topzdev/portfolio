@@ -12,16 +12,12 @@
     @include respond(laptop) {
       clip-path: polygon(0 0, 100% 10rem, 100% 100%, 0 80%);
     }
-    @include respond(tab-port) {
-      clip-path: polygon(0 0, 100% 10rem, 100% 100%, 0 80%);
-      padding: 9rem 2rem;
+    @include respond(tab-land) {
+      clip-path: none;
+      padding: 8rem 0 8rem 0;
+      margin-top: 0;
     }
-    @include respond(mobile-l) {
-      clip-path: polygon(0 0, 100% 8rem, 100% 100%, 0 85%);
-    }
-    @include respond(mobile-m) {
-      padding: 9rem 1rem;
-    }
+
     p {
       width: 70%;
       color: var(--secondary-color-dark);
@@ -43,8 +39,7 @@
     padding-bottom: 5rem;
 
     @include respond(tab-port) {
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding: 5rem 2rem;
     }
     p {
       color: var(--primary-color-light);
@@ -69,11 +64,15 @@
           @include respond(laptop) {
             width: 80%;
           }
-
           @include respond(mobile-l) {
             width: 100%;
           }
         }
+      }
+
+      @include respond(tab-land) {
+        clip-path: none;
+        padding: 5rem 0 12rem 0;
       }
     }
 
