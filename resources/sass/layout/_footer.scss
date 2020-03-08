@@ -95,6 +95,7 @@
     width: auto;
     opacity: 0.03;
     z-index: 0;
+    pointer-events: none;
     transform: translateY(-50%);
     user-select: none;
     @include respond(mobile-l) {
