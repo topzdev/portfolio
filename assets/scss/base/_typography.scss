@@ -1,0 +1,53 @@
+.heading {
+  &--intro {
+    font-family: $font-heading;
+
+    .name {
+      font-size: 40px;
+      margin-bottom: 30px;
+      span {
+        color: $color-primary-light;
+      }
+    }
+
+    .title {
+      font-size: 115px;
+      line-height: 1;
+      margin-bottom: 40px;
+    }
+  }
+
+  &--primary {
+    .title {
+      font-family: $font-heading;
+      font-size: 42px;
+    }
+    .subtitle {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 300;
+      color: $color-secondary-lighter;
+      margin-bottom: 15px;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        height: 1px;
+        width: 23px;
+        background-color: $color-secondary-lighter;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.paragraph {
+  &--primary {
+    font-family: $font-heading;
+    font-weight: 400;
+    font-size: 18px;
+    color: $color-secondary-light;
+    line-height: 1.6;
+  }
+}

@@ -1,0 +1,19 @@
+.section {
+  padding: 50px 0;
+  &--intro {
+    padding-bottom: 80px;
+  }
+
+  &--stacks {
+    background-color: $base-color-1;
+    border-top-left-radius: 130px;
+    border-top-right-radius: 130px;
+    height: 90vh;
+    overflow: hidden;
+
+    & .heading--primary {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}

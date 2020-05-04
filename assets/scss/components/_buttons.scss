@@ -1,0 +1,38 @@
+.btn {
+  font: inherit;
+  cursor: pointer;
+  &--primary {
+    display: block;
+    padding: 14px 80px;
+    border-radius: 100px;
+    background-color: $color-primary;
+    color: $color-primary-text;
+    font-family: $font-heading;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 18px;
+    box-shadow: 0 12px 30px rgba(#000, 0.2);
+  }
+
+  &--secondary {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid $color-secondary-light;
+    padding: 8px 25px 8px 5px;
+    color: $color-secondary-light;
+    &__icon {
+      display: block;
+      margin-right: 12px;
+      height: 26px;
+      width: 26px;
+    }
+
+    &__label {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+  }
+}

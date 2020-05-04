@@ -1,0 +1,71 @@
+.card {
+  &--stack {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 112px;
+    height: 158px;
+    box-shadow: $box-shadow-stack;
+    background-color: $base-color-2;
+    border-radius: 8px;
+
+    &-blank {
+      filter: blur(4px);
+    }
+
+    &__icon,
+    &__icon-blank {
+      display: block;
+      height: 68px;
+      margin-bottom: 15px;
+    }
+
+    &__icon-blank {
+      width: 68px;
+      border-radius: 100%;
+      background-color: $base-color-1;
+    }
+
+    &__title {
+      font-weight: 600;
+      font-size: 14px;
+      color: rgba($color-secondary, 0.5);
+    }
+
+    &__title-blank {
+      height: 14px;
+      width: 60px;
+      border-radius: 10px;
+      background-color: $base-color-1;
+    }
+  }
+
+  &--project {
+    position: relative;
+    display: flex;
+    height: 600px;
+    width: 500px;
+    background-color: $base-color-1;
+    box-shadow: 0 4px 50px rgba(#000, 0.2);
+    overflow: hidden;
+    border-radius: 8px;
+
+    &__head {
+      padding: 30px 25px;
+    }
+
+    &__logo {
+      height: 50px;
+    }
+
+    &__img {
+      position: absolute;
+      bottom: -10%;
+      right: -5%;
+      width: 105%;
+      transform: rotate(-14deg);
+    }
+  }
+}
