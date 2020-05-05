@@ -31,8 +31,8 @@
   padding-top: 0;
 }
 .row {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
   margin-bottom: 20px;
 }
 .row:after {

@@ -1,7 +1,7 @@
 <template>
-  <h1 class="heading heading--primary">
-    <div class="subtitle" v-text="overline"></div>
-    <div class="title" v-text="title"></div>
+  <h1 class="heading heading--primary" :class="{'heading--primary__centered': centered}">
+    <div v-if="overline" class="heading--primary__overline" v-text="overline"></div>
+    <div class="heading--primary__title" v-text="title"></div>
   </h1>
 </template>
 
@@ -12,9 +12,10 @@ export default {
       type: String,
       default: "Heading Primary"
     },
-    overline: {
-      type: String,
-      default: "Subtitle"
+    overline: String,
+    centered: {
+      type: Boolean,
+      default: false
     }
   }
 };

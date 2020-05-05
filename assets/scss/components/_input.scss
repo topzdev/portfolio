@@ -1,0 +1,73 @@
+@mixin focused {
+  top: -7px;
+  transform: translateY(0);
+  left: 15px;
+  font-size: 15px;
+  color: $color-secondary-light;
+}
+
+.inp {
+  font-family: inherit;
+  border: none;
+  input,
+  textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+  }
+
+  textarea {
+    height: 100px;
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 200px;
+    min-height: 100px;
+  }
+
+  &--primary {
+    $padding-left: 22px;
+    position: relative;
+    font-family: $font-regular;
+    background-color: $input-background;
+    border-bottom: 1pt solid rgba($color-secondary-light, 0.1);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    @include transition;
+    &__input {
+      padding: 18px 20px 10px $padding-left;
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      font-size: 20px;
+      height: 100%;
+      width: 100%;
+    }
+
+    &__label {
+      position: absolute;
+      color: $input-text-color;
+      top: 50%;
+      left: $padding-left;
+      font-size: 18px;
+      transform: translateY(-50%);
+      z-index: 0;
+      @include transition;
+    }
+
+    &:focus-within &__label {
+      @include focused();
+    }
+
+    &:focus-within {
+      border-bottom-color: rgba($color-primary, 1);
+    }
+
+    .active &__label {
+      @include focused();
+    }
+
+    .textarea &__label {
+      top: 30px;
+    }
+  }
+}

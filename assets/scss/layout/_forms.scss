@@ -1,0 +1,8 @@
+.proposal-form {
+  &__file {
+    display: flex;
+    font-size: 15px;
+    justify-content: space-between;
+    color: $color-secondary-light;
+  }
+}

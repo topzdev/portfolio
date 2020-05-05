@@ -4,7 +4,6 @@
   &--primary {
     display: block;
     padding: 14px 80px;
-    border-radius: 100px;
     background-color: $color-primary;
     color: $color-primary-text;
     font-family: $font-heading;
@@ -12,7 +11,7 @@
     font-weight: 600;
     letter-spacing: 2px;
     font-size: 18px;
-    box-shadow: 0 12px 30px rgba(#000, 0.2);
+    border-radius: 5px;
   }
 
   &--secondary {
@@ -35,4 +34,44 @@
       text-transform: uppercase;
     }
   }
+
+  &--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    background-color: $input-background;
+    @include transition;
+    svg {
+      height: 30px;
+      width: 30px;
+      fill: $button-icon-color;
+      @include transition;
+    }
+
+    &:hover {
+      background-color: darken($input-background, 3%);
+      svg {
+        fill: rgba($color-primary, 0.8);
+      }
+    }
+  }
+}
+
+.rounded {
+  border-radius: 100px;
+}
+
+.shadow {
+  box-shadow: 0 12px 30px rgba(#000, 0.2);
+}
+
+.block {
+  width: 100%;
+}
+
+.dense {
+  padding: 12px 80px !important;
 }

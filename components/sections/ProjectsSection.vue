@@ -9,14 +9,14 @@
           >For that years i spent in web development i made a lot of masterpiece and greatness</div>
 
           <btn-secondary
-            class="mt-3 mb-5"
+            class="mt-4 mb-3"
             :icon="require('@/assets/img/icons/icon_github.svg')"
             label="Visit my github"
           ></btn-secondary>
-
-          <project-list></project-list>
         </div>
       </div>
+
+      <project-list></project-list>
     </div>
   </section>
 </template>

@@ -17,16 +17,13 @@
   &__intro {
     position: relative;
     &::before {
-      content: "";
-      display: block;
-      background-image: url("~@/assets/img/ui_dots_light_blue.svg");
-      background-size: 175px 175px;
-      position: absolute;
-      top: -25%;
-      left: -10%;
-      z-index: 0;
-      height: 175px;
-      width: 175px;
+      @include ui-icon-float(
+        "~@/assets/img/ui_dots_light_blue.svg",
+        175px,
+        175px,
+        -25%,
+        -10%
+      );
     }
 
     & > * {
