@@ -1,4 +1,6 @@
 .heading {
+  position: relative;
+  z-index: 1;
   &--intro {
     font-family: $font-heading;
 
@@ -18,8 +20,6 @@
   }
 
   &--primary {
-    position: relative;
-    z-index: 1;
     &__title {
       font-family: $font-heading;
       font-size: 42px;
@@ -67,6 +67,12 @@
     font-family: $font-heading;
     font-weight: 600;
     font-weight: 40px;
+  }
+
+  &--footer {
+    font-family: $font-heading;
+    font-size: 34px;
+    line-height: 1.6;
   }
 }
 

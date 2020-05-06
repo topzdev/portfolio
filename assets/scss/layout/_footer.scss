@@ -1,0 +1,49 @@
+.footer {
+  padding: 80px 0;
+  &--main {
+    position: relative;
+    background-color: $footer-background;
+    color: $footer-text-color;
+    overflow-x: hidden;
+    overflow-y: visible;
+    &::after {
+      @include ui-icon-float(
+        "~@/assets/img/ui_ellipse_red_gradient.svg",
+        380px,
+        380px,
+        -8%,
+        -1,
+        -1,
+        -5%
+      );
+    }
+
+    .container {
+      position: relative;
+      &::before {
+        @include ui-icon-float(
+          "~@/assets/img/ui_ellipse_blue_gradient.svg",
+          420px,
+          420px,
+          0,
+          -30%
+        );
+        opacity: 0.7;
+      }
+    }
+
+    &__group {
+      display: flex;
+      margin-top: 120px;
+      position: relative;
+      z-index: 1;
+      & > *:not(:last-child) {
+        margin-right: 80px;
+      }
+    }
+
+    &__intro {
+      width: 70%;
+    }
+  }
+}

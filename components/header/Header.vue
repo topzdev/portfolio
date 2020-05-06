@@ -9,7 +9,7 @@
           </div>
           <div class="title">Fullstack Web Developer</div>
         </h1>
-        <btn-primary rounded shadow title="Hire Me"></btn-primary>
+        <btn-primary rounded shadow label="Hire Me"></btn-primary>
       </div>
     </div>
 

@@ -8,6 +8,8 @@
       <testimony-section />
       <proposal-section />
     </main>
+
+    <main-footer></main-footer>
   </div>
 </template>
 
@@ -18,6 +20,7 @@ import StackSection from "@/components/sections/StacksSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import TestimonySection from "@/components/sections/TestimonySection";
 import ProposalSection from "@/components/sections/ProposalSection";
+import MainFooter from "@/components/footer/MainFooter";
 
 export default {
   components: {
@@ -26,7 +29,8 @@ export default {
     StackSection,
     ProjectsSection,
     TestimonySection,
-    ProposalSection
+    ProposalSection,
+    MainFooter
   }
 };
 </script>

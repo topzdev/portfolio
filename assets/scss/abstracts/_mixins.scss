@@ -39,3 +39,20 @@
     right: $right;
   }
 }
+
+@mixin color-generate($color, $value) {
+  .#{$color} {
+    background: $value !important;
+    &--text {
+      color: $value !important;
+    }
+
+    .lighten {
+      background: lighten($value, 25%) !important;
+    }
+
+    &--text .lighten {
+      color: lighten($value, 25%) !important;
+    }
+  }
+}

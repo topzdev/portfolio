@@ -1,7 +1,7 @@
-<svg width="351" height="463" viewBox="0 0 351 463" fill="none" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="104.5" cy="231.5" rx="246.5" ry="231.5" fill="url(#paint0_linear)"/>
+<svg width="493" height="463" viewBox="0 0 493 463" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M493 231.5C493 359.354 382.638 463 246.5 463C110.362 463 0 359.354 0 231.5C0 103.646 110.362 0 246.5 0C382.638 0 493 103.646 493 231.5Z" fill="url(#paint0_linear)"/>
 <defs>
-<linearGradient id="paint0_linear" x1="104.5" y1="0" x2="272" y2="427" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear" x1="-25.5" y1="1.15043e-05" x2="142" y2="427" gradientUnits="userSpaceOnUse">
 <stop stop-color="#292929" stop-opacity="0.28"/>
 <stop offset="0.901042" stop-color="#0277BD"/>
 </linearGradient>

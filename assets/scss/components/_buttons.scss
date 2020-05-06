@@ -43,14 +43,9 @@
     width: 70px;
     border-radius: 100%;
     background-color: $input-background;
+    color: $button-icon-color;
     @include transition;
-    svg {
-      height: 30px;
-      width: 30px;
-      fill: $button-icon-color;
-      @include transition;
-    }
-
+    font-size: 35px;
     &:hover {
       background-color: darken($input-background, 3%);
       svg {

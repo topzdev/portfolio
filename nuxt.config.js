@@ -29,7 +29,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["~/assets/css/materialize-grid.css", "~/assets/scss/main.scss"],
+  css: [
+    "~/assets/css/materialize-grid.css",
+    "~/assets/scss/main.scss",
+    "~/assets/icon/icon-font/css/fontello.css"
+  ],
   /*
    ** Plugins to load before mounting the App
    */

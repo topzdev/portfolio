@@ -9,7 +9,7 @@
     <div class="proposal-form__file mt-2 mb-3">
       <div>or maybe share your idea thru file (docx, image or else...)</div>
 
-      <btn-icon name="clip" :icon="icon.clip"></btn-icon>
+      <btn-icon name="clip" icon="icon_attach"></btn-icon>
     </div>
 
     <btn-primary block dense label="Send it!"></btn-primary>
