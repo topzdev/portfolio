@@ -1,5 +1,5 @@
 <template>
-  <button v-bind="$attrs" type="button" class="btn btn--icon">
+  <button v-bind="$attrs" :type="type" class="btn btn--icon">
     <base-icon :icon="icon"></base-icon>
   </button>
 </template>
@@ -12,6 +12,9 @@ export default {
     icon: {
       type: String,
       required: true
+    },
+    type: {
+      type: String
     }
   }
 };
