@@ -8,6 +8,7 @@
         :testimony="item.testimony"
         :name="item.name"
         :position="item.position"
+        :index="idx"
       ></testimony-card>
     </div>
 

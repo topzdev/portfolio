@@ -50,7 +50,8 @@
       left: $padding-left;
       font-size: 18px;
       transform: translateY(-50%);
-      z-index: 0;
+      z-index: 2;
+      pointer-events: none;
       @include transition;
     }
 

@@ -4,9 +4,8 @@
     name="contact"
     method="POST"
     data-netlify="true"
-    data-netlify-honeypot="bot-field"
+    data-netlify-recaptcha="true"
   >
-    <input type="hidden" name="form-name" value="ask-question" />
     <inp-primary
       v-model="mail.name"
       class="mb-3"
@@ -35,7 +34,7 @@
       required
     />
 
-    <div class="proposal-form__file mt-2 mb-3">
+    <div class="proposal-form__file mt-2 mb-3" id="file-inp">
       <div>or maybe share your idea thru file (docx, image or else...)</div>
       <input
         ref="fileInput"
@@ -54,8 +53,32 @@
 <script>
 import Icon from "@/utils/icons";
 import { PROPOSAL_SNACK } from "@/store/types";
+import gsap from "gsap";
 
 export default {
+  mounted() {
+    const timeline = gsap.timeline(),
+      root = "#hireme";
+
+    const controller = new ScrollMagic.Controller();
+
+    timeline.to(".inp--primary", {
+      y: "-30",
+      stagger: 0.8,
+      autoAlpha: 1,
+      duration: 2,
+      ease: "Elastic.easeOut"
+    });
+
+    const scene = new ScrollMagic.Scene({
+      triggerElement: root,
+      triggerHook: 1,
+      offset: 200
+    })
+      .setTween(timeline)
+      .addIndicators()
+      .addTo(controller);
+  },
   methods: {
     openFileDrawer(e) {
       console.log("Hello", e);
@@ -82,3 +105,10 @@ export default {
   }
 };
 </script>
+
+<style>
+#hireme .inp--primary {
+  opacity: 0;
+  top: 20px;
+}
+</style>
