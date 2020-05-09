@@ -1,5 +1,12 @@
 <template>
-  <form class="proposal-form" netlify>
+  <form
+    class="proposal-form"
+    name="contact"
+    method="POST"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
+  >
+    <input type="hidden" name="form-name" value="ask-question" />
     <inp-primary
       v-model="mail.name"
       class="mb-3"
