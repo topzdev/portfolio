@@ -72,40 +72,49 @@ export default {
     const timeline2 = gsap.timeline();
 
     timeline2
-      .to("#name-anim", {
+      .to(".header__intro", {
+        height: "60vh",
         duration: 5,
-        autoAlpha: 0,
-        y: "-100%",
         ease: "Power3.easeOut"
       })
       .to(
+        "#name-anim",
+        {
+          duration: 5,
+          autoAlpha: 0,
+          y: "-100%",
+          ease: "Power3.easeOut"
+        },
+        "-=5"
+      )
+      .to(
         "#title-anim",
         { duration: 10, autoAlpha: 0, y: "-100%", ease: "Power1.easeOut" },
-        "-=.3"
+        "-=5"
       )
       .to(
         "#btn-anim",
         {
-          duration: 8,
+          duration: 15,
           autoAlpha: 0,
-          top: "-200",
-          ease: "Power1.easeOut"
+          top: "-300",
+          ease: "Power3.easeOut"
         },
-        "-=9"
+        "-=10"
       )
       .to(
         ".header__image",
         {
-          duration: 20,
-          autoAlpha: 0,
-          ease: "Power3.easeOut"
+          duration: 10,
+          autoAlpha: 0.4,
+          x: "15%"
         },
-        "-=3"
+        "-=8"
       );
 
     const scene = new ScrollMagic.Scene({
-      triggerElement: ".header",
-      triggerHook: "onLeave",
+      triggerElement: "#intro",
+      triggerHook: "onEnter",
       duration: "100%"
     })
       .setTween(timeline2)

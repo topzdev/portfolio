@@ -6,7 +6,7 @@
           <heading-primary overline="Projects" title="Creative Works for the last 2 years"></heading-primary>
           <div
             class="paragraph--primary mt-2"
-          >For that years i spent in web development i made a lot of masterpiece and greatness</div>
+          >Believes in perfection by design and performance by default</div>
 
           <btn-secondary
             class="mt-4 mb-3"

@@ -1,35 +1,36 @@
 <template>
   <form
-    class="proposal-form"
     name="contact"
+    class="proposal-form"
     method="POST"
     data-netlify="true"
     data-netlify-recaptcha="true"
+    enctype="multipart/form-data"
   >
     <inp-primary
+      name="name"
       v-model="mail.name"
       class="mb-3"
       id="name-inp"
-      name="name"
       label="What’s your name?"
       required
     />
 
     <inp-primary
+      name="email"
       v-model="mail.email"
       class="mb-3"
       id="email-inp"
       type="email"
       label="Then your email address here"
-      name="email"
       required
     />
 
     <inp-primary
+      name="message"
       v-model="mail.text"
       id="content-inp"
       label="Finally tell me your great idea"
-      name="message"
       textarea
       required
     />
@@ -37,12 +38,15 @@
     <div class="proposal-form__file mt-2 mb-3" id="file-inp">
       <div>or maybe share your idea thru file (docx, image or else...)</div>
       <input
+        name="file"
         ref="fileInput"
         type="file"
         hidden
         accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*"
         @change="onFileChange"
       />
+      <div data-netlify-recaptcha="true"></div>
+
       <btn-icon type="button" icon="icon_attach" @click.native="openFileDrawer" />
     </div>
 
