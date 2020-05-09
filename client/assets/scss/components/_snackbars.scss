@@ -1,0 +1,30 @@
+.snackbars {
+  position: fixed;
+  z-index: 100;
+  box-shadow: $box-shadow-snackbars;
+  @include transition;
+  &--proposal {
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: $color-primary-light;
+    color: $color-primary-text;
+    opacity: 1;
+  }
+
+  &__exit {
+    background: rgba($color-primary-text, 0.3);
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: $color-primary-text;
+    font-family: $font-heading;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+  &-closed {
+    opacity: 0 !important;
+  }
+}
+
+@include element-position(15px);

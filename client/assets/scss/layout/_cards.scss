@@ -1,0 +1,152 @@
+.card {
+  &--stack {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 112px;
+    height: 158px;
+    box-shadow: $box-shadow-stack;
+    background-color: $base-color-2;
+    border-radius: 8px;
+    user-select: none;
+    @include transition;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    &-blank {
+      filter: blur(4px);
+    }
+
+    &__icon,
+    &__icon-blank {
+      display: block;
+      height: 68px;
+      margin-bottom: 15px;
+    }
+
+    &__icon-blank {
+      width: 68px;
+      border-radius: 100%;
+      background-color: $base-color-1;
+    }
+
+    &__title {
+      font-weight: 600;
+      font-size: 14px;
+      color: rgba($color-secondary, 0.5);
+    }
+
+    &__title-blank {
+      height: 14px;
+      width: 60px;
+      border-radius: 10px;
+      background-color: $base-color-1;
+    }
+  }
+
+  &--project {
+    position: relative;
+    display: flex;
+    height: 580px;
+    width: 485px;
+    background-color: $base-color-1;
+    box-shadow: 0 4px 50px rgba(#000, 0.18);
+    overflow: hidden;
+    border-radius: 10px;
+    z-index: 1;
+
+    &:not(:last-child) {
+      margin-bottom: 80px;
+    }
+
+    &__head {
+      padding: 30px 25px;
+    }
+
+    &__logo {
+      height: 50px;
+    }
+
+    &__img {
+      position: absolute;
+      bottom: -14%;
+      right: -7%;
+      width: 112%;
+      transform: rotate(-13deg);
+    }
+
+    &__images {
+      display: flex;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      right: 0;
+      transform: rotate(-10deg) scale(1.1);
+
+      img {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+        user-select: none;
+      }
+    }
+
+    &__images-column {
+      padding: 0 10px;
+    }
+  }
+
+  &--testimony {
+    display: flex;
+    &__image {
+      height: 300px;
+      width: 300px;
+      min-width: 300px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: $box-shadow-image;
+      position: relative;
+      top: -40px;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &__main {
+      margin-left: 65px;
+    }
+
+    &__stated {
+      font-size: 34px;
+      line-height: 1.35;
+      font-weight: 200;
+      font-style: italic;
+      font-family: $font-regular;
+      opacity: 0.8;
+    }
+
+    &__told {
+      font-family: $font-heading;
+      margin-top: 40px;
+      text-transform: uppercase;
+    }
+
+    &__told-name {
+      font-weight: 700;
+      font-size: 34px;
+    }
+
+    &__told-position {
+      color: $color-secondary-lighter;
+      font-size: 21px;
+      letter-spacing: 1px;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+  }
+}

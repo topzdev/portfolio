@@ -1,0 +1,61 @@
+.pulse {
+  box-shadow: 0 0 0 rgba($color-primary, 0);
+  animation: pulse 2s infinite;
+
+  &:focus {
+    animation: none;
+    box-shadow: none;
+  }
+}
+
+.rotate {
+  animation: rotate 10s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba($color-primary, 0.4);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 20px rgba($color-primary, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes updownblob {
+  0% {
+    top: -40%;
+    transform: scale(1);
+  }
+
+  20% {
+    top: -42%;
+    transform: scale(1.05);
+    right: -73%;
+  }
+
+  75% {
+    top: -30%;
+  }
+
+  100% {
+    top: -40%;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,79 @@
+@mixin transition() {
+  transition: all ease 300ms;
+}
+
+@mixin box-shadow() {
+  box-shadow: 0 10px 20px rgba(#000, 0.05);
+}
+
+@mixin ui-icon-float(
+  $image,
+  $height,
+  $width,
+  $top: -1,
+  $left: -1,
+  $bottom: -1,
+  $right: -1
+) {
+  position: absolute;
+  content: "";
+  background-image: url($image);
+  background-size: $height $width;
+  display: block;
+  height: $height;
+  width: $width;
+  z-index: 0;
+
+  @if $left != -1 {
+    left: $left;
+  }
+  @if $top != -1 {
+    top: $top;
+  }
+
+  @if $bottom != -1 {
+    bottom: $bottom;
+  }
+
+  @if $right != -1 {
+    right: $right;
+  }
+}
+
+@mixin color-generate($color, $value) {
+  .#{$color} {
+    background: $value !important;
+    &--text {
+      color: $value !important;
+    }
+
+    .lighten {
+      background: lighten($value, 25%) !important;
+    }
+
+    &--text .lighten {
+      color: lighten($value, 25%) !important;
+    }
+  }
+}
+
+/* Code Sample */
+@mixin element-position($gaps) {
+  $y-position: "top", "bottom";
+  $x-position: "left", "center", "right";
+
+  @each $ypost in $y-position {
+    @each $xpost in $x-position {
+      .#{$ypost}-#{$xpost} {
+        #{$ypost}: $gaps;
+
+        @if $xpost == "center" {
+          left: 50%;
+          transform: translateX(-50%);
+        } @else {
+          #{$xpost}: $gaps;
+        }
+      }
+    }
+  }
+}
