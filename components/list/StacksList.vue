@@ -124,8 +124,7 @@ export default {
     let scene = new ScrollMagic.Scene({
       triggerElement: "#stacks",
       triggerHook: 1,
-      offset: 300,
-      reverse: false
+      offset: 300
     })
       .setTween(timeline)
       .addIndicators()

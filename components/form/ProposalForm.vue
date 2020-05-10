@@ -1,5 +1,5 @@
 <template>
-  <form name="contact" class="proposal-form" action="POST" data-netlify="true">
+  <form name="contact" class="proposal-form" method="POST" netlify>
     <inp-primary
       name="name"
       v-model="mail.name"
@@ -31,17 +31,15 @@
     <div class="proposal-form__file mt-2 mb-3" id="file-inp">
       <div>or maybe share your idea thru file (docx, image or else...)</div>
       <input
+        type="file"
         name="file"
         ref="fileInput"
-        type="file"
         hidden
         accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*"
         @change="onFileChange"
       />
 
       <btn-icon type="button" icon="icon_attach" @click.native="openFileDrawer" />
-
-      <div style="margin-left: auto;" data-netlify-recaptcha="true"></div>
     </div>
 
     <btn-primary block dense type="submit" label="Send it!"></btn-primary>

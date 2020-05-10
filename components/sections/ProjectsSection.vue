@@ -89,8 +89,7 @@ export default {
       triggerElement: "#projects",
       triggerHook: 0,
       duration: "450%",
-      offset: -500,
-      reverse: false
+      offset: -500
     })
       .setTween(timeline)
       .addIndicators()
