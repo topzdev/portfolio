@@ -54,7 +54,8 @@ export default {
       triggerElement: "#intro",
       triggerHook: "onEnter",
       duration: "100%",
-      offset: 100
+      offset: 100,
+      reverse: false
     })
       .setTween(timeline)
       .addIndicators()

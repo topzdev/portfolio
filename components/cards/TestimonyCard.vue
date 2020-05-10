@@ -34,7 +34,8 @@ export default {
     const scene = new ScrollMagic.Scene({
       triggerElement: root,
       triggerHook: 1,
-      offset: 200
+      offset: 200,
+      reverse: false
     })
       .setTween(timeline)
       .addIndicators()

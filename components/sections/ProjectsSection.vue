@@ -27,7 +27,75 @@ import gsap from "gsap";
 
 export default {
   components: { ProjectList },
-  mounted() {}
+  mounted() {
+    const timeline = gsap.timeline({
+      defaults: {
+        ease: "Power4.easeOut",
+        y: "25%",
+        autoAlpha: 0
+      }
+    });
+    const controller = new ScrollMagic.Controller();
+    const project1 = "#project-1",
+      project2 = "#project-2",
+      project3 = "#project-3",
+      project4 = "#project-4",
+      project5 = "#project-5";
+
+    timeline
+      .from(project3, {
+        duration: 40,
+        x: "25%",
+        rotate: "-20deg"
+      })
+      .from(
+        project1,
+        {
+          duration: 40,
+          x: "-30%",
+          rotate: "20deg"
+        },
+        "-=20"
+      )
+      .from(
+        project4,
+        {
+          duration: 50,
+          x: "30%",
+          rotate: "-20deg"
+        },
+        "-=20"
+      )
+      .from(
+        project2,
+        {
+          duration: 120,
+          x: "-30%",
+          rotate: "20deg"
+        },
+        "-=50"
+      )
+      .from(
+        project5,
+        {
+          duration: 160,
+          x: "30%",
+          rotate: "-20deg"
+        },
+        "-=120"
+      );
+
+    const scene = new ScrollMagic.Scene({
+      triggerElement: "#projects",
+      triggerHook: 0,
+      duration: "450%",
+      offset: -500,
+      reverse: false
+    })
+      .setTween(timeline)
+      .addIndicators()
+      .addTo(controller);
+  }
 };
 </script>
 

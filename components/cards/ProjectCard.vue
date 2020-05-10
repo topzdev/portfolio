@@ -1,22 +1,11 @@
 <template>
   <div class="card card--project">
-    <div class="card--project__head">
+    <a :href="link" target="_blank" class="card--project__head">
       <img :src="logo" :alt="altLogo" class="card--project__logo" :draggable="false" />
-    </div>
+    </a>
 
     <div class="card--project__images">
-      <div class="card--project__images-column" :draggable="false">
-        <img v-for="(item, idx) in smolImages.slice(0,3)" :key="idx" :src="item" alt />
-      </div>
-      <div class="card--project__images-column">
-        <img
-          v-for="(item, idx) in smolImages.slice(3,6)"
-          :key="idx"
-          :src="item"
-          alt
-          :draggable="false"
-        />
-      </div>
+      <img :src="image" :alt="altImage" />
     </div>
   </div>
 </template>
@@ -37,7 +26,7 @@ export default {
       return this.title + " logo";
     },
     altImage() {
-      return this.title + " image";
+      return this.title + " project images";
     }
   },
   props: {
@@ -49,8 +38,15 @@ export default {
       type: String
     },
     imagePrefix: {
+      type: String
+    },
+    image: {
       type: String,
       required: true
+    },
+    link: {
+      type: String,
+      default: "/"
     }
   }
 };

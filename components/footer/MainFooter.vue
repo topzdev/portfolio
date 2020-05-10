@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer footer--main blue">
+  <footer id="footer" class="footer footer--main blue">
     <div class="container">
       <div class="footer--main__intro">
         <h1 class="heading heading--footer">

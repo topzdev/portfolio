@@ -1,12 +1,5 @@
 <template>
-  <form
-    name="contact"
-    class="proposal-form"
-    method="POST"
-    data-netlify="true"
-    data-netlify-recaptcha="true"
-    enctype="multipart/form-data"
-  >
+  <form name="contact" class="proposal-form" action="POST" data-netlify="true">
     <inp-primary
       name="name"
       v-model="mail.name"
@@ -45,9 +38,10 @@
         accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*"
         @change="onFileChange"
       />
-      <div data-netlify-recaptcha="true"></div>
 
       <btn-icon type="button" icon="icon_attach" @click.native="openFileDrawer" />
+
+      <div style="margin-left: auto;" data-netlify-recaptcha="true"></div>
     </div>
 
     <btn-primary block dense type="submit" label="Send it!"></btn-primary>
@@ -77,7 +71,8 @@ export default {
     const scene = new ScrollMagic.Scene({
       triggerElement: root,
       triggerHook: 1,
-      offset: 200
+      offset: 200,
+      reverse: false
     })
       .setTween(timeline)
       .addIndicators()

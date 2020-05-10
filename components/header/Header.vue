@@ -109,7 +109,7 @@ export default {
           autoAlpha: 0.4,
           x: "15%"
         },
-        "-=8"
+        "-=15"
       );
 
     const scene = new ScrollMagic.Scene({

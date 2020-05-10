@@ -6,6 +6,7 @@
     color: $footer-text-color;
     overflow-x: hidden;
     overflow-y: visible;
+    z-index: 0;
     &::after {
       @include ui-icon-float(
         "~@/assets/img/ui_ellipse_red_gradient.svg",
