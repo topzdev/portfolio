@@ -4,21 +4,22 @@
       <div class="header__intro">
         <h1 class="heading--intro">
           <div id="name-anim" class="name">
-            Hello, I'm
-            <span>Christopher Lugod</span>
+            Hello,
+            <span id="im-anim"></span>
+            <span id="me-anim">World!</span>
           </div>
           <div id="title-anim" class="title">
+            <div class="title-job title-job-3">
+              <span>UI/UX</span>
+              <span>Designer</span>
+            </div>
             <div class="title-job title-job-1">
               <span>Backend Web</span>
               <span>Developer</span>
             </div>
             <div class="title-job title-job-2">
-              <span>Frontend</span>
+              <span>Frontend Web</span>
               <span>Developer</span>
-            </div>
-            <div class="title-job title-job-3">
-              <span>UI/UX</span>
-              <span>Designer</span>
             </div>
             <div class="title-job title-job-4">
               <span>Fullstack Web</span>
@@ -36,7 +37,7 @@
 
 <script>
 import gsap from "gsap";
-import { CSSRulePlugin } from "gsap/CSSRulePlugin";
+import TextPlugin from "gsap/TextPlugin";
 
 export default {
   data() {
@@ -50,17 +51,40 @@ export default {
   mounted() {
     if (this.$route.hash) this.$scrollTo(this.$route.hash, 2000);
 
-    gsap.registerPlugin(CSSRulePlugin);
+    gsap.registerPlugin(TextPlugin);
     const controller = new ScrollMagic.Controller();
-    const rule = CSSRulePlugin.getRule(".title-job::after");
 
     const timeline = gsap.timeline();
+    const textTimeline = gsap.timeline({ yoyo: true });
+
+    textTimeline
+      .to(
+        "#im-anim",
+        {
+          duration: 0,
+          text: {
+            value: "I'm"
+          }
+        },
+        "+=2"
+      )
+      .to("#me-anim", {
+        duration: 2,
+        ease: "Power4.easeOut",
+        text: {
+          value: "TopzDev"
+        }
+      })
+      .to("#me-anim", {
+        duration: 2,
+        ease: "Power4.easeOut",
+        text: {
+          value: "Christopher Lugod"
+        }
+      });
+
     timeline
       .set(".title-job-1", { autoAlpha: 1, display: "block" })
-      .to(rule, {
-        duration: 1,
-        cssRule: { scaleY: 0 }
-      })
       .from(".title-job-1", { display: "none", autoAlpha: 0, duration: 0.01 })
       .to(".title-job-2", { autoAlpha: 1, display: "block", duration: 2 })
 
@@ -69,47 +93,23 @@ export default {
       .from(".title-job-3", { display: "none", autoAlpha: 0, duration: 0.01 })
       .to(".title-job-4", { autoAlpha: 1, display: "block", duration: 2 });
 
-    const timeline2 = gsap.timeline();
+    const timeline2 = gsap.timeline({ defaults: { ease: "Power4.easeOut" } });
 
     timeline2
-      .to(".header__intro", {
-        height: "60vh",
+      .to("#name-anim", {
         duration: 5,
-        ease: "Power3.easeOut"
+        autoAlpha: 0.5,
+        y: "-40%"
       })
-      .to(
-        "#name-anim",
-        {
-          duration: 5,
-          autoAlpha: 0,
-          y: "-100%",
-          ease: "Power3.easeOut"
-        },
-        "-=5"
-      )
-      .to(
-        "#title-anim",
-        { duration: 10, autoAlpha: 0, y: "-100%", ease: "Power1.easeOut" },
-        "-=5"
-      )
+      .to("#title-anim", { duration: 10, y: "-40%", autoAlpha: 0.5 }, "-=5")
       .to(
         "#btn-anim",
         {
           duration: 15,
-          autoAlpha: 0,
-          top: "-300",
-          ease: "Power3.easeOut"
+          top: -100,
+          autoAlpha: 0.5
         },
         "-=10"
-      )
-      .to(
-        ".header__image",
-        {
-          duration: 10,
-          autoAlpha: 0.4,
-          x: "15%"
-        },
-        "-=15"
       );
 
     const scene = new ScrollMagic.Scene({

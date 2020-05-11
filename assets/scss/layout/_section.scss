@@ -6,18 +6,47 @@
   &--intro {
     padding-bottom: 80px;
     background-color: $base-color-2;
+
+    @include respond(laptop) {
+      padding-bottom: 60px;
+    }
+
+    .paragraph--primary {
+      width: 80%;
+
+      @include respond(laptop) {
+        width: 100%;
+      }
+    }
   }
 
   &--stacks {
     background-color: $base-color-1;
-    border-top-left-radius: 130px;
-    border-top-right-radius: 130px;
+    @include rounded-container("top");
     height: 660px;
     overflow: hidden;
+    padding: 80px 0;
 
     & .heading--primary {
       position: relative;
       z-index: 1;
+    }
+
+    @include respond(laptop) {
+      height: 870px;
+    }
+
+    @include respond(tab-land) {
+      height: 950px;
+    }
+
+    @include respond(tab-port) {
+      height: 1150px;
+      padding: 80px 0;
+    }
+
+    @include respond(mobile-lg) {
+      height: 1050px;
     }
   }
 
@@ -56,6 +85,15 @@
     padding: 160px 0;
     clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
     margin-top: $testimony-offset;
+
+    @include respond(tab-land) {
+      padding: 120px 0;
+    }
+
+    @include respond(laptop-s) {
+      padding: 140px 0;
+    }
+
     .container {
       position: relative;
       &::before {
@@ -76,6 +114,10 @@
     z-index: 2;
     padding: 80px 0;
 
+    @include respond(mobile-lg) {
+      padding: 60px 0;
+    }
+
     .container {
       position: relative;
       &::before {
@@ -87,6 +129,18 @@
           -40%,
           -70%
         );
+
+        @include respond(tab-land) {
+          background-size: 600px;
+          height: 600px;
+          width: 600px;
+          top: 30% !important;
+          left: 40%;
+        }
+
+        @include respond(tab-land) {
+          display: none;
+        }
       }
 
       &::after {
@@ -97,11 +151,29 @@
           45%,
           12%
         );
+
+        @include respond(tab-land) {
+          top: 20% !important;
+          left: 70%;
+        }
+
+        @include respond(mobile-lg) {
+          display: none;
+        }
       }
     }
     &__intro {
       position: relative;
+      z-index: 3;
       width: 85%;
+
+      @include respond(tab-land) {
+        width: 60%;
+      }
+
+      @include respond(mobile-lg) {
+        width: 85%;
+      }
       &::before {
         @include ui-icon-float(
           "~@/assets/img/ui_dots_grey.svg",
@@ -112,12 +184,37 @@
         );
         opacity: 0.8;
         transform: rotate(50deg);
+
+        @include respond(tab-land) {
+          background-size: 180px;
+          height: 180px;
+          width: 180px;
+        }
       }
     }
 
     &__form {
+      position: relative;
+      z-index: 3;
       width: 95%;
       margin-left: auto;
+
+      @include respond(tab-land) {
+        width: 70%;
+        margin-top: 30px;
+        margin-left: 0;
+        .heading--secondary {
+          display: none;
+        }
+      }
+
+      @include respond(tab-port) {
+        width: 90%;
+      }
+
+      @include respond(mobile-lg) {
+        width: 100%;
+      }
     }
   }
 }

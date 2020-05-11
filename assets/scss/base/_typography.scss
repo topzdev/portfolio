@@ -7,8 +7,25 @@
     .name {
       font-size: 40px;
       margin-bottom: 30px;
-      span {
+
+      @include respond(laptop) {
+        font-size: 35px;
+      }
+
+      @include respond(tab-port) {
+        font-size: 30px;
+      }
+
+      @include respond(mobile-lg) {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      #me-anim {
         color: $color-primary-light;
+        @include respond(mobile-lg) {
+          display: block;
+        }
       }
     }
     .title {
@@ -17,6 +34,32 @@
       margin-bottom: 40px;
       position: relative;
       height: 230px;
+
+      @include respond(laptop) {
+        font-size: 100px;
+        height: 180px;
+      }
+      @include respond(tab-land) {
+        font-size: 85px;
+        height: 160px;
+      }
+
+      @include respond(tab-port) {
+        font-size: 70px;
+        height: 150px;
+      }
+      @include respond(mobile-lg) {
+        font-size: 66px;
+        height: auto;
+      }
+
+      @include respond(mobile-m) {
+        font-size: 62px;
+      }
+
+      @include respond(mobile-s) {
+        font-size: 50px;
+      }
     }
 
     .title-job {
@@ -35,6 +78,18 @@
     &__title {
       font-family: $font-heading;
       font-size: 42px;
+
+      @include respond(laptop) {
+        font-size: 35px;
+      }
+
+      @include respond(tab-land) {
+        font-size: 30px;
+      }
+
+      @include respond(mobile-lg) {
+        font-size: 25px;
+      }
     }
     &__overline {
       display: flex;
@@ -47,6 +102,16 @@
       font-family: $font-regular;
       letter-spacing: 1px;
       position: relative;
+
+      @include respond(laptop) {
+        font-size: 15px;
+        margin-bottom: 11px;
+      }
+
+      @include respond(tab-land) {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
 
       &::before {
         content: "";
@@ -81,13 +146,29 @@
   &--secondary {
     font-family: $font-heading;
     font-weight: 600;
-    font-weight: 40px;
+    font-size: 28px;
+
+    @include respond(laptop-s) {
+      font-size: 25px;
+    }
   }
 
   &--footer {
     font-family: $font-heading;
     font-size: 34px;
     line-height: 1.6;
+
+    @include respond(laptop) {
+      font-size: 32px;
+    }
+
+    @include respond(laptop-s) {
+      font-size: 30px;
+    }
+
+    @include respond(mobile-lg) {
+      font-size: 25px;
+    }
   }
 }
 
@@ -100,6 +181,16 @@
     font-size: 19px;
     color: $color-secondary-light;
     line-height: 1.6;
+    & div {
+      display: inline;
+    }
+    @include respond(laptop) {
+      font-size: 18px;
+    }
+
+    @include respond(tab-land) {
+      font-size: 17px;
+    }
   }
 }
 

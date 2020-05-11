@@ -6,8 +6,11 @@
     <div class="card--testimony__main">
       <div class="card--testimony__stated" v-text="quoted" />
       <div class="card--testimony__told">
-        <div class="card--testimony__told-name" v-text="name" />
-        <div class="card--testimony__told-position" v-text="position" />
+        <img :src="image" :alt="alt" :draggable="false" />
+        <div>
+          <div class="card--testimony__told-name" v-text="name" />
+          <div class="card--testimony__told-position" v-text="position" />
+        </div>
       </div>
     </div>
   </div>
@@ -17,25 +20,25 @@
 import gsap from "gsap";
 export default {
   mounted() {
-    const timeline = gsap.timeline(),
+    const timeline = gsap.timeline({
+        defaults: { autoAlpha: 0, ease: "Power4.easeOut" }
+      }),
       image = ".card--testimony__image",
       stated = ".card--testimony__stated",
       told = ".card--testimony__told",
-      root = "#testi-card-" + this.index,
-      ease = "Power4.easeOut";
+      root = "#testi-card-" + this.index;
 
     const controller = new ScrollMagic.Controller();
 
     timeline
-      .to(image, { x: "-100", autoAlpha: 1, duration: 1.5, ease })
-      .to(stated, { x: "100", autoAlpha: 1, duration: 1, ease }, "-=1")
-      .to(told, { y: "-50", autoAlpha: 1, duration: 1, ease }, "-=.4");
+      .from(image, { x: "-100%", duration: 1.5 })
+      .from(stated, { x: "100", duration: 1 }, "-=1")
+      .from(told, { y: "-50", duration: 1 }, "-=.4");
 
     const scene = new ScrollMagic.Scene({
       triggerElement: root,
-      triggerHook: 1,
-      offset: 200,
-      reverse: false
+      triggerHook: "onEnter",
+      offset: 200
     })
       .setTween(timeline)
       .addIndicators()

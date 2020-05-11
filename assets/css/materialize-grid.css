@@ -8,9 +8,15 @@
     width: 85%;
   }
 }
-@media only screen and (min-width: 993px) {
+@media only screen and (min-width: 900px) {
   .container {
     width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1264px) {
+  .container {
+    width: 85%;
   }
 }
 .col .row {
@@ -413,7 +419,9 @@
     left: 100%;
   }
 }
-@media only screen and (min-width: 993px) {
+
+
+@media only screen and (min-width: 900px) {
   .row .col.l1 {
     width: 8.3333333333%;
     margin-left: auto;

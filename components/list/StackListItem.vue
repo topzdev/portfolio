@@ -1,5 +1,5 @@
 <template>
-  <div class="stack-list__row" :class="{'offset-up': offset}">
+  <div class="list--stack__row" :class="{'offset-up': offset}">
     <stack-card
       v-for="(item, idx) in list"
       :key="idx"

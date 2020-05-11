@@ -13,8 +13,19 @@
     user-select: none;
     @include transition;
 
-    &:hover {
-      transform: scale(1.02);
+    @include respond(tab-port) {
+      width: 105px;
+      height: 148px;
+    }
+
+    @include respond(mobile-lg) {
+      width: 100px;
+      height: 138px;
+    }
+
+    @include respond(mobile-s) {
+      width: 80px;
+      height: 120px;
     }
 
     &-blank {
@@ -26,6 +37,19 @@
       display: block;
       height: 68px;
       margin-bottom: 15px;
+
+      @include respond(tab-port) {
+        height: 60px;
+      }
+
+      @include respond(mobile-lg) {
+        height: 55px;
+        margin-bottom: 12px;
+      }
+
+      @include respond(mobile-s) {
+        width: 50px;
+      }
     }
 
     &__icon-blank {
@@ -37,6 +61,11 @@
     &__title {
       font-weight: 600;
       font-size: 14px;
+
+      @include respond(mobile-lg) {
+        font-size: 10px;
+      }
+
       color: rgba($color-secondary, 0.5);
     }
 
@@ -59,8 +88,37 @@
     border-radius: 10px;
     z-index: 1;
 
+    @include respond(laptop) {
+      height: 540px;
+      width: 400px;
+    }
+
+    @include respond(laptop-s) {
+      height: 500px;
+      width: 370px;
+    }
+
+    @include respond(tab-land) {
+      height: 420px;
+      width: 310px;
+    }
+
+    @include respond(mobile-m) {
+      height: 410px;
+      width: 300px;
+    }
+
+    @include respond(mobile-s) {
+      height: 390px;
+      width: 270px;
+    }
+
     &:not(:last-child) {
       margin-bottom: 80px;
+
+      @include respond(mobile-lg) {
+        margin-bottom: 30px;
+      }
     }
 
     &__head {
@@ -69,6 +127,14 @@
 
     &__logo {
       height: 50px;
+
+      @include respond(laptop) {
+        height: 44px;
+      }
+
+      @include respond(tab-land) {
+        height: 39px;
+      }
     }
 
     &__img {
@@ -103,25 +169,67 @@
   &--testimony {
     display: flex;
     &__image {
-      height: 300px;
-      width: 300px;
-      min-width: 300px;
+      $box-size: 300px;
+
       overflow: hidden;
       border-radius: 8px;
       box-shadow: $box-shadow-image;
       position: relative;
       top: -40px;
-      left: 100px;
-      opacity: 0;
+      left: 0;
       z-index: 1;
       img {
         height: 100%;
         width: 100%;
       }
+
+      @include respond(laptop) {
+        $box-size: 270px;
+        height: $box-size;
+        width: $box-size;
+        min-width: $box-size;
+      }
+
+      @include respond(laptop-s) {
+        $box-size: 250px;
+        height: $box-size;
+        width: $box-size;
+        min-width: $box-size;
+      }
+
+      @include respond(tab-land) {
+        $box-size: 200px;
+        height: $box-size;
+        width: $box-size;
+        min-width: $box-size;
+        top: 0;
+      }
+
+      @include respond(tab-port) {
+        $box-size: 180px;
+        height: $box-size;
+        width: $box-size;
+        min-width: $box-size;
+      }
+
+      @include respond(mobile-lg) {
+        display: none;
+      }
     }
 
     &__main {
-      margin-left: 65px;
+      margin-left: 50px;
+
+      @include respond(laptop-s) {
+        margin-left: 40px;
+      }
+      @include respond(tab-land) {
+        margin-left: 35px;
+      }
+
+      @include respond(mobile-lg) {
+        margin-left: 0;
+      }
     }
 
     &__stated {
@@ -129,24 +237,85 @@
       font-size: 34px;
       line-height: 1.35;
       font-weight: 200;
-      left: -100px;
+      left: 0;
       font-style: italic;
       font-family: $font-regular;
-      opacity: 0;
+
+      @include respond(laptop) {
+        font-size: 30px;
+      }
+
+      @include respond(laptop-s) {
+        font-size: 26px;
+      }
+
+      @include respond(tab-land) {
+        font-size: 25px;
+      }
+
+      @include respond(tab-port) {
+        font-size: 22px;
+      }
+
+      @include respond(mobile-lg) {
+        text-align: center;
+        font-size: 24px;
+      }
     }
 
     &__told {
+      display: flex;
       position: relative;
       font-family: $font-heading;
       margin-top: 40px;
       text-transform: uppercase;
-      top: 50px;
-      opacity: 0;
+      align-items: center;
+      top: 0;
+
+      @include respond(tab-land) {
+        margin-top: 30px;
+      }
+      @include respond(tab-port) {
+        font-size: 25px;
+      }
+
+      @include respond(mobile-lg) {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        display: none;
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+        margin-bottom: 20px;
+        @include respond(mobile-lg) {
+          display: block;
+        }
+      }
     }
 
     &__told-name {
       font-weight: 700;
       font-size: 34px;
+
+      @include respond(laptop) {
+        font-size: 32px;
+      }
+      @include respond(laptop-s) {
+        font-size: 28px;
+      }
+
+      @include respond(tab-land) {
+        font-size: 25px;
+      }
+
+      @include respond(tab-port) {
+        font-size: 22px;
+      }
     }
 
     &__told-position {
@@ -155,6 +324,22 @@
       letter-spacing: 1px;
       margin-top: 4px;
       font-weight: 500;
+
+      @include respond(laptop) {
+        font-size: 19px;
+      }
+
+      @include respond(laptop-s) {
+        font-size: 18px;
+      }
+
+      @include respond(tab-land) {
+        font-size: 15px;
+      }
+
+      @include respond(tab-port) {
+        font-size: 13px;
+      }
     }
   }
 }

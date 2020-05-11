@@ -1,6 +1,6 @@
 <template>
-  <div class="testimony-list">
-    <div class="testimony-list__slider">
+  <div class="list--testimony">
+    <div class="list--testimony__slider">
       <testimony-card
         v-for="(item, idx) in testimonies"
         :key="idx"
@@ -40,8 +40,3 @@ export default {
 };
 </script>
 
-<style>
-.testimony-list {
-  margin-top: 90px;
-}
-</style>

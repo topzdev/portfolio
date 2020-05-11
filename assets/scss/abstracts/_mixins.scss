@@ -19,6 +19,7 @@
   content: "";
   background-image: url($image);
   background-size: $height $width;
+  background-repeat: no-repeat;
   display: block;
   height: $height;
   width: $width;
@@ -76,4 +77,82 @@
       }
     }
   }
+}
+
+@mixin respond($screen-size) {
+  // 0 - 320px
+  @if $screen-size == mobile-s {
+    @media (max-width: 20em) {
+      @content;
+    }
+  }
+  // 320px - 375px
+  @if $screen-size == mobile-m {
+    @media (max-width: 23.4375em) {
+      @content;
+    }
+  }
+  // 375px - 600px
+  @if $screen-size == mobile-lg {
+    @media (max-width: 37.5625em) {
+      @content;
+    }
+  }
+  // 600px - 768px
+  @if $screen-size == tab-port {
+    @media (max-width: 48em) {
+      @content;
+    }
+  }
+  // 768px - 900px
+  @if $screen-size == tab-land {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  // 900px - 1000px
+  @if $screen-size == laptop-s {
+    @media (max-width: 62.5em) {
+      @content;
+    }
+  }
+
+  // 1000px - 1264px
+  @if $screen-size == laptop {
+    @media (max-width: 79em) {
+      @content;
+    }
+  }
+  // 1264px - 1940px
+  @if $screen-size == desktop {
+    @media (max-width: 119em) {
+      @content;
+    }
+  }
+  // 1940px - upward
+  @if $screen-size == big-desktop {
+    @media (min-width: 119em) {
+      @content;
+    }
+  }
+}
+
+@mixin rounded-container($position) {
+  $radius: 130px;
+
+  @include respond(laptop) {
+    $radius: 100px;
+  }
+
+  @include respond(tab-land) {
+    $radius: 80px;
+  }
+
+  @include respond(mobile-lg) {
+    $radius: 50px;
+  }
+
+  border-#{$position}-left-radius: $radius;
+  border-#{$position}-right-radius: $radius;
 }

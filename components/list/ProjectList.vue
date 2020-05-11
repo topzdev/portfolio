@@ -1,7 +1,7 @@
 <template>
-  <div class="project-list">
+  <div class="list--project">
     <div class="row">
-      <div class="col s6 project-list__first">
+      <div class="col s12 m6 list--project__first">
         <project-card
           v-for="(item, idx) in projects.slice(0,2)"
           :title="item.title"
@@ -13,7 +13,7 @@
           :key="idx"
         ></project-card>
       </div>
-      <div class="col s6 project-list__last">
+      <div class="col s12 m6 list--project__last">
         <project-card
           v-for="(item, idx) in projects.slice(2,5)"
           :title="item.title"
@@ -23,6 +23,7 @@
           :image="item.image"
           :image-prefix="item.imagePrefix"
           :key="idx"
+          :isRight="true"
         ></project-card>
       </div>
     </div>
@@ -80,21 +81,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.project-list {
-  .col {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__last {
-    align-items: flex-end;
-    margin-top: -25%;
-  }
-
-  &__first {
-    align-items: flex-start;
-  }
-}
-</style>

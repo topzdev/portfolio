@@ -33,6 +33,7 @@
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     @include transition;
+
     &__input {
       padding: 18px 20px 10px $padding-left;
       position: relative;
@@ -41,6 +42,11 @@
       font-size: 20px;
       height: 100%;
       width: 100%;
+
+      @include respond(laptop-s) {
+        font-size: 18px;
+        padding: 15px 18px 8px $padding-left;
+      }
     }
 
     &__label {
@@ -53,6 +59,10 @@
       z-index: 2;
       pointer-events: none;
       @include transition;
+
+      @include respond(laptop-s) {
+        font-size: 16px;
+      }
     }
 
     &:focus-within &__label {

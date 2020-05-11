@@ -5,9 +5,7 @@
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  border-bottom-left-radius: 130px;
-  border-bottom-right-radius: 130px;
-
+  @include rounded-container("bottom");
   .container {
     display: flex;
     align-items: center;
@@ -16,6 +14,7 @@
 
   &__intro {
     position: relative;
+    width: 100%;
     &::before {
       @include ui-icon-float(
         "~@/assets/img/ui_dots_light_blue.svg",
@@ -37,5 +36,9 @@
     right: 0;
     bottom: 0;
     height: 100vh;
+    z-index: 2;
+    @include respond(laptop) {
+      display: none;
+    }
   }
 }

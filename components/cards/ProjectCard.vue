@@ -1,5 +1,5 @@
 <template>
-  <div class="card card--project">
+  <div class="card card--project" :id="id">
     <a :href="link" target="_blank" class="card--project__head">
       <img :src="logo" :alt="altLogo" class="card--project__logo" :draggable="false" />
     </a>
@@ -11,7 +11,34 @@
 </template>
 
 <script>
+import gsap from "gsap";
 export default {
+  mounted() {
+    const timeline = gsap.timeline({
+      defaults: {
+        ease: "Power4.easeOut",
+        y: "25%",
+        autoAlpha: 0
+      }
+    });
+    const controller = new ScrollMagic.Controller();
+    timeline.from("#" + this.id, {
+      duration: 5,
+      x: this.isRight ? "30%" : "-30%",
+      rotate: this.isRight ? "-20deg" : "20deg"
+    });
+    console.log(this.id, this.isRight ? "-30%" : "30%");
+    const scene = new ScrollMagic.Scene({
+      triggerElement: "#" + this.id,
+      triggerHook: 1,
+      duration: "200%",
+      offset: -80
+    })
+      .setTween(timeline)
+      .addIndicators()
+      .addTo(controller);
+  },
+
   computed: {
     smolImages() {
       let images = [];
@@ -47,7 +74,11 @@ export default {
     link: {
       type: String,
       default: "/"
-    }
+    },
+    id: {
+      type: String
+    },
+    isRight: Boolean
   }
 };
 </script>

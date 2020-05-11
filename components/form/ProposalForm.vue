@@ -58,7 +58,7 @@ export default {
 
     const controller = new ScrollMagic.Controller();
 
-    timeline.to(".inp--primary", {
+    timeline.to("#hireme .inp--primary", {
       y: "-30",
       stagger: 0.8,
       autoAlpha: 1,

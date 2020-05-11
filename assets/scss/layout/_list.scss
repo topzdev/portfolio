@@ -1,4 +1,69 @@
 .list {
+  &--testimony {
+    margin-top: 90px;
+
+    @include respond(laptop-s) {
+      margin-top: 80px;
+    }
+
+    @include respond(tab-land) {
+      margin-top: 60px;
+    }
+
+    @include respond(tab-port) {
+      margin-top: 50px;
+    }
+  }
+
+  &--stack {
+    position: relative;
+    display: flex;
+    width: 110%;
+    left: -5%;
+    justify-content: space-between;
+    margin-top: 40px;
+
+    @include respond(laptop) {
+      width: 100%;
+      left: 0;
+    }
+
+    &__row {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      & > *:not(:last-child) {
+        margin-bottom: 40px;
+
+        @include respond(tab-land) {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  &--project {
+    .col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__last {
+      align-items: flex-end;
+      margin-top: -25%;
+
+      @include respond(mobile-lg) {
+        margin-top: 30px;
+        align-items: flex-start;
+      }
+    }
+
+    &__first {
+      align-items: flex-start;
+    }
+  }
+
   &--footer {
     ul {
       display: flex;
@@ -14,6 +79,10 @@
         margin-bottom: 15px;
       }
       margin-right: 30px;
+
+      @include respond(laptop-s) {
+        margin-right: 25px;
+      }
     }
 
     &__link {
@@ -37,6 +106,18 @@
       color: $color-yellow;
       font-size: 22px;
       @include transition;
+
+      @include respond(laptop-s) {
+        font-size: 20px;
+        height: 48px;
+        width: 48px;
+      }
+
+      @include respond(mobile-lg) {
+        font-size: 18px;
+        height: 45px;
+        width: 45px;
+      }
     }
 
     &__label {
@@ -45,6 +126,10 @@
       font-weight: 300;
       letter-spacing: 1px;
       @include transition;
+
+      @include respond(laptop-s) {
+        font-size: 15px;
+      }
     }
 
     &__title {
@@ -55,6 +140,10 @@
       letter-spacing: 1px;
       color: $footer-title-color;
       font-family: $font-regular;
+
+      @include respond(mobile-lg) {
+        font-size: 16px;
+      }
     }
 
     li:hover &__label {
@@ -65,5 +154,20 @@
       background: rgba($color-yellow, 1);
       color: $footer-background;
     }
+  }
+}
+
+.stack-offset-anim {
+  top: -258px;
+
+  @include respond(tab-land) {
+    top: -308px;
+  }
+}
+.stack-anim {
+  top: 200px;
+
+  @include respond(tab-land) {
+    top: 220px;
   }
 }

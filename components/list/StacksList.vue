@@ -1,5 +1,5 @@
 <template>
-  <div class="stack-list">
+  <div class="list--stack">
     <stack-list-item
       v-for="(item, idx) in stacksFormat"
       :stacks="item.stacks"
@@ -20,9 +20,9 @@ export default {
     stacksFormat() {
       let formatted = [],
         i;
-      for (i = 0; i < this.list.length; i += 2) {
+      for (i = 0; i < this.list.length; i += this.listToShow) {
         formatted.push({
-          stacks: this.list.slice(i, i + 2)
+          stacks: this.list.slice(i, i + this.listToShow)
         });
       }
 
@@ -36,6 +36,7 @@ export default {
 
   data() {
     return {
+      listToShow: 2,
       list: [
         {
           title: "VueJS",
@@ -100,7 +101,31 @@ export default {
   methods: {
     setAnimClass: function(offset) {
       return offset ? "stack-offset-anim" : "stack-anim";
+    },
+    rowPerWidth: function(e) {
+      let width = 0;
+      if (!e.target) width = e.clientWidth;
+      else width = e.target.innerWidth;
+
+      if (width > 900 && width <= 1125) {
+        this.listToShow = 3;
+      } else if (width > 768 && width <= 900) {
+        this.listToShow = 4;
+      } else if (width > 600 && width <= 768) {
+        this.listToShow = 4;
+        this.marginRight = ((100 * width) / 90) * width;
+      } else if (width <= 600) {
+        this.listToShow = 5;
+      } else this.listToShow = 2;
     }
+  },
+
+  created() {
+    this.rowPerWidth(document.documentElement);
+    window.addEventListener("resize", this.rowPerWidth);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.rowPerWidth);
   },
 
   mounted() {
@@ -132,30 +157,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.stack-offset-anim {
-  top: -258px;
-}
-.stack-anim {
-  top: 200px;
-}
-.stack-list {
-  display: flex;
-  margin-top: 40px;
-
-  & > *:not(:last-child) {
-    margin-right: 50px;
-  }
-
-  &__row {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-
-    & > *:not(:last-child) {
-      margin-bottom: 40px;
-    }
-  }
-}
-</style>
