@@ -68,7 +68,7 @@ export default {
    ** Build configuration
    */
 
-  axios: { proxyHeaders: false },
+  axios: { proxyHeaders: false, baseURL: "https://topzdev.netlify.app/" },
   build: {
     /*
      ** You can extend webpack config here
