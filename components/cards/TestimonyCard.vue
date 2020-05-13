@@ -41,7 +41,7 @@ export default {
       offset: 200
     })
       .setTween(timeline)
-      .addIndicators()
+
       .addTo(controller);
   },
   computed: {

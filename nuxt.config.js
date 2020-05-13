@@ -5,7 +5,7 @@ export default {
    */
 
   head: {
-    title: "Christopher Lugod/Porfolio",
+    title: "Christopher Lugod",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -17,8 +17,9 @@ export default {
     ],
     link: [
       {
+        rel: "stylesheet",
         href:
-          "https://fonts.googleapis.com/css2?family=Open+Sans:wght@200,300;400;600&family=Poppins:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,800&display=swap"
+          "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Poppins:wght@300;400;500;700;900&display=swap"
       },
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
     ],
@@ -63,8 +64,6 @@ export default {
    ** Nuxt.js modules
    */
   modules: ["vue-scrollto/nuxt", "@nuxtjs/axios"],
-
-  axios: { host: "localhost", port: 5000 },
   /*
    ** Build configuration
    */

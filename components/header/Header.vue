@@ -118,7 +118,7 @@ export default {
       duration: "100%"
     })
       .setTween(timeline2)
-      .addIndicators()
+
       .addTo(controller);
   }
 };

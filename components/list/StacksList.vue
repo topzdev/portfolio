@@ -152,7 +152,6 @@ export default {
       offset: 300
     })
       .setTween(timeline)
-      .addIndicators()
       .addTo(controller);
   }
 };

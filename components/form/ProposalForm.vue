@@ -1,5 +1,11 @@
 <template>
-  <form name="contact" class="proposal-form" method="POST" netlify>
+  <form
+    name="proposal"
+    class="proposal-form"
+    method="POST"
+    data-netlify="true"
+    @submit.prevent="handleSubmit"
+  >
     <inp-primary
       name="name"
       v-model="mail.name"
@@ -52,19 +58,53 @@ import { PROPOSAL_SNACK } from "@/store/types";
 import gsap from "gsap";
 
 export default {
+  computed: {
+    form() {
+      return {
+        name: this.mail.name,
+        email: this.mail.email,
+        message: this.mail.text,
+        attach: this.mail.file
+      };
+    }
+  },
   mounted() {
     const timeline = gsap.timeline(),
       root = "#hireme";
 
     const controller = new ScrollMagic.Controller();
 
-    timeline.to("#hireme .inp--primary", {
-      y: "-30",
-      stagger: 0.8,
-      autoAlpha: 1,
-      duration: 2,
-      ease: "Elastic.easeOut"
-    });
+    timeline
+      .from(".heading--secondary", {
+        y: "30",
+        autoAlpha: 0,
+        duration: 0.8
+      })
+      .to("#hireme .inp--primary", {
+        y: "-30",
+        stagger: 0.8,
+        autoAlpha: 1,
+        duration: 2,
+        ease: "Elastic.easeOut"
+      })
+      .from(
+        ".proposal-form .proposal-form__file",
+        {
+          y: "30",
+          autoAlpha: 0,
+          duration: 0.8
+        },
+        "-=1.2"
+      )
+      .from(
+        ".proposal-form .btn--primary",
+        {
+          y: "30",
+          autoAlpha: 0,
+          duration: 0.8
+        },
+        "-=.4"
+      );
 
     const scene = new ScrollMagic.Scene({
       triggerElement: root,
@@ -73,18 +113,54 @@ export default {
       reverse: false
     })
       .setTween(timeline)
-      .addIndicators()
       .addTo(controller);
   },
   methods: {
     openFileDrawer(e) {
-      console.log("Hello", e);
       this.$refs.fileInput.click();
     },
     onFileChange(e) {
       const files = e.target.files || e.dataTransfer.files;
       if (!files.length) return;
       this.mail.files = files;
+    },
+    encode(data) {
+      const formData = new FormData();
+
+      for (const key of Object.keys(data)) {
+        formData.append(key, data[key]);
+      }
+      return formData;
+    },
+    handleSubmit() {
+      const self = this;
+
+      const axiosConfig = {
+        header: { "Content-Type": "multipart/form-data" }
+      };
+      this.$axios
+        .post(
+          "/",
+          self.encode({
+            "form-name": "proposal",
+            ...self.form
+          }),
+          axiosConfig
+        )
+        .then(function(response) {
+          this.$store.commit("frontend/" + PROPOSAL_SNACK, {
+            show: true,
+            text: "Thanks for the proposal!, I'll review it immediately."
+          });
+        })
+        .catch(function(error) {
+          console.log(error);
+          this.$store.commit("frontend/" + PROPOSAL_SNACK, {
+            show: true,
+            text: "Something went wrong, Try again later",
+            error: true
+          });
+        });
     }
   },
   data() {

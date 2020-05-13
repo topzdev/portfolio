@@ -62,7 +62,7 @@ export default {
       reverse: false
     })
       .setTween(timeline)
-      .addIndicators()
+
       .addTo(controller);
   }
 };

@@ -27,7 +27,6 @@ export default {
       x: this.isRight ? "30%" : "-30%",
       rotate: this.isRight ? "-20deg" : "20deg"
     });
-    console.log(this.id, this.isRight ? "-30%" : "30%");
     const scene = new ScrollMagic.Scene({
       triggerElement: "#" + this.id,
       triggerHook: 1,
@@ -35,7 +34,6 @@ export default {
       offset: -80
     })
       .setTween(timeline)
-      .addIndicators()
       .addTo(controller);
   },
 

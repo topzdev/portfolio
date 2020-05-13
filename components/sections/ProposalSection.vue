@@ -13,7 +13,7 @@
         <div class="col s12 l6">
           <div class="section--proposal__form">
             <h1 class="heading--secondary mb-3">
-              Esitmate your project?
+              Estimate your project?
               <br />Let me know here.
             </h1>
             <proposal-form />
