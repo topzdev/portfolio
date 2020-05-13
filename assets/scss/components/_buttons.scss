@@ -5,7 +5,9 @@
 
   &--primary {
     position: relative;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 14px 80px;
     background-color: $color-primary;
     color: $color-primary-text;
@@ -89,6 +91,11 @@
         fill: rgba($color-primary, 0.8);
       }
     }
+  }
+
+  &__loading {
+    height: 20px;
+    margin-right: 10px;
   }
 }
 .btn-icon-active {

@@ -54,7 +54,7 @@
       />
     </div>
     <div data-netlify-recaptcha="true"></div>
-    <btn-primary block dense type="submit" label="Send it!"></btn-primary>
+    <btn-primary block dense type="submit" :loading="loading" label="Send it!"></btn-primary>
   </form>
 </template>
 
@@ -66,6 +66,7 @@ import gsap from "gsap";
 export default {
   data() {
     return {
+      loading: false,
       icon: {
         clip: Icon.clip
       },
@@ -160,36 +161,36 @@ export default {
       }
       return formData;
     },
-    handleSubmit() {
-      const self = this;
+    async handleSubmit() {
+      this.loading = true;
 
       const axiosConfig = {
-        header: { "Content-Type": "multipart/form-data" }
+        header: { "Content-Type": "multipart/form-data" },
+        baseURL: "https://topzdev.netlify.app/"
       };
 
-      this.$axios
-        .$post(
+      try {
+        const result = await this.$axios.$post(
           "/",
-          self.encode({
-            "form-name": "proposal",
-            ...self.form
-          }),
+          this.encode({ "form-name": "proposal", ...this.form }),
           axiosConfig
-        )
-        .then(function(response) {
-          self.$store.commit("frontend/" + PROPOSAL_SNACK, {
-            show: true,
-            text: "Thanks for the proposal!, I'll review it immediately."
-          });
-        })
-        .catch(function(error) {
-          console.log(error);
-          self.$store.commit("frontend/" + PROPOSAL_SNACK, {
-            show: true,
-            text: "Something went wrong, Try again later",
-            error: true
-          });
+        );
+
+        console.log(result);
+        this.loading = false;
+        this.$store.commit("frontend/" + PROPOSAL_SNACK, {
+          show: true,
+          text: "Thanks for the proposal!, I'll review it immediately."
         });
+      } catch (error) {
+        this.loading = false;
+        this.$store.commit("frontend/" + PROPOSAL_SNACK, {
+          show: true,
+          text: "Something went wrong, Try again later",
+          error: true
+        });
+        console.log(error);
+      }
     }
   }
 };

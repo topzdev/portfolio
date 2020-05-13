@@ -11,6 +11,14 @@ import { PROPOSAL_SNACK } from "@/store/types";
 export default {
   computed: {
     proposal() {
+      let self = this;
+      let state = this.$store.state.frontend.proposalSnack;
+
+      if (state) {
+        setTimeout(() => {
+          self.close();
+        }, 5000);
+      }
       return this.$store.state.frontend.proposalSnack;
     },
     proposalClass() {

@@ -1,5 +1,8 @@
 <template>
-  <button v-bind="$attrs" class="btn btn--primary" :class="classes" v-text="label"></button>
+  <button v-bind="$attrs" class="btn btn--primary" :class="classes">
+    <img v-if="loading" class="btn__loading" src="@/assets/img/loading.gif" alt="loading..." />
+    <span>{{label}}</span>
+  </button>
 </template>
 
 <script>
@@ -26,7 +29,8 @@ export default {
     rounded: Boolean,
     block: Boolean,
     dense: Boolean,
-    click: Function
+    click: Function,
+    loading: Boolean
   }
 };
 </script>
