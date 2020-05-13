@@ -47,6 +47,10 @@
         font-size: 18px;
         padding: 15px 18px 8px $padding-left;
       }
+
+      @include respond(mobile-m) {
+        font-size: 16px;
+      }
     }
 
     &__label {
@@ -63,6 +67,10 @@
       @include respond(laptop-s) {
         font-size: 16px;
       }
+
+      @include respond(mobile-m) {
+        font-size: 14px;
+      }
     }
 
     &:focus-within &__label {
@@ -76,9 +84,16 @@
     .active &__label {
       @include focused();
     }
-
     .textarea &__label {
       top: 30px;
     }
+  }
+}
+
+.active {
+  border-bottom: 1pt solid rgba($color-primary, 0.8) !important;
+
+  .inp--primary__label {
+    @include focused();
   }
 }

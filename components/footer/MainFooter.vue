@@ -20,8 +20,11 @@
 
 <script>
 import FooterList from "@/components/list/FooterList";
+import gsap from "gsap";
+
 export default {
   components: { FooterList },
+
   data() {
     return {
       contactLinks: [

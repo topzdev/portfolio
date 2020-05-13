@@ -4,25 +4,27 @@
       <div class="header__intro">
         <h1 class="heading--intro">
           <div id="name-anim" class="name">
-            Hello,
-            <span id="im-anim"></span>
+            <span class="name-intro">
+              Hello,
+              <span id="im-anim"></span>
+            </span>
             <span id="me-anim">World!</span>
           </div>
           <div id="title-anim" class="title">
-            <div class="title-job title-job-3">
+            <div class="title-job title-job-1">
               <span>UI/UX</span>
               <span>Designer</span>
             </div>
-            <div class="title-job title-job-1">
-              <span>Backend Web</span>
+            <div class="title-job title-job-2">
+              <span>Backend</span>
               <span>Developer</span>
             </div>
-            <div class="title-job title-job-2">
-              <span>Frontend Web</span>
+            <div class="title-job title-job-3">
+              <span>Frontend</span>
               <span>Developer</span>
             </div>
             <div class="title-job title-job-4">
-              <span>Fullstack Web</span>
+              <span>Fullstack</span>
               <span>Developer</span>
             </div>
           </div>
@@ -54,8 +56,41 @@ export default {
     gsap.registerPlugin(TextPlugin);
     const controller = new ScrollMagic.Controller();
 
-    const timeline = gsap.timeline();
-    const textTimeline = gsap.timeline({ yoyo: true });
+    const timeline = gsap.timeline({
+      onComplete: function() {
+        this.restart();
+      },
+      defaults: { ease: "Power4.easeOut" }
+    });
+    const textTimeline = gsap.timeline();
+
+    const set = {
+      position: "relative",
+      display: "none",
+      y: -100,
+      autoAlpha: 0,
+      duration: 0.5,
+      perspective: 50
+    };
+
+    const show = {
+      display: "block",
+      y: 0,
+      scale: 1,
+      autoAlpha: 1,
+      duration: 2,
+      perspective: 0,
+      rotateX: "0",
+      skewX: "0"
+    };
+
+    const fade = {
+      display: "none",
+      y: 50,
+      autoAlpha: 0,
+      duration: 0.5,
+      perspective: -50
+    };
 
     textTimeline
       .to(
@@ -84,14 +119,18 @@ export default {
       });
 
     timeline
-      .set(".title-job-1", { autoAlpha: 1, display: "block" })
-      .from(".title-job-1", { display: "none", autoAlpha: 0, duration: 0.01 })
-      .to(".title-job-2", { autoAlpha: 1, display: "block", duration: 2 })
-
-      .from(".title-job-2", { display: "none", autoAlpha: 0, duration: 0.01 })
-      .to(".title-job-3", { autoAlpha: 1, display: "block", duration: 2 })
-      .from(".title-job-3", { display: "none", autoAlpha: 0, duration: 0.01 })
-      .to(".title-job-4", { autoAlpha: 1, display: "block", duration: 2 });
+      .set(".title-job-1", { ...set, duration: 0.1 })
+      .to(".title-job-1", show)
+      .to(".title-job-1", fade)
+      .set(".title-job-2", set)
+      .to(".title-job-2", show)
+      .to(".title-job-2", fade)
+      .set(".title-job-3", set)
+      .to(".title-job-3", show)
+      .to(".title-job-3", fade)
+      .set(".title-job-4", set)
+      .to(".title-job-4", show)
+      .to(".title-job-4", fade);
 
     const timeline2 = gsap.timeline({ defaults: { ease: "Power4.easeOut" } });
 
@@ -118,7 +157,6 @@ export default {
       duration: "100%"
     })
       .setTween(timeline2)
-
       .addTo(controller);
   }
 };

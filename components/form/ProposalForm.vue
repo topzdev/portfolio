@@ -2,9 +2,9 @@
   <form
     name="proposal"
     class="proposal-form"
-    method="POST"
     data-netlify="true"
     @submit.prevent="handleSubmit"
+    data-netlify-recaptcha="true"
   >
     <inp-primary
       name="name"
@@ -45,9 +45,15 @@
         @change="onFileChange"
       />
 
-      <btn-icon type="button" icon="icon_attach" @click.native="openFileDrawer" />
+      <btn-icon
+        :title="fileValidation.name"
+        :class="fileValidation.show"
+        type="button"
+        icon="icon_attach"
+        @click.native="openFileDrawer"
+      />
     </div>
-
+    <div data-netlify-recaptcha="true"></div>
     <btn-primary block dense type="submit" label="Send it!"></btn-primary>
   </form>
 </template>
@@ -58,6 +64,19 @@ import { PROPOSAL_SNACK } from "@/store/types";
 import gsap from "gsap";
 
 export default {
+  data() {
+    return {
+      icon: {
+        clip: Icon.clip
+      },
+      mail: {
+        name: "",
+        email: "",
+        text: "",
+        file: ""
+      }
+    };
+  },
   computed: {
     form() {
       return {
@@ -65,6 +84,14 @@ export default {
         email: this.mail.email,
         message: this.mail.text,
         attach: this.mail.file
+      };
+    },
+
+    fileValidation() {
+      const file = this.mail.file;
+      return {
+        name: file ? file.name : "",
+        show: file ? "btn-icon-active" : ""
       };
     }
   },
@@ -78,13 +105,13 @@ export default {
       .from(".heading--secondary", {
         y: "30",
         autoAlpha: 0,
-        duration: 0.8
+        duration: 0.5
       })
       .to("#hireme .inp--primary", {
         y: "-30",
-        stagger: 0.8,
+        stagger: 0.5,
         autoAlpha: 1,
-        duration: 2,
+        duration: 1.5,
         ease: "Elastic.easeOut"
       })
       .from(
@@ -92,18 +119,18 @@ export default {
         {
           y: "30",
           autoAlpha: 0,
-          duration: 0.8
+          duration: 0.5
         },
-        "-=1.2"
+        "-=1"
       )
       .from(
         ".proposal-form .btn--primary",
         {
           y: "30",
           autoAlpha: 0,
-          duration: 0.8
+          duration: 0.5
         },
-        "-=.4"
+        "-=.5"
       );
 
     const scene = new ScrollMagic.Scene({
@@ -122,7 +149,8 @@ export default {
     onFileChange(e) {
       const files = e.target.files || e.dataTransfer.files;
       if (!files.length) return;
-      this.mail.files = files;
+      console.log(files[0]);
+      this.mail.file = files[0];
     },
     encode(data) {
       const formData = new FormData();
@@ -138,8 +166,9 @@ export default {
       const axiosConfig = {
         header: { "Content-Type": "multipart/form-data" }
       };
+
       this.$axios
-        .post(
+        .$post(
           "/",
           self.encode({
             "form-name": "proposal",
@@ -148,33 +177,20 @@ export default {
           axiosConfig
         )
         .then(function(response) {
-          this.$store.commit("frontend/" + PROPOSAL_SNACK, {
+          self.$store.commit("frontend/" + PROPOSAL_SNACK, {
             show: true,
             text: "Thanks for the proposal!, I'll review it immediately."
           });
         })
         .catch(function(error) {
           console.log(error);
-          this.$store.commit("frontend/" + PROPOSAL_SNACK, {
+          self.$store.commit("frontend/" + PROPOSAL_SNACK, {
             show: true,
             text: "Something went wrong, Try again later",
             error: true
           });
         });
     }
-  },
-  data() {
-    return {
-      icon: {
-        clip: Icon.clip
-      },
-      mail: {
-        name: "",
-        email: "",
-        text: "",
-        file: ""
-      }
-    };
   }
 };
 </script>

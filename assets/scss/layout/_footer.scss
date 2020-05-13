@@ -4,8 +4,11 @@
     position: relative;
     background-color: $footer-background;
     color: $footer-text-color;
-    overflow-x: hidden;
-    overflow-y: visible;
+
+    @include respond(mobile-lg) {
+      padding-bottom: 200px;
+    }
+
     z-index: 0;
     &::after {
       @include ui-icon-float(
@@ -41,6 +44,13 @@
           background-size: 300px;
           height: 300px;
           width: 300px;
+        }
+
+        @include respond(mobile-m) {
+          background-size: 250px;
+          height: 250px;
+          width: 250px;
+          top: -5%;
         }
       }
     }
@@ -78,6 +88,10 @@
 
       @include respond(mobile-lg) {
         width: 90%;
+      }
+
+      @include respond(mobile-m) {
+        width: 100%;
       }
     }
   }

@@ -28,12 +28,20 @@
         }
       }
     }
+
+    .name-intro {
+      @include respond(mobile-lg) {
+        font-size: 25px !important;
+      }
+    }
+
     .title {
       font-size: 115px;
       line-height: 1;
       margin-bottom: 40px;
       position: relative;
       height: 230px;
+      @include transition;
 
       @include respond(laptop) {
         font-size: 100px;
@@ -45,26 +53,30 @@
       }
 
       @include respond(tab-port) {
-        font-size: 70px;
-        height: 150px;
+        font-size: 80px;
+        height: 140px;
       }
       @include respond(mobile-lg) {
-        font-size: 66px;
-        height: auto;
+        font-size: 75px;
+        height: 140px;
       }
 
       @include respond(mobile-m) {
-        font-size: 62px;
+        font-size: 63px;
+        height: 130px;
       }
 
       @include respond(mobile-s) {
-        font-size: 50px;
+        font-size: 52px;
+        height: 100px;
       }
     }
 
     .title-job {
+      position: relative;
       display: none;
       opacity: 0;
+      transform-origin: bottom left;
 
       & span {
         position: relative;
@@ -89,6 +101,10 @@
 
       @include respond(mobile-lg) {
         font-size: 25px;
+      }
+
+      @include respond(mobile-m) {
+        font-size: 22px;
       }
     }
     &__overline {
@@ -190,6 +206,10 @@
 
     @include respond(tab-land) {
       font-size: 17px;
+    }
+
+    @include respond(mobile-m) {
+      font-size: 16px;
     }
   }
 }

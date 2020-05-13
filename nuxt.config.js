@@ -63,10 +63,12 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["vue-scrollto/nuxt", "@nuxtjs/axios"],
+  modules: ["@nuxtjs/axios", "vue-scrollto/nuxt"],
   /*
    ** Build configuration
    */
+
+  axios: { proxyHeaders: false },
   build: {
     /*
      ** You can extend webpack config here

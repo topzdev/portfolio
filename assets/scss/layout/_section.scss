@@ -48,6 +48,14 @@
     @include respond(mobile-lg) {
       height: 1050px;
     }
+
+    @include respond(mobile-m) {
+      height: 1000px;
+    }
+
+    @include respond(mobile-s) {
+      height: 920px;
+    }
   }
 
   &--projects {
@@ -60,11 +68,17 @@
       content: "";
       display: block;
       background-image: url("~@/assets/img/ui_squre_grey.svg");
-      background-size: 750px 750px;
+      background-size: 750px;
       height: 750px;
       width: 750px;
       z-index: 0;
       opacity: 0.6;
+
+      @include respond(mobile-lg) {
+        background-size: 150px;
+        height: 150px;
+        width: 150px;
+      }
     }
 
     &::before {
@@ -105,6 +119,13 @@
           0
         );
         opacity: 0.8;
+
+        @include respond(mobile-lg) {
+          background-size: 100px;
+          height: 100px;
+          width: 100px;
+          top: -5%;
+        }
       }
     }
   }
@@ -173,6 +194,10 @@
 
       @include respond(mobile-lg) {
         width: 85%;
+      }
+
+      @include respond(mobile-m) {
+        width: 100%;
       }
       &::before {
         @include ui-icon-float(

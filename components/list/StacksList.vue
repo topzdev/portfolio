@@ -113,7 +113,6 @@ export default {
         this.listToShow = 4;
       } else if (width > 600 && width <= 768) {
         this.listToShow = 4;
-        this.marginRight = ((100 * width) / 90) * width;
       } else if (width <= 600) {
         this.listToShow = 5;
       } else this.listToShow = 2;
