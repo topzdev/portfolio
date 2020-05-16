@@ -6,7 +6,7 @@
     data-netlify="true"
     data-netlify-honeypot="bot-field"
   >
-    <input type="hidden" name="form-name" value="ask-question" />
+    <input type="hidden" name="form-name" value="proposal" />
     <inp-primary
       name="name"
       v-model="mail.name"
@@ -28,6 +28,7 @@
 
     <inp-primary
       name="message"
+      method="post"
       v-model="mail.text"
       id="content-inp"
       label="Finally tell me your great idea"
