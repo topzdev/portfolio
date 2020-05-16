@@ -1,5 +1,6 @@
 <template>
   <form
+    name="proposal"
     class="proposal-form"
     @submit.prevent="handleSubmit"
     data-netlify="true"
@@ -40,7 +41,7 @@
         type="file"
         name="file"
         ref="fileInput"
-        hidden
+        style="display:none;"
         accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*"
         @change="onFileChange"
       />
@@ -61,7 +62,7 @@
 import Icon from "@/utils/icons";
 import { PROPOSAL_SNACK } from "@/store/types";
 import gsap from "gsap";
-import axios from "axios";
+
 export default {
   data() {
     return {
@@ -153,17 +154,18 @@ export default {
       this.mail.file = files[0];
     },
     encode(data) {
-      return Object.keys(data)
-        .map(
-          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
-        )
-        .join("&");
+      const formData = new FormData();
+
+      for (const key of Object.keys(data)) {
+        formData.append(key, data[key]);
+      }
+      return formData;
     },
     async handleSubmit() {
       this.loading = true;
 
       const axiosConfig = {
-        header: { "Content-Type": "application/x-www-form-urlencoded" }
+        header: { "Content-Type": "multipart/form-data" }
       };
 
       try {
