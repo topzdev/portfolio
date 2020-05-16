@@ -17,7 +17,7 @@ export default {
       if (state) {
         setTimeout(() => {
           self.close();
-        }, 5000);
+        }, 15000);
       }
       return this.$store.state.frontend.proposalSnack;
     },

@@ -2,9 +2,9 @@ import { PROPOSAL_SNACK } from "./types";
 
 export const state = () => ({
   proposalSnack: {
-    show: false,
-    text: "Thank you!",
-    error: true
+    show: true,
+    text: "Thanks for the proposal!, I'll review it immediately.",
+    error: false
   }
 });
 
