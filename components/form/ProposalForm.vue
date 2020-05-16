@@ -62,6 +62,7 @@
 import Icon from "@/utils/icons";
 import { PROPOSAL_SNACK } from "@/store/types";
 import gsap from "gsap";
+import axios from "axios";
 
 export default {
   data() {
