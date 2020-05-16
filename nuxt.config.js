@@ -60,7 +60,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/axios", "vue-scrollto/nuxt"],
+  modules: ["vue-scrollto/nuxt"],
   /*
    ** Build configuration
    */
