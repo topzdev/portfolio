@@ -14,7 +14,7 @@
     .paragraph--primary {
       width: 80%;
 
-      @include respond(laptop) {
+      @include respond(mobile-lg) {
         width: 100%;
       }
     }
@@ -186,19 +186,19 @@
     &__intro {
       position: relative;
       z-index: 3;
-      width: 85%;
+      // width: 85%;
 
-      @include respond(tab-land) {
-        width: 60%;
-      }
+      // @include respond(tab-land) {
+      //   width: 60%;
+      // }
 
-      @include respond(mobile-lg) {
-        width: 85%;
-      }
+      // @include respond(mobile-lg) {
+      //   width: 85%;
+      // }
 
-      @include respond(mobile-m) {
-        width: 100%;
-      }
+      // @include respond(mobile-m) {
+      //   width: 100%;
+      // }
       &::before {
         @include ui-icon-float(
           "~@/assets/img/ui_dots_grey.svg",

@@ -6,6 +6,15 @@
   width: 100%;
   overflow: hidden;
   @include rounded-container("bottom");
+  background-image: url("~@/assets/img/me.png");
+  background-repeat: no-repeat;
+  background-size: auto 100vh;
+  background-position: right;
+
+  @include respond(laptop) {
+    background-image: none;
+  }
+
   .container {
     display: flex;
     align-items: center;
@@ -28,17 +37,6 @@
     & > * {
       position: relative;
       z-index: 1;
-    }
-  }
-
-  &__image {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 100vh;
-    z-index: 2;
-    @include respond(laptop) {
-      display: none;
     }
   }
 }

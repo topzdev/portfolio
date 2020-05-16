@@ -4,8 +4,9 @@
     class="proposal-form"
     data-netlify="true"
     @submit.prevent="handleSubmit"
-    data-netlify-recaptcha="true"
+    data-netlify-honeypot="bot-field"
   >
+    <input type="hidden" name="form-name" value="ask-question" />
     <inp-primary
       name="name"
       v-model="mail.name"
@@ -53,7 +54,6 @@
         @click.native="openFileDrawer"
       />
     </div>
-    <div data-netlify-recaptcha="true"></div>
     <btn-primary block dense type="submit" :loading="loading" label="Send it!"></btn-primary>
   </form>
 </template>

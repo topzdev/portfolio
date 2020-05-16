@@ -9,10 +9,12 @@
           >Believes in perfection by design and performance by default</div>
 
           <btn-secondary
-            class="mt-4 mb-3"
-            :icon="require('@/assets/img/icons/icon_github.svg')"
+            target="blank"
+            class="mt-2 mb-2 mt-lg-4 mb-lg-3"
+            icon="icon_github"
+            link="https://github.com/topzdev"
             label="Visit my github"
-          ></btn-secondary>
+          />
         </div>
       </div>
 

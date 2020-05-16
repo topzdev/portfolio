@@ -5,7 +5,8 @@
 .icon-icon_instagram:before { content: '\e811'; } /* '' */
 .icon-icon_twitter:before { content: '\e812'; } /* '' */
 .icon-icon_email:before { content: '\e814'; } /* '' */
-.icon-icon_github_2:before { content: '\e815'; } /* '' */
+.icon-icon_github:before { content: '\e815'; } /* '' */
 .icon-icon_dribbble:before { content: '\e816'; } /* '' */
 .icon-icon_linkedin:before { content: '\e817'; } /* '' */
+.icon-icon_resume:before { content: '\e81b'; } /* '' */
 .icon-icons8_attach_1:before { content: '\e81c'; } /* '' */

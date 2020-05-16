@@ -32,8 +32,6 @@
         <btn-primary id="btn-anim" rounded class="pulse" label="Hire Me" v-scroll-to="scrollHireMe"></btn-primary>
       </div>
     </div>
-
-    <img class="header__image" src="@/assets/img/me.png" alt="Christopher Lugod Image" />
   </header>
 </template>
 

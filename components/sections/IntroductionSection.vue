@@ -5,18 +5,24 @@
 
       <div class="paragraph--primary mt-3" id="intro-anim">
         Hi I'm
-        <b>Christopher Lugod</b>, 19 years old and currently living
+        Christopher Lugod, 19 years old and currently living
         in
-        <b>Manila, Philippines</b>. Currently,
+        Manila, Philippines. Currently,
         I am taking
-        <b>Bachelor of Science in Information Technology</b> at
-        <b>Technological University</b>
-
-        <b>of the Philippines</b>
+        Bachelor of Science in Information Technology at
+        Technological University
+        of the Philippines
         . I love designs and creating something interesting. I'm very passionate
         about this field and I always strive forward to enhance my knowledge about Web
         development to be able to excel in this field.
       </div>
+
+      <btn-secondary
+        class="mt-2"
+        download="Christopher-Lugod-PDF"
+        :link="cv"
+        label="Download my CV"
+      />
     </div>
   </section>
 </template>
@@ -26,32 +32,25 @@ import gsap from "gsap";
 import splitText from "@/utils/splitText";
 
 export default {
+  data() {
+    return {
+      cv: require("@/assets/files/christopher-lugod-resume.pdf")
+    };
+  },
   mounted() {
     const timeline = gsap.timeline();
     const controller = new ScrollMagic.Controller();
     const intro = "#intro-anim";
-    splitText(
-      intro,
-      "<span style='position:relative; display:inline-block'>",
-      "</span>"
-    );
+    splitText(intro, "<span style='position:relative;'>", "</span>");
 
-    timeline
-      .from(intro, {
-        duration: 3,
-        rotate: "2deg"
-      })
-      .from(
-        intro + " span",
-        {
-          duration: 2,
-          stagger: 0.2,
-          y: 20,
-          autoAlpha: 0,
-          ease: "Power4.easeOut"
-        },
-        "-=3"
-      );
+    timeline.from(intro + " span", {
+      duration: 3,
+      stagger: 0.4,
+      y: 20,
+      autoAlpha: 0,
+      ease: "Elastic.easeOut",
+      transformOrigin: "right"
+    });
 
     const ease = new ScrollMagic.Scene({
       tweenChanges: true,
@@ -62,10 +61,7 @@ export default {
       reverse: false
     })
       .setTween(timeline)
-
       .addTo(controller);
   }
 };
 </script>
-
-<style lang="stylus" scoped></style>

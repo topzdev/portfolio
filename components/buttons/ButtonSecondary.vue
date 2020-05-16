@@ -1,8 +1,8 @@
 <template>
-  <button v-on="$attrs" class="btn btn--secondary">
-    <img class="btn--secondary__icon" v-if="icon" :src="icon" :alt="alt" />
+  <a v-on="$attrs" :href="link" :target="target" :download="download" class="btn btn--secondary">
+    <base-icon v-if="icon" class="btn--secondary__icon" :icon="icon"></base-icon>
     <div class="btn--secondary__label" v-text="label" />
-  </button>
+  </a>
 </template>
 
 <script>
@@ -18,7 +18,13 @@ export default {
     label: {
       type: String,
       required: true
-    }
+    },
+    link: {
+      type: String,
+      required: true
+    },
+    target: String,
+    download: String
   }
 };
 </script>

@@ -39,23 +39,70 @@
   }
 
   &--secondary {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     border-bottom: 2px solid $color-secondary-light;
     padding: 8px 25px 8px 5px;
     color: $color-secondary-light;
+    text-decoration: none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    @include transition;
+    &:hover {
+      background-color: rgba($color-primary, 0.06);
+      border-bottom-color: $color-primary;
+      color: $color-primary;
+    }
+
+    @include respond(laptop) {
+      padding: 6px 22px 6px 4px;
+    }
+
+    @include respond(tab-port) {
+      padding: 6px 20px 6px 4px;
+    }
+
     &__icon {
       display: block;
       margin-right: 12px;
-      height: 26px;
-      width: 26px;
+      font-size: 26px;
+
+      @include respond(laptop) {
+        font-size: 24px;
+      }
+
+      @include respond(tab-port) {
+        font-size: 22px;
+      }
+
+      @include respond(mobile-lg) {
+        font-size: 18px;
+        margin-right: 8px;
+      }
+
+      @include respond(mobile-m) {
+        font-size: 15px;
+      }
     }
 
     &__label {
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
+
+      @include respond(tab-port) {
+        font-size: 14px;
+      }
+
+      @include respond(mobile-lg) {
+        font-size: 13px;
+      }
+
+      @include respond(mobile-m) {
+        font-size: 11px;
+        letter-spacing: 0;
+      }
     }
   }
 

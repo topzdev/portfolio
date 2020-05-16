@@ -12,7 +12,8 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || ""
+        content:
+          "UI/UX Designer, Fullstack Web developer from Manila, Philippines"
       }
     ],
     link: [
@@ -32,17 +33,13 @@ export default {
       {
         src:
           "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"
-      },
-      {
-        src:
-          "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"
       }
     ]
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fff" },
+  loading: { color: "#0993e5" },
   /*
    ** Global CSS
    */
@@ -67,12 +64,28 @@ export default {
   /*
    ** Build configuration
    */
-
-  axios: { proxyHeaders: false, baseURL: "https://topzdev.netlify.app/" },
+  generate: {
+    devtools: false, //true
+    collapseBooleanAttributes: true,
+    decodeEntities: true,
+    minifyCSS: true,
+    minifyJS: true,
+    processConditionalComments: true,
+    removeEmptyAttributes: true,
+    removeRedundantAttributes: true,
+    trimCustomFragments: true,
+    useShortDoctype: true
+  },
+  axios: { baseURL: "https://topzdev.netlify.app/" },
   build: {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.(pdf)$/,
+        loader: "file-loader"
+      });
+    }
   }
 };

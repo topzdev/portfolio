@@ -152,6 +152,10 @@
       @include respond(mobile-m) {
         font-size: 14px;
       }
+
+      @include respond(mobile-s) {
+        font-size: 13px;
+      }
     }
 
     &__title {
