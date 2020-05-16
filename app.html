@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html {{ HTML_ATTRS }}>
+  <head {{ HEAD_ATTRS }}>
+    {{ HEAD }}
+  </head>
+  <body {{ BODY_ATTRS }}>
+    <form name="proposal" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="text" name="email" />
+      <input type="text" name="message" />
+      <input type="file" name="file" />
+      <textarea name="message"></textarea>
+    </form>
+    {{ APP }}
+  </body>
+</html>
