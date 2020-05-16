@@ -1,9 +1,8 @@
 <template>
   <form
-    name="proposal"
     class="proposal-form"
-    data-netlify="true"
     @submit.prevent="handleSubmit"
+    data-netlify="true"
     data-netlify-honeypot="bot-field"
   >
     <input type="hidden" name="form-name" value="ask-question" />
@@ -62,7 +61,7 @@
 import Icon from "@/utils/icons";
 import { PROPOSAL_SNACK } from "@/store/types";
 import gsap from "gsap";
-
+import axios from "axios";
 export default {
   data() {
     return {
@@ -154,23 +153,21 @@ export default {
       this.mail.file = files[0];
     },
     encode(data) {
-      const formData = new FormData();
-
-      for (const key of Object.keys(data)) {
-        formData.append(key, data[key]);
-      }
-      return formData;
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join("&");
     },
     async handleSubmit() {
       this.loading = true;
 
       const axiosConfig = {
-        header: { "Content-Type": "multipart/form-data" },
-        baseURL: "https://topzdev.netlify.app/"
+        header: { "Content-Type": "application/x-www-form-urlencoded" }
       };
 
       try {
-        const result = await this.$axios.$post(
+        const result = await axios.post(
           "/",
           this.encode({ "form-name": "proposal", ...this.form }),
           axiosConfig
