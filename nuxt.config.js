@@ -8,12 +8,106 @@ export default {
     title: "Christopher Lugod",
     meta: [
       { charset: "utf-8" },
+      { name: "msapplication-TileColor", content: "#2d89ef" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
         name: "description",
         content:
           "UI/UX Designer, Fullstack Web developer from Manila, Philippines"
+      },
+      {
+        name: "theme-color",
+        content: "#0993e5"
+      },
+      {
+        hid: "apple-mobile-web-app-capable",
+        name: "apple-mobile-web-app-capable",
+        content: "yes"
+      },
+      {
+        hid: "mobile-web-app-capable",
+        name: "mobile-web-app-capable",
+        content: "yes"
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: `Christoher Lugod | Portfolio`
+      },
+      {
+        hid: "og:type",
+        property: "og:type",
+        content: "portfolio"
+      },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: "https://topzdev.netlify.app/"
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "/seo-cover.jpg"
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content:
+          "UI/UX Designer, Fullstack Web developer from Manila, Philippines"
+      },
+      {
+        hid: "og:site_name",
+        property: "og:site_name",
+        content: "Christoher Lugod | Portfolio"
+      },
+      {
+        hid: "twitter:card",
+        name: "twitter:card",
+        content: "summary_large_image"
+      },
+      {
+        hid: "twitter:title",
+        name: "twitter:title",
+        content: `Christoher Lugod | Portfolio`
+      },
+      {
+        hid: "twitter:site",
+        name: "twitter:site",
+        content: "@_christop_"
+      },
+      {
+        hid: "twitter:description",
+        name: "twitter:description",
+        content:
+          "UI/UX Designer, Fullstack Web developer from Manila, Philippines"
+      },
+      {
+        hid: "twitter:image",
+        name: "twitter:image",
+        content: "/seo-cover.jpg"
+      },
+      {
+        hid: "twitter:creator",
+        name: "twitter:creator",
+        content: "@_christop_"
+      },
+      {
+        hid: "itemprop:name",
+        itemprop: "name",
+        content: `Christoher Lugod | Portfolio`
+      },
+      {
+        hid: "itemprop:name",
+        itemprop: "description",
+        content:
+          "UI/UX Designer, Fullstack Web developer from Manila, Philippines"
+      },
+
+      {
+        hid: "itemprop:image",
+        itemprop: "image",
+        content: "/topzdev-logo.svg"
       }
     ],
     link: [
@@ -22,7 +116,30 @@ export default {
         href:
           "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Poppins:wght@300;400;500;700;900&display=swap"
       },
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "/favicon-32x32.png"
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        href: "/favicon-16x16.png"
+      },
+      { rel: "manifest", href: "/site.webmanifest" },
+      {
+        rel: "mask-icon",
+        href: "/safari-pinned-tab.svg",
+        color: "#5bbad5"
+      },
+      {
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "/apple-touch-icon.png"
+      }
     ],
     script: [
       { src: "https://smtpjs.com/v3/smtp.js" },

@@ -14,6 +14,14 @@
         <footer-list title="Contacts" :links="contactLinks" />
         <footer-list title="Social Links" :links="socialLinks" />
       </div>
+
+      <div class="footer--main__copyright">
+        <span class="yellow--text">Designed</span> and
+        <span class="light-blue--text">Developed</span>
+        by
+        <nuxt-link to="/">Christopher Lugod</nuxt-link>
+        © {{new Date().getFullYear()}}
+      </div>
     </div>
   </footer>
 </template>
@@ -24,6 +32,7 @@ import gsap from "gsap";
 
 export default {
   components: { FooterList },
+  created() {},
 
   data() {
     return {

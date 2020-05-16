@@ -86,7 +86,7 @@ export default {
         name: this.mail.name,
         email: this.mail.email,
         message: this.mail.text,
-        attach: this.mail.file
+        file: this.mail.file
       };
     },
 
@@ -152,7 +152,6 @@ export default {
     onFileChange(e) {
       const files = e.target.files || e.dataTransfer.files;
       if (!files.length) return;
-      console.log(files[0]);
       this.mail.file = files[0];
     },
     encode(data) {

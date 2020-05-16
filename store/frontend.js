@@ -2,7 +2,7 @@ import { PROPOSAL_SNACK } from "./types";
 
 export const state = () => ({
   proposalSnack: {
-    show: true,
+    show: false,
     text: "Thanks for the proposal!, I'll review it immediately.",
     error: false
   }
