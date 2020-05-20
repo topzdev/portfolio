@@ -39,39 +39,39 @@ export default {
       projects: [
         {
           title: "Shareitineray",
-          logo: require("@/assets/img/logo/shareitinerary_logo.png"),
-          image: require("@/assets/img/projects/shareitinerary/proj_sharetinerary.png"),
+          logo: require("@/assets/img/logo/shareitinerary_logo.webp"),
+          image: require("@/assets/img/projects/shareitinerary/proj_sharetinerary.webp"),
           imagePrefix: "shareitinerary",
           link: "https://shareitinerary.com/",
           id: "project-1"
         },
         {
           title: "Knovie",
-          logo: require("@/assets/img/logo/knowvie_logo.png"),
+          logo: require("@/assets/img/logo/knowvie_logo.webp"),
           imagePrefix: "knowvie",
-          image: require("@/assets/img/projects/knowvie/proj_knowvie.png"),
+          image: require("@/assets/img/projects/knowvie/proj_knowvie.webp"),
           link: "https://knowvie.herokuapp.com/",
           id: "project-2"
         },
         {
           title: "PC Master Shop",
-          logo: require("@/assets/img/logo/pcmaster_logo.png"),
+          logo: require("@/assets/img/logo/pcmaster_logo.webp"),
           imagePrefix: "pcmaster",
-          image: require("@/assets/img/projects/pcmaster/proj_pcmaster.png"),
+          image: require("@/assets/img/projects/pcmaster/proj_pcmaster.webp"),
           link: "https://knowvie.herokuapp.com/",
           id: "project-3"
         },
         {
           title: "Brocode",
-          logo: require("@/assets/img/logo/brocode_logo.png"),
-          image: require("@/assets/img/projects/brocode/proj_brocode.png"),
+          logo: require("@/assets/img/logo/brocode_logo.webp"),
+          image: require("@/assets/img/projects/brocode/proj_brocode.webp"),
           imagePrefix: "brocode",
           id: "project-4"
         },
         {
           title: "Luzon TSC",
-          logo: require("@/assets/img/logo/tsc_logo.png"),
-          image: require("@/assets/img/projects/tsc/proj_tsc.png"),
+          logo: require("@/assets/img/logo/tsc_logo.webp"),
+          image: require("@/assets/img/projects/tsc/proj_tsc.webp"),
           imagePrefix: "tsc",
           link: "https://luzontsc.com/",
           id: "project-5"

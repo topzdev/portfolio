@@ -6,6 +6,19 @@ export default {
 
   head: {
     title: "Christopher Lugod",
+    htmlAttrs: {
+      lang: "en"
+    },
+    script: [
+      {
+        src:
+          "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"
+      },
+      {
+        src:
+          "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"
+      }
+    ],
     meta: [
       { charset: "utf-8" },
       { name: "msapplication-TileColor", content: "#2d89ef" },
@@ -140,17 +153,6 @@ export default {
         sizes: "180x180",
         href: "/apple-touch-icon.png"
       }
-    ],
-    script: [
-      { src: "https://smtpjs.com/v3/smtp.js" },
-      {
-        src:
-          "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"
-      },
-      {
-        src:
-          "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"
-      }
     ]
   },
   /*
@@ -173,7 +175,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [],
+  buildModules: [["@nuxtjs/pwa", { icon: false }]],
   /*
    ** Nuxt.js modules
    */
@@ -181,6 +183,13 @@ export default {
   /*
    ** Build configuration
    */
+
+  pwa: {
+    manifest: {
+      start_url: "."
+    }
+  },
+
   generate: {
     devtools: false, //true
     collapseBooleanAttributes: true,
@@ -203,6 +212,14 @@ export default {
         test: /\.(pdf)$/,
         loader: "file-loader"
       });
+    }
+  },
+
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ["script", "style", "font"].includes(type);
+      }
     }
   }
 };

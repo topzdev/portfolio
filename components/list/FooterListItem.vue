@@ -1,6 +1,6 @@
 <template>
   <li>
-    <a :href="link" target="_blank" class="list--footer__link">
+    <a :href="link" rel="noopener" target="_blank" class="list--footer__link">
       <span class="list--footer__icon">
         <base-icon :icon="icon"></base-icon>
       </span>

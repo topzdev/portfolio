@@ -1,6 +1,6 @@
 <template>
   <div class="card card--project" :id="id">
-    <a :href="link" target="_blank" class="card--project__head">
+    <a rel="noopener" target="_blank" class="card--project__head">
       <img :src="logo" :alt="altLogo" class="card--project__logo" :draggable="false" />
     </a>
 
