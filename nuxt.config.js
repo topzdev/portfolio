@@ -127,7 +127,7 @@ export default {
       {
         rel: "stylesheet",
         href:
-          "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Poppins:wght@300;400;500;700;900&display=swap"
+          "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Poppins:wght@400;500;700&display=swap"
       },
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
@@ -186,7 +186,7 @@ export default {
 
   pwa: {
     manifest: {
-      start_url: "."
+      start_url: "/"
     }
   },
 
@@ -212,14 +212,6 @@ export default {
         test: /\.(pdf)$/,
         loader: "file-loader"
       });
-    }
-  },
-
-  render: {
-    bundleRenderer: {
-      shouldPreload: (file, type) => {
-        return ["script", "style", "font"].includes(type);
-      }
     }
   }
 };
