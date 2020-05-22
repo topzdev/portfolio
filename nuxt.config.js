@@ -125,6 +125,24 @@ export default {
     ],
     link: [
       {
+        rel: "preload",
+        type: "font/woff2",
+        href: "~/assets/icon/icon-font/font/fontello.woff2"
+      },
+      {
+        rel: "preload",
+        type: "font/woff",
+        href: "~/assets/icon/icon-font/font/fontello.woff"
+      },
+      {
+        rel: "preload",
+        type: "font/tff",
+        href: "~/assets/icon/icon-font/font/fontello.ttf"
+      },
+      {
+        href: "~/assets/icon/icon-font/font/fontello.svg"
+      },
+      {
         rel: "stylesheet",
         href:
           "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Poppins:wght@400;500;700&display=swap"
