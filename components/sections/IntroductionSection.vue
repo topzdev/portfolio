@@ -19,7 +19,7 @@
 
       <btn-secondary
         class="mt-2"
-        download="Christopher-Lugod-PDF"
+        download="Christopher Lugod CV"
         :link="cv"
         label="Download my CV"
       />
@@ -34,7 +34,7 @@ import splitText from "@/utils/splitText";
 export default {
   data() {
     return {
-      cv: require("@/assets/files/christopher-lugod-resume.pdf")
+      cv: require("@/assets/files/christopher-lugod-resume-v1.pdf")
     };
   },
   mounted() {
