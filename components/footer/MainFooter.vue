@@ -43,7 +43,7 @@ export default {
         },
         {
           icon: "icon_email",
-          label: "christialugod05@gmail.com"
+          label: "christianlugod05@gmail.com"
         }
       ],
 
