@@ -4,17 +4,12 @@
       <heading-primary overline="Introduction" title="Know more about me" />
 
       <div class="paragraph--primary mt-3" id="intro-anim">
-        Hi I'm
-        Christopher Lugod, 19 years old and currently living
-        in
-        Manila, Philippines. Currently,
-        I am taking
+        Hi I'm Christopher Lugod, {{new Date().getFullYear() - 2000}} years old and currently living
+        in Manila, Philippines. Currently, I am taking
         Bachelor of Science in Information Technology at
-        Technological University
-        of the Philippines
-        . I love designs and creating something interesting. I'm very passionate
-        about this field and I always strive forward to enhance my knowledge about Web
-        development to be able to excel in this field.
+        Technological University of the Philippines. Highly skilled and motivated full stack web developer. I'm very
+        passionate about this field and I always strive forward to enhance
+        my skills in developing web applications.
       </div>
 
       <btn-secondary
