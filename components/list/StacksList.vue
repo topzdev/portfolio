@@ -22,7 +22,7 @@ export default {
         i;
       for (i = 0; i < this.list.length; i += this.listToShow) {
         formatted.push({
-          stacks: this.list.slice(i, i + this.listToShow)
+          stacks: this.list.slice(i, i + this.listToShow),
         });
       }
 
@@ -31,7 +31,7 @@ export default {
       }
 
       return formatted;
-    }
+    },
   },
 
   data() {
@@ -40,69 +40,69 @@ export default {
       list: [
         {
           title: "VueJS",
-          icon: require("@/assets/img/icons/icon_vue.svg")
+          icon: require("@/assets/img/icons/icon_vue.svg"),
         },
         {
           title: "NodeJS",
-          icon: require("@/assets/img/icons/icon_nodejs.svg")
+          icon: require("@/assets/img/icons/icon_nodejs.svg"),
         },
         {
           title: "ReactJS",
-          icon: require("@/assets/img/icons/icon_react.svg")
+          icon: require("@/assets/img/icons/icon_react.svg"),
         },
         {
-          title: "Vuetify",
-          icon: require("@/assets/img/icons/icon_vuetify.svg")
+          title: "GraphQL",
+          icon: require("@/assets/img/icons/icon_graphql.svg"),
         },
         {
           title: "Javascript",
-          icon: require("@/assets/img/icons/icon_javascript.svg")
+          icon: require("@/assets/img/icons/icon_javascript.svg"),
         },
         {
           title: "PostgreSQL",
-          icon: require("@/assets/img/icons/icon_postgresql.svg")
+          icon: require("@/assets/img/icons/icon_postgresql.svg"),
         },
         {
           title: "Typescript",
-          icon: require("@/assets/img/icons/icon_typescript.svg")
+          icon: require("@/assets/img/icons/icon_typescript.svg"),
         },
         {
           title: "Figma",
-          icon: require("@/assets/img/icons/icon_figma.svg")
+          icon: require("@/assets/img/icons/icon_figma.svg"),
         },
         {
-          title: "HTML",
-          icon: require("@/assets/img/icons/icon_html.svg")
+          title: "HTML 5",
+          icon: require("@/assets/img/icons/icon_html.svg"),
         },
         {
           title: "MongoDB",
-          icon: require("@/assets/img/icons/icon_mongodb.svg")
+          icon: require("@/assets/img/icons/icon_mongodb.svg"),
         },
         {
-          title: "CSS",
-          icon: require("@/assets/img/icons/icon_css.svg")
+          title: "CSS 3",
+          icon: require("@/assets/img/icons/icon_css.svg"),
         },
         {
           title: "VS Code",
-          icon: require("@/assets/img/icons/icon_vscode.svg")
+          icon: require("@/assets/img/icons/icon_vscode.svg"),
         },
         {
           title: "SCSS",
-          icon: require("@/assets/img/icons/icon_sass.svg")
+          icon: require("@/assets/img/icons/icon_sass.svg"),
         },
         {
           title: "Bootstrap",
-          icon: require("@/assets/img/icons/icon_bootstrap.svg")
-        }
-      ]
+          icon: require("@/assets/img/icons/icon_bootstrap.svg"),
+        },
+      ],
     };
   },
 
   methods: {
-    setAnimClass: function(offset) {
+    setAnimClass: function (offset) {
       return offset ? "stack-offset-anim" : "stack-anim";
     },
-    rowPerWidth: function(e) {
+    rowPerWidth: function (e) {
       let width = 0;
       if (!e.target) width = e.clientWidth;
       else width = e.target.innerWidth;
@@ -116,7 +116,7 @@ export default {
       } else if (width <= 600) {
         this.listToShow = 5;
       } else this.listToShow = 2;
-    }
+    },
   },
 
   created() {
@@ -136,7 +136,7 @@ export default {
         duration: 2,
         stagger: 0.3,
         y: -400,
-        ease: "slow(0.7, 0.7, false)"
+        ease: "slow(0.7, 0.7, false)",
       })
       .to(
         ".stack-offset-anim",
@@ -148,10 +148,10 @@ export default {
     let scene = new ScrollMagic.Scene({
       triggerElement: "#stacks",
       triggerHook: 1,
-      offset: 300
+      offset: 300,
     })
       .setTween(timeline)
       .addTo(controller);
-  }
+  },
 };
 </script>
