@@ -5,7 +5,7 @@ export default {
    */
 
   head: {
-    title: "Topzdev - Christopher Lugod",
+    title: "TopzDev - Christopher Lugod",
     htmlAttrs: {
       lang: "en"
     },
