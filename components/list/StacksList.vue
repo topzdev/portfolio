@@ -36,35 +36,51 @@ export default {
 
   data() {
     return {
-      listToShow: 2,
+      listToShow: 3,
       list: [
         {
           title: "VueJS",
           icon: require("@/assets/img/icons/icon_vue.svg"),
         },
         {
-          title: "NodeJS",
-          icon: require("@/assets/img/icons/icon_nodejs.svg"),
+          title: "NuxtJS",
+          icon: require("@/assets/img/icons/icon_nuxt.svg"),
         },
         {
           title: "ReactJS",
           icon: require("@/assets/img/icons/icon_react.svg"),
         },
         {
-          title: "GraphQL",
-          icon: require("@/assets/img/icons/icon_graphql.svg"),
+          title: "NextJS",
+          icon: require("@/assets/img/icons/icon_nextjs.svg"),
         },
         {
           title: "Javascript",
           icon: require("@/assets/img/icons/icon_javascript.svg"),
         },
         {
+          title: "Typescript",
+          icon: require("@/assets/img/icons/icon_typescript.svg"),
+        },
+        {
+          title: "JQuery",
+          icon: require("@/assets/img/icons/icon_jquery.svg"),
+        },
+        {
           title: "PostgreSQL",
           icon: require("@/assets/img/icons/icon_postgresql.svg"),
         },
         {
-          title: "Typescript",
-          icon: require("@/assets/img/icons/icon_typescript.svg"),
+          title: "NodeJS",
+          icon: require("@/assets/img/icons/icon_nodejs.svg"),
+        },
+        {
+          title: "GraphQL",
+          icon: require("@/assets/img/icons/icon_graphql.svg"),
+        },
+        {
+          title: "MongoDB",
+          icon: require("@/assets/img/icons/icon_mongodb.svg"),
         },
         {
           title: "Figma",
@@ -75,20 +91,20 @@ export default {
           icon: require("@/assets/img/icons/icon_html.svg"),
         },
         {
-          title: "MongoDB",
-          icon: require("@/assets/img/icons/icon_mongodb.svg"),
-        },
-        {
           title: "CSS 3",
           icon: require("@/assets/img/icons/icon_css.svg"),
         },
         {
-          title: "VS Code",
-          icon: require("@/assets/img/icons/icon_vscode.svg"),
-        },
-        {
           title: "SCSS",
           icon: require("@/assets/img/icons/icon_sass.svg"),
+        },
+        {
+          title: "Vuetify",
+          icon: require("@/assets/img/icons/icon_vuetify.svg"),
+        },
+        {
+          title: "Material UI",
+          icon: require("@/assets/img/icons/icon_mui.svg"),
         },
         {
           title: "Bootstrap",
@@ -112,10 +128,10 @@ export default {
       } else if (width > 768 && width <= 900) {
         this.listToShow = 4;
       } else if (width > 600 && width <= 768) {
-        this.listToShow = 4;
-      } else if (width <= 600) {
         this.listToShow = 5;
-      } else this.listToShow = 2;
+      } else if (width <= 600) {
+        this.listToShow = 6;
+      } else this.listToShow = 3;
     },
   },
 

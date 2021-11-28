@@ -4,12 +4,12 @@
       <heading-primary overline="Introduction" title="Know more about me" />
 
       <div class="paragraph--primary mt-3" id="intro-anim">
-        Hi I'm Christopher Lugod, {{new Date().getFullYear() - 2000}} years old and currently living
-        in Manila, Philippines. Currently, I am taking
-        Bachelor of Science in Information Technology at
-        Technological University of the Philippines. Highly skilled and motivated full stack web developer. I'm very
-        passionate about this field and I always strive forward to enhance
-        my skills in developing web applications.
+        Hi I'm Christopher Lugod, {{ new Date().getFullYear() - 2000 }} years
+        old and currently living in Manila, Philippines. Currently, I am taking
+        Bachelor of Science in Information Technology at Technological
+        University of the Philippines. Highly skilled and motivated full stack
+        web developer. I'm very passionate about this field and I always strive
+        forward to enhance my skills in developing web applications.
       </div>
 
       <btn-secondary
@@ -29,7 +29,7 @@ import splitText from "@/utils/splitText";
 export default {
   data() {
     return {
-      cv: require("@/assets/files/christopher-lugod-resume-v1.pdf")
+      cv: require("@/assets/files/christian-lugod-resume.pdf"),
     };
   },
   mounted() {
@@ -44,7 +44,7 @@ export default {
       y: 20,
       autoAlpha: 0,
       ease: "Elastic.easeOut",
-      transformOrigin: "right"
+      transformOrigin: "right",
     });
 
     const ease = new ScrollMagic.Scene({
@@ -53,10 +53,10 @@ export default {
       triggerHook: "onEnter",
       duration: "50%",
       offset: 100,
-      reverse: false
+      reverse: false,
     })
       .setTween(timeline)
       .addTo(controller);
-  }
+  },
 };
 </script>

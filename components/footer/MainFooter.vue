@@ -5,8 +5,9 @@
         <h1 class="heading heading--footer">
           Never stop learning,
           <span class="yellow--text">Never</span> give up your
-          <span class="light-blue--text">dream</span>. We don't just come here to lose, Keep
-          <span class="yellow--text">fighting</span> for your dreams.
+          <span class="light-blue--text">dream</span>. We don't just come here
+          to lose, Keep <span class="yellow--text">fighting</span> for your
+          dreams.
         </h1>
       </div>
 
@@ -20,7 +21,7 @@
         <span class="light-blue--text">Developed</span>
         by
         <nuxt-link to="/">Christopher Lugod</nuxt-link>
-        © {{new Date().getFullYear()}}
+        © {{ new Date().getFullYear() }}
       </div>
     </div>
   </footer>
@@ -39,52 +40,54 @@ export default {
       contactLinks: [
         {
           icon: "icon_phone",
-          label: "09286665903"
+          label: "09286665903",
+          link: "tel:09286665903",
         },
         {
           icon: "icon_email",
-          label: "christianlugod05@gmail.com"
-        }
+          label: "christianlugod05@gmail.com",
+          link: "mailto:christianlugod05@gmail.com",
+        },
       ],
 
       socialLinks: [
         {
           icon: "icon_upwork",
           label: "Hire me at Upwork",
-          link: "https://www.upwork.com/freelancers/~0183563188426b2c0c"
+          link: "https://www.upwork.com/freelancers/~0183563188426b2c0c",
         },
         {
           icon: "icon_github",
           label: "Github",
-          link: "https://github.com/topzdev"
+          link: "https://github.com/topzdev",
         },
         {
           icon: "icon_dribbble",
           label: "Dribbble",
-          link: "https://dribbble.com/TopzTheDev"
+          link: "https://dribbble.com/TopzTheDev",
         },
         {
           icon: "icon_linkedin",
           label: "LinkedIn",
-          link: "https://www.linkedin.com/in/christopher-lugod-ba146b197/"
+          link: "https://www.linkedin.com/in/christopher-lugod-ba146b197/",
         },
         {
           icon: "icon_facebook",
           label: "Facebook",
-          link: "https://www.facebook.com/Christoplugod"
+          link: "https://www.facebook.com/Christoplugod",
         },
         {
           icon: "icon_twitter",
           label: "Twitter",
-          link: "https://twitter.com/_christop_"
+          link: "https://twitter.com/_christop_",
         },
         {
           icon: "icon_instagram",
           label: "Instagram",
-          link: "https://www.instagram.com/christoplugod/"
-        }
-      ]
+          link: "https://www.instagram.com/christoplugod/",
+        },
+      ],
     };
-  }
+  },
 };
 </script>

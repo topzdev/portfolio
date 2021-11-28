@@ -4,10 +4,12 @@
       <div class="row">
         <div class="col s12 l6">
           <div class="section--proposal__intro">
-            <heading-primary title="Got a project? Hmmm. Let's Talk"></heading-primary>
-            <div
-              class="paragraph paragraph--primary mt-2"
-            >Don’t hesitate, lets talk about your idea and make it happen.</div>
+            <heading-primary
+              title="Got a project?<br>Hmmm... Let's Talk"
+            ></heading-primary>
+            <div class="paragraph paragraph--primary mt-2">
+              Don’t hesitate, lets talk about your idea and make it happen.
+            </div>
           </div>
         </div>
         <div class="col s12 l6">
@@ -29,7 +31,7 @@
 import ProposalForm from "@/components/form/ProposalForm";
 import ProposalSnackbars from "@/components/snackbars/ProposalSnackbar";
 export default {
-  components: { ProposalForm, ProposalSnackbars }
+  components: { ProposalForm, ProposalSnackbars },
 };
 </script>
 

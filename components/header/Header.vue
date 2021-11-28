@@ -24,12 +24,22 @@
               <span>Developer</span>
             </div>
             <div class="title-job title-job-4">
+              <span>SEO</span>
+              <span>Specialist</span>
+            </div>
+            <div class="title-job title-job-5">
               <span>Fullstack</span>
               <span>Developer</span>
             </div>
           </div>
         </h1>
-        <btn-primary id="btn-anim" rounded class="pulse" label="Hire Me" v-scroll-to="scrollHireMe"></btn-primary>
+        <btn-primary
+          id="btn-anim"
+          rounded
+          class="pulse"
+          label="Hire Me"
+          v-scroll-to="scrollHireMe"
+        ></btn-primary>
       </div>
     </div>
   </header>
@@ -44,8 +54,8 @@ export default {
     return {
       scrollHireMe: {
         el: "#hireme",
-        duration: 2000
-      }
+        duration: 2000,
+      },
     };
   },
   mounted() {
@@ -55,10 +65,10 @@ export default {
     const controller = new ScrollMagic.Controller();
 
     const timeline = gsap.timeline({
-      onComplete: function() {
+      onComplete: function () {
         this.restart();
       },
-      defaults: { ease: "Power4.easeOut" }
+      defaults: { ease: "Power4.easeOut" },
     });
     const textTimeline = gsap.timeline();
 
@@ -68,7 +78,7 @@ export default {
       y: -100,
       autoAlpha: 0,
       duration: 0.5,
-      perspective: 50
+      perspective: 50,
     };
 
     const show = {
@@ -79,7 +89,7 @@ export default {
       duration: 2,
       perspective: 0,
       rotateX: "0",
-      skewX: "0"
+      skewX: "0",
     };
 
     const fade = {
@@ -87,7 +97,7 @@ export default {
       y: 50,
       autoAlpha: 0,
       duration: 0.5,
-      perspective: -50
+      perspective: -50,
     };
 
     textTimeline
@@ -96,8 +106,8 @@ export default {
         {
           duration: 0,
           text: {
-            value: "I'm"
-          }
+            value: "I'm",
+          },
         },
         "+=2"
       )
@@ -105,15 +115,15 @@ export default {
         duration: 2,
         ease: "Power4.easeOut",
         text: {
-          value: "TopzDev"
-        }
+          value: "TopzDev",
+        },
       })
       .to("#me-anim", {
         duration: 2,
         ease: "Power4.easeOut",
         text: {
-          value: "Christopher Lugod"
-        }
+          value: "Christopher Lugod",
+        },
       });
 
     timeline
@@ -128,7 +138,9 @@ export default {
       .to(".title-job-3", fade)
       .set(".title-job-4", set)
       .to(".title-job-4", show)
-      .to(".title-job-4", fade);
+      .to(".title-job-4", fade)
+      .to(".title-job-5", show)
+      .to(".title-job-5", fade);
 
     const timeline2 = gsap.timeline({ defaults: { ease: "Power4.easeOut" } });
 
@@ -136,7 +148,7 @@ export default {
       .to("#name-anim", {
         duration: 5,
         autoAlpha: 0.5,
-        y: "-40%"
+        y: "-40%",
       })
       .to("#title-anim", { duration: 10, y: "-40%", autoAlpha: 0.5 }, "-=5")
       .to(
@@ -144,7 +156,7 @@ export default {
         {
           duration: 15,
           top: -100,
-          autoAlpha: 0.5
+          autoAlpha: 0.5,
         },
         "-=10"
       );
@@ -152,11 +164,11 @@ export default {
     const scene = new ScrollMagic.Scene({
       triggerElement: "#intro",
       triggerHook: "onEnter",
-      duration: "100%"
+      duration: "100%",
     })
       .setTween(timeline2)
       .addTo(controller);
-  }
+  },
 };
 </script>
 

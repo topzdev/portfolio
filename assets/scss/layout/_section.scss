@@ -23,7 +23,7 @@
   &--stacks {
     background-color: $base-color-1;
     @include rounded-container("top");
-    height: 660px;
+    height: 900px;
     overflow: hidden;
     padding: 80px 0;
 
@@ -46,15 +46,15 @@
     }
 
     @include respond(mobile-lg) {
-      height: 1050px;
+      height: 1250px;
     }
 
     @include respond(mobile-m) {
-      height: 1000px;
+      height: 1200px;
     }
 
     @include respond(mobile-s) {
-      height: 920px;
+      height: 1080px;
     }
   }
 
