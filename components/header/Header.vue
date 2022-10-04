@@ -122,7 +122,7 @@ export default {
         duration: 2,
         ease: "Power4.easeOut",
         text: {
-          value: "Christopher Lugod",
+          value: "Christian Lugod",
         },
       });
 

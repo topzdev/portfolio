@@ -5,7 +5,7 @@ export default {
    */
 
   head: {
-    title: "TopzDev - Christopher Lugod",
+    title: "TopzDev - Christian Lugod",
     htmlAttrs: {
       lang: "en"
     },
@@ -46,7 +46,7 @@ export default {
       {
         hid: "og:title",
         property: "og:title",
-        content: `Christopher Lugod | Portfolio`
+        content: `Christian Lugod | Portfolio`
       },
       {
         hid: "og:type",
@@ -72,7 +72,7 @@ export default {
       {
         hid: "og:site_name",
         property: "og:site_name",
-        content: "Christopher Lugod | Portfolio"
+        content: "Christian Lugod | Portfolio"
       },
       {
         hid: "twitter:card",
@@ -82,7 +82,7 @@ export default {
       {
         hid: "twitter:title",
         name: "twitter:title",
-        content: `Christopher Lugod | Portfolio`
+        content: `Christian Lugod | Portfolio`
       },
       {
         hid: "twitter:site",
@@ -108,7 +108,7 @@ export default {
       {
         hid: "itemprop:name",
         itemprop: "name",
-        content: `Christopher Lugod | Portfolio`
+        content: `Christian Lugod | Portfolio`
       },
       {
         hid: "itemprop:name",
