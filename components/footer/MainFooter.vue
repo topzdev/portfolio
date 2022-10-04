@@ -20,7 +20,7 @@
         <span class="yellow--text">Designed</span> and
         <span class="light-blue--text">Developed</span>
         by
-        <nuxt-link to="/">Christopher Lugod</nuxt-link>
+        <nuxt-link to="/">Christian Lugod</nuxt-link>
         © {{ new Date().getFullYear() }}
       </div>
     </div>

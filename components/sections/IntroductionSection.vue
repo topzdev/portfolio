@@ -4,19 +4,13 @@
       <heading-primary overline="Introduction" title="Know more about me" />
 
       <div class="paragraph--primary mt-3" id="intro-anim">
-        Hi I'm Christopher Lugod, {{ new Date().getFullYear() - 2000 }} years
-        old and currently living in Manila, Philippines. Currently, I am taking
-        Bachelor of Science in Information Technology at Technological
-        University of the Philippines. Highly skilled and motivated full stack
-        web developer. I'm very passionate about this field and I always strive
-        forward to enhance my skills in developing web applications.
+             Hello! My name is Christian Lugod, and I'm currently a full-stack web developer working in the city Capital of Manila, Philippines. A Technological University of the Philippines Information Technology graduate. I'm highly passionate about this profession and it shall show in my skills and experience of the subject. This very passion of mine also drive me to a lifetime commitment of constantly improving my web application development skills.
       </div>
 
       <btn-secondary
         class="mt-2"
-        download="Christopher Lugod CV"
         :link="cv"
-        label="Download my CV"
+        label="Download my Resume"
       />
     </div>
   </section>
@@ -29,7 +23,7 @@ import splitText from "@/utils/splitText";
 export default {
   data() {
     return {
-      cv: require("@/assets/files/christian-lugod-resume.pdf"),
+      cv: "/christian-lugod-resume-2022.pdf",
     };
   },
   mounted() {
