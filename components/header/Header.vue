@@ -50,6 +50,17 @@ import gsap from "gsap";
 import TextPlugin from "gsap/TextPlugin";
 
 export default {
+  head: {
+    link: [
+      {
+        'hid': 'hero-img',
+        'as': 'image',
+        'href': '/img/me.png',
+        'media': '(max-width: 1264px)'
+      }
+    ]
+  },
+
   data() {
     return {
       scrollHireMe: {

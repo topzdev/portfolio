@@ -14,12 +14,13 @@
     "@mdi/js": "^5.1.45",
     "axios": "^0.19.2",
     "gsap": "^3.2.6",
-    "nuxt": "^2.0.0",
+    "nuxt": "2.15.8",
     "sass": "^1.55.0",
     "scrollmagic": "^2.0.7",
     "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {
+    "@nuxt/image": "^0.7.1",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "sass-loader": "^8.0.2"
   }

@@ -40,75 +40,75 @@ export default {
       list: [
         {
           title: "VueJS",
-          icon: require("@/assets/img/icons/icon_vue.svg"),
+          icon: "/img/icons/icon_vue.svg",
         },
         {
           title: "NuxtJS",
-          icon: require("@/assets/img/icons/icon_nuxt.svg"),
+          icon: "/img/icons/icon_nuxt.svg",
         },
         {
           title: "ReactJS",
-          icon: require("@/assets/img/icons/icon_react.svg"),
+          icon: "/img/icons/icon_react.svg",
         },
         {
           title: "NextJS",
-          icon: require("@/assets/img/icons/icon_nextjs.svg"),
+          icon: "/img/icons/icon_nextjs.svg",
         },
         {
           title: "Javascript",
-          icon: require("@/assets/img/icons/icon_javascript.svg"),
+          icon: "/img/icons/icon_javascript.svg",
         },
         {
           title: "Typescript",
-          icon: require("@/assets/img/icons/icon_typescript.svg"),
+          icon: "/img/icons/icon_typescript.svg",
         },
         {
           title: "JQuery",
-          icon: require("@/assets/img/icons/icon_jquery.svg"),
+          icon: "/img/icons/icon_jquery.svg",
         },
         {
           title: "PostgreSQL",
-          icon: require("@/assets/img/icons/icon_postgresql.svg"),
+          icon: "/img/icons/icon_postgresql.svg",
         },
         {
           title: "NodeJS",
-          icon: require("@/assets/img/icons/icon_nodejs.svg"),
+          icon: "/img/icons/icon_nodejs.svg",
         },
         {
           title: "GraphQL",
-          icon: require("@/assets/img/icons/icon_graphql.svg"),
+          icon: "/img/icons/icon_graphql.svg",
         },
         {
           title: "MongoDB",
-          icon: require("@/assets/img/icons/icon_mongodb.svg"),
+          icon: "/img/icons/icon_mongodb.svg",
         },
         {
           title: "Figma",
-          icon: require("@/assets/img/icons/icon_figma.svg"),
+          icon: "/img/icons/icon_figma.svg",
         },
         {
           title: "HTML 5",
-          icon: require("@/assets/img/icons/icon_html.svg"),
+          icon: "/img/icons/icon_html.svg",
         },
         {
           title: "CSS 3",
-          icon: require("@/assets/img/icons/icon_css.svg"),
+          icon: "/img/icons/icon_css.svg",
         },
         {
           title: "SCSS",
-          icon: require("@/assets/img/icons/icon_sass.svg"),
+          icon: "/img/icons/icon_sass.svg",
         },
         {
           title: "Vuetify",
-          icon: require("@/assets/img/icons/icon_vuetify.svg"),
+          icon: "/img/icons/icon_vuetify.svg",
         },
         {
           title: "Material UI",
-          icon: require("@/assets/img/icons/icon_mui.svg"),
+          icon: "/img/icons/icon_mui.svg",
         },
         {
           title: "Bootstrap",
-          icon: require("@/assets/img/icons/icon_bootstrap.svg"),
+          icon: "/img/icons/icon_bootstrap.svg",
         },
       ],
     };

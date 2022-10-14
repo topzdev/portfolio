@@ -1,12 +1,28 @@
 <template>
   <div class="card card--project" :id="id">
     <a :href="link" rel="noopener" target="_blank" class="card--project__head">
-      <img :src="logo" :alt="altLogo" class="card--project__logo" :draggable="false" />
+      <nuxt-img
+        format="webp"
+        :src="logo"
+        :alt="altLogo"
+        class="card--project__logo"
+        :draggable="false"
+        height="50"
+        loading="lazy"
+      />
     </a>
 
-    <div class="card--project__images">
-      <img :src="image" :alt="altImage" />
-    </div>
+    <nuxt-picture
+      class="card--project__images"
+      :imgAttrs="{ draggable: false }"
+      format="webp"
+      :src="image"
+      :placeholder="15"
+      :alt="altImage"
+      loading="lazy"
+      width="485"
+      height="497"
+    />
   </div>
 </template>
 
@@ -81,5 +97,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

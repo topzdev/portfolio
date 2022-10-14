@@ -3,7 +3,6 @@ export default {
   /*
    ** Headers of the page
    */
-
   head: {
     title: "TopzDev - Christian Lugod",
     htmlAttrs: {
@@ -193,7 +192,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [["@nuxtjs/pwa", { icon: false }]],
+  buildModules: [["@nuxtjs/pwa", { icon: false }], "@nuxt/image"],
   /*
    ** Nuxt.js modules
    */
@@ -206,6 +205,19 @@ export default {
     manifest: {
       start_url: "/"
     }
+  },
+
+  image: {
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+      "2xl": 1536
+    },
+    staticFilename: '[publicPath]/images/[name]-[hash][ext]'
   },
 
   generate: {
