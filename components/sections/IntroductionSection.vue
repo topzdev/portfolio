@@ -4,7 +4,7 @@
       <heading-primary overline="Introduction" title="Know more about me" />
 
       <div class="paragraph--primary mt-3" id="intro-anim">
-             Hello! My name is Christian Lugod, and I'm currently a full-stack web developer working in the city Capital of Manila, Philippines. A Technological University of the Philippines Information Technology graduate. I'm highly passionate about this profession and it shall show in my skills and experience of the subject. This very passion of mine also drive me to a lifetime commitment of constantly improving my web application development skills.
+            Hello! My name is Christian Lugod, and I'm currently a full-stack web developer working in the city Capital of Manila, Philippines. A Technological University of the Philippines Information Technology graduate. I'm highly passionate about this profession and it shall show in my skills and experience in the subject. This very passion of mine also drives me to a lifetime commitment to constantly improving my web application development skills.
       </div>
 
       <btn-secondary

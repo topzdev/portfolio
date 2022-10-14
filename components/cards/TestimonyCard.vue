@@ -1,12 +1,16 @@
 <template>
   <div class="card card--testimony" :id="'testi-card-'+index">
     <div class="card--testimony__image">
-      <img :src="image" :alt="alt" :draggable="false" />
+      <picture>
+        <source :srcset="image.s300" media="(max-width: 56.25em)">
+				<source :srcset="image.s400" media="(max-width: 79em)">
+        <img :src="image.s600" :alt="alt" :draggable="false" loading="lazy" height="473" width="470"/>
+      </picture>
     </div>
     <div class="card--testimony__main">
       <div class="card--testimony__stated" v-text="quoted" />
       <div class="card--testimony__told">
-        <img :src="image" :alt="alt" :draggable="false" />
+        <img :src="image.s75" :alt="alt" :draggable="false" loading="lazy"/>
         <div>
           <div class="card--testimony__told-name" v-text="name" />
           <div class="card--testimony__told-position" v-text="position" />

@@ -132,6 +132,7 @@
 
     &__logo {
       height: 50px;
+      width: auto;
 
       @include respond(laptop) {
         height: 44px;
@@ -160,6 +161,7 @@
 
       img {
         display: block;
+        height: auto;
         width: 100%;
         margin-bottom: 20px;
         user-select: none;
@@ -174,7 +176,7 @@
   &--testimony {
     display: flex;
     &__image {
-      $box-size: 270px;
+      $box-size: 400px;
       overflow: hidden;
       border-radius: 8px;
       box-shadow: $box-shadow-image;
@@ -182,11 +184,14 @@
       top: -40px;
       left: 0;
       z-index: 1;
+      height: $box-size;
+      width: $box-size;
+      min-width: $box-size;
       img {
         height: 100%;
         width: 100%;
       }
-
+      
       @include respond(laptop) {
         $box-size: 250px;
         height: $box-size;

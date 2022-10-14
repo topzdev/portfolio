@@ -1,6 +1,6 @@
 <template>
   <div class="card card--stack" :class="{'card--stack-blank': blank}">
-    <img v-if="!blank" class="card--stack__icon" :draggable="false" :src="icon" :alt="alt" />
+    <nuxt-img v-if="!blank" class="card--stack__icon" :draggable="false" :src="icon" :alt="alt" loading="lazy" height="68" width="68" placeholder="15"/>
     <div v-else class="card--stack__icon-blank"></div>
 
     <p v-if="!blank" class="card--stack__title" v-text="title"></p>

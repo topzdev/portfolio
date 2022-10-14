@@ -1,6 +1,6 @@
 <template>
   <button v-bind="$attrs" class="btn btn--primary" :class="classes">
-    <img v-if="loading" class="btn__loading" src="@/assets/img/loading.gif" alt="loading..." />
+    <img v-if="loading" class="btn__loading" src="@/assets/img/loading.gif" alt="loading..." loading="lazy"/>
     <span>{{label}}</span>
   </button>
 </template>

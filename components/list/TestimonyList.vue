@@ -28,9 +28,15 @@ export default {
     return {
       testimonies: [
         {
-          image: require("@/assets/img/profiles/client_sirmiko.jpg"),
+          image: {
+            s1440: require("@/assets/img/profiles/client_sir_miko_1440x.jpg"),
+            s600: require("@/assets/img/profiles/client_sir_miko_600x.jpg"),
+            s300: require("@/assets/img/profiles/client_sir_miko_300x.jpg"),
+            s400: require("@/assets/img/profiles/client_sir_miko_400x.jpg"),
+            s75: require("@/assets/img/profiles/client_sir_miko_75x.jpg")
+          },
           testimony:
-            "Christopher is not only great for design and development, he is a problem solver who always delivers an exceptional quality of work. Highly recommended",
+            "Christian is not only great for design and development, he is a problem solver who always delivers an exceptional quality of work. Highly recommended",
           name: "Miko Suarez",
           position: "Project Manager"
         }
