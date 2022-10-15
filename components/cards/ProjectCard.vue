@@ -9,19 +9,20 @@
         :draggable="false"
         height="50"
         loading="lazy"
+        provider="cloudinary"
       />
     </a>
 
     <nuxt-picture
       class="card--project__images"
-      :imgAttrs="{ draggable: false }"
-      format="webp"
+      :imgAttrs="{ draggable: false, loading: 'lazy' }"
       :src="image"
-      :placeholder="15"
       :alt="altImage"
-      loading="lazy"
+      preset="project_image"
+      :placeholder="15"
       width="485"
       height="497"
+      sizes="mobile-lg:400 desktop:600"
       provider="cloudinary"
     />
   </div>

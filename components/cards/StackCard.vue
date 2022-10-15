@@ -1,6 +1,17 @@
 <template>
-  <div class="card card--stack" :class="{'card--stack-blank': blank}">
-    <nuxt-img v-if="!blank" class="card--stack__icon" :draggable="false" :src="icon" :alt="alt" loading="lazy" height="68" width="68" placeholder="15"/>
+  <div class="card card--stack" :class="{ 'card--stack-blank': blank }">
+    <nuxt-img
+      v-if="!blank"
+      class="card--stack__icon"
+      :draggable="false"
+      :src="icon"
+      :alt="alt"
+      loading="lazy"
+      height="68"
+      :placeholder="30"
+      preset="stack"
+      provider="cloudinary"
+    />
     <div v-else class="card--stack__icon-blank"></div>
 
     <p v-if="!blank" class="card--stack__title" v-text="title"></p>
@@ -13,22 +24,22 @@ export default {
   computed: {
     alt() {
       return this.title + " icon";
-    }
+    },
   },
   props: {
     icon: {
       type: String,
-      default: require("@/assets/img/icons/icon_vue.svg")
+      default: require("@/assets/img/icons/icon_vue.svg"),
     },
     title: {
       type: String,
-      default: "VueJS"
+      default: "VueJS",
     },
     blank: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 

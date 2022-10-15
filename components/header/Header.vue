@@ -42,24 +42,24 @@
         ></btn-primary>
       </div>
     </div>
+
+    <nuxt-img
+      preload
+      :src="me_image"
+      class="header__me"
+      width="650"
+      height="933"
+      provider="cloudinary"
+    ></nuxt-img>
   </header>
 </template>
 
 <script>
 export default {
-  head: {
-    link: [
-      {
-        hid: "hero-img",
-        as: "image",
-        href: "/img/me.png",
-        media: "(max-width: 1264px)",
-      },
-    ],
-  },
-
   data() {
     return {
+      me_image: "/me_prsc2l",
+
       scrollHireMe: {
         el: "#hireme",
         duration: 2000,

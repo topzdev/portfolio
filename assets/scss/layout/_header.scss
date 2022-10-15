@@ -6,19 +6,26 @@
   width: 100%;
   overflow: hidden;
   @include rounded-container("bottom");
-  background-image: url("/img/me.png");
-  background-repeat: no-repeat;
-  background-size: auto 100vh;
-  background-position: right;
+  // background-image: url("/img/me.png");
+  // background-repeat: no-repeat;
+  // background-size: auto 100vh;
+  // background-position: right;
 
-  @include respond(laptop) {
-    background-image: none;
-  }
+  // @include respond(laptop) {
+  //   background-image: none;
+  // }
 
   .container {
     display: flex;
     align-items: center;
     height: 100%;
+  }
+
+  &__me {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   &__intro {
