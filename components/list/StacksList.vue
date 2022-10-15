@@ -38,75 +38,75 @@ export default {
       list: [
         {
           title: "VueJS",
-          icon: "/img/icons/icon_vue.svg",
+          icon: "/icons/icon_vue_jhkfs6",
         },
         {
           title: "NuxtJS",
-          icon: "/img/icons/icon_nuxt.svg",
+          icon: "/icons/icon_nuxt_mcbcyd",
         },
         {
           title: "ReactJS",
-          icon: "/img/icons/icon_react.svg",
+          icon: "/icons/icon_react_xnelsh",
         },
         {
           title: "NextJS",
-          icon: "/img/icons/icon_nextjs.svg",
+          icon: "/icons/icon_nextjs_t8gyda",
         },
         {
           title: "Javascript",
-          icon: "/img/icons/icon_javascript.svg",
+          icon: "/icons/icon_javascript_dfxxqk",
         },
         {
           title: "Typescript",
-          icon: "/img/icons/icon_typescript.svg",
+          icon: "/icons/icon_typescript_fld2yp",
         },
         {
           title: "JQuery",
-          icon: "/img/icons/icon_jquery.svg",
+          icon: "/icons/icon_jquery_rp7qwu",
         },
         {
           title: "PostgreSQL",
-          icon: "/img/icons/icon_postgresql.svg",
+          icon: "/icons/icon_postgresql_yg7kxl",
         },
         {
           title: "NodeJS",
-          icon: "/img/icons/icon_nodejs.svg",
+          icon: "/icons/icon_nodejs_rii0or",
         },
         {
           title: "GraphQL",
-          icon: "/img/icons/icon_graphql.svg",
+          icon: "/icons/icon_graphql_qathtj",
         },
         {
           title: "MongoDB",
-          icon: "/img/icons/icon_mongodb.svg",
+          icon: "/icons/icon_mongodb_qbu6q6",
         },
         {
           title: "Figma",
-          icon: "/img/icons/icon_figma.svg",
+          icon: "/icons/icon_figma_qijjss",
         },
         {
           title: "HTML 5",
-          icon: "/img/icons/icon_html.svg",
+          icon: "/icons/icon_html_iatcnq",
         },
         {
           title: "CSS 3",
-          icon: "/img/icons/icon_css.svg",
+          icon: "/icons/icon_css_pnlbyb",
         },
         {
           title: "SCSS",
-          icon: "/img/icons/icon_sass.svg",
+          icon: "/icons/icon_sass_pbvayy",
         },
         {
           title: "Vuetify",
-          icon: "/img/icons/icon_vuetify.svg",
+          icon: "/icons/icon_vuetify_nkvejh",
         },
         {
           title: "Material UI",
-          icon: "/img/icons/icon_mui.svg",
+          icon: "/icons/icon_css_pnlbyb",
         },
         {
           title: "Bootstrap",
-          icon: "/img/icons/icon_bootstrap.svg",
+          icon: "/icons/icon_bootstrap_truxzr",
         },
       ],
     };
@@ -133,7 +133,7 @@ export default {
     },
   },
 
-  mounted() {
+  created() {
     this.rowPerWidth(document.documentElement);
     window.addEventListener("resize", this.rowPerWidth);
   },

@@ -1,23 +1,32 @@
 <template>
   <div class="card card--testimony" :id="'testi-card-' + index">
     <div class="card--testimony__image">
-      <picture>
-        <source :srcset="image.s300" media="(max-width: 56.25em)" />
-        <source :srcset="image.s400" media="(max-width: 79em)" />
-        <img
-          :src="image.s600"
-          :alt="alt"
-          :draggable="false"
-          loading="lazy"
-          height="473"
-          width="470"
-        />
-      </picture>
+      <nuxt-picture
+        :imgAttrs="{ draggable: false, loading: 'lazy' }"
+        :src="image"
+        :alt="alt"
+        preset="testimony_profile"
+        :placeholder="150"
+        height="473"
+        width="470"
+        sizes="mobile-lg:400 desktop:600"
+        provider="cloudinary"
+      />
     </div>
     <div class="card--testimony__main">
       <div class="card--testimony__stated" v-text="quoted" />
       <div class="card--testimony__told">
-        <img :src="image.s75" :alt="alt" :draggable="false" loading="lazy" />
+        <nuxt-img
+          :src="image"
+          sizes="mobile-lg:75"
+          height="50"
+          width="50"
+          :alt="alt"
+          :draggable="false"
+          loading="lazy"
+          :placeholder="20"
+          provider="cloudinary"
+        />
         <div>
           <div class="card--testimony__told-name" v-text="name" />
           <div class="card--testimony__told-position" v-text="position" />

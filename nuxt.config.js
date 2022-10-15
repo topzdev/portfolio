@@ -226,6 +226,31 @@ export default {
 
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/topzdev/image/upload/portfolio'
+    },
+
+    presets: {
+      stack: {
+        modifiers: {
+          fit: 'cover'
+        }
+      },
+
+      project_image: {
+        modifiers: {
+          format: "webp",
+        }
+      },
+
+      project_logo: {
+        modifiers: {
+        }
+      },
+
+      testimony_profile: {
+        modifiers: {
+
+        }
+      }
     }
   },
 
