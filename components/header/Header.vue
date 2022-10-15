@@ -46,19 +46,16 @@
 </template>
 
 <script>
-import gsap from "gsap";
-import TextPlugin from "gsap/TextPlugin";
-
 export default {
   head: {
     link: [
       {
-        'hid': 'hero-img',
-        'as': 'image',
-        'href': '/img/me.png',
-        'media': '(max-width: 1264px)'
-      }
-    ]
+        hid: "hero-img",
+        as: "image",
+        href: "/img/me.png",
+        media: "(max-width: 1264px)",
+      },
+    ],
   },
 
   data() {
@@ -71,8 +68,7 @@ export default {
   },
   mounted() {
     if (this.$route.hash) this.$scrollTo(this.$route.hash, 2000);
-
-    gsap.registerPlugin(TextPlugin);
+    const gsap = this.$gsap;
     const controller = new ScrollMagic.Controller();
 
     const timeline = gsap.timeline({

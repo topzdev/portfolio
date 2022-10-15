@@ -1,16 +1,23 @@
 <template>
-  <div class="card card--testimony" :id="'testi-card-'+index">
+  <div class="card card--testimony" :id="'testi-card-' + index">
     <div class="card--testimony__image">
       <picture>
-        <source :srcset="image.s300" media="(max-width: 56.25em)">
-				<source :srcset="image.s400" media="(max-width: 79em)">
-        <img :src="image.s600" :alt="alt" :draggable="false" loading="lazy" height="473" width="470"/>
+        <source :srcset="image.s300" media="(max-width: 56.25em)" />
+        <source :srcset="image.s400" media="(max-width: 79em)" />
+        <img
+          :src="image.s600"
+          :alt="alt"
+          :draggable="false"
+          loading="lazy"
+          height="473"
+          width="470"
+        />
       </picture>
     </div>
     <div class="card--testimony__main">
       <div class="card--testimony__stated" v-text="quoted" />
       <div class="card--testimony__told">
-        <img :src="image.s75" :alt="alt" :draggable="false" loading="lazy"/>
+        <img :src="image.s75" :alt="alt" :draggable="false" loading="lazy" />
         <div>
           <div class="card--testimony__told-name" v-text="name" />
           <div class="card--testimony__told-position" v-text="position" />
@@ -21,11 +28,11 @@
 </template>
 
 <script>
-import gsap from "gsap";
 export default {
   mounted() {
+    const gsap = this.$gsap;
     const timeline = gsap.timeline({
-        defaults: { autoAlpha: 0, ease: "Power4.easeOut" }
+        defaults: { autoAlpha: 0, ease: "Power4.easeOut" },
       }),
       image = ".card--testimony__image",
       stated = ".card--testimony__stated",
@@ -42,10 +49,9 @@ export default {
     const scene = new ScrollMagic.Scene({
       triggerElement: root,
       triggerHook: "onEnter",
-      offset: 200
+      offset: 200,
     })
       .setTween(timeline)
-
       .addTo(controller);
   },
   computed: {
@@ -54,30 +60,30 @@ export default {
     },
     quoted() {
       return '"' + this.testimony + '"';
-    }
+    },
   },
   props: {
     image: {
       type: String,
-      required: true
+      required: true,
     },
     testimony: {
       type: String,
-      required: true
+      required: true,
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     position: {
       type: String,
-      required: true
+      required: true,
     },
     index: {
       type: Number,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 

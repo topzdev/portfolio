@@ -1,8 +1,10 @@
 <template>
   <div>
     <page-header />
+
     <main>
       <intro-section />
+
       <stack-section />
       <projects-section />
       <testimony-section />
@@ -21,7 +23,6 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import TestimonySection from "@/components/sections/TestimonySection";
 import ProposalSection from "@/components/sections/ProposalSection";
 import MainFooter from "@/components/footer/MainFooter";
-
 export default {
   components: {
     PageHeader,
@@ -30,8 +31,8 @@ export default {
     ProjectsSection,
     TestimonySection,
     ProposalSection,
-    MainFooter
-  }
+    MainFooter,
+  },
 };
 </script>
 
