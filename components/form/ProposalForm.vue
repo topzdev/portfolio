@@ -42,7 +42,7 @@
         type="file"
         name="file"
         ref="fileInput"
-        style="display:none;"
+        style="display: none"
         accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*"
         @change="onFileChange"
       />
@@ -55,14 +55,19 @@
         @click.native="openFileDrawer"
       />
     </div>
-    <btn-primary block dense type="submit" :loading="loading" label="Send it!"></btn-primary>
+    <btn-primary
+      block
+      dense
+      type="submit"
+      :loading="loading"
+      label="Send it!"
+    ></btn-primary>
   </form>
 </template>
 
 <script>
 import Icon from "@/utils/icons";
 import { PROPOSAL_SNACK } from "@/store/types";
-import gsap from "gsap";
 import axios from "axios";
 
 export default {
@@ -70,14 +75,14 @@ export default {
     return {
       loading: false,
       icon: {
-        clip: Icon.clip
+        clip: Icon.clip,
       },
       mail: {
         name: "",
         email: "",
         text: "",
-        file: ""
-      }
+        file: "",
+      },
     };
   },
   computed: {
@@ -86,7 +91,7 @@ export default {
         name: this.mail.name,
         email: this.mail.email,
         message: this.mail.text,
-        file: this.mail.file
+        file: this.mail.file,
       };
     },
 
@@ -94,11 +99,12 @@ export default {
       const file = this.mail.file;
       return {
         name: file ? file.name : "",
-        show: file ? "btn-icon-active" : ""
+        show: file ? "btn-icon-active" : "",
       };
-    }
+    },
   },
   mounted() {
+    const gsap = this.$gsap;
     const timeline = gsap.timeline(),
       root = "#hireme";
 
@@ -108,21 +114,21 @@ export default {
       .from(".heading--secondary", {
         y: "30",
         autoAlpha: 0,
-        duration: 0.5
+        duration: 0.5,
       })
       .to("#hireme .inp--primary", {
         y: "-30",
         stagger: 0.5,
         autoAlpha: 1,
         duration: 1.5,
-        ease: "Elastic.easeOut"
+        ease: "Elastic.easeOut",
       })
       .from(
         ".proposal-form .proposal-form__file",
         {
           y: "30",
           autoAlpha: 0,
-          duration: 0.5
+          duration: 0.5,
         },
         "-=1"
       )
@@ -131,7 +137,7 @@ export default {
         {
           y: "30",
           autoAlpha: 0,
-          duration: 0.5
+          duration: 0.5,
         },
         "-=.5"
       );
@@ -140,7 +146,7 @@ export default {
       triggerElement: root,
       triggerHook: 1,
       offset: 200,
-      reverse: false
+      reverse: false,
     })
       .setTween(timeline)
       .addTo(controller);
@@ -166,7 +172,7 @@ export default {
       this.loading = true;
 
       const axiosConfig = {
-        header: { "Content-Type": "multipart/form-data" }
+        header: { "Content-Type": "multipart/form-data" },
       };
 
       try {
@@ -180,19 +186,19 @@ export default {
         this.loading = false;
         this.$store.commit("frontend/" + PROPOSAL_SNACK, {
           show: true,
-          text: "Thanks for the proposal!, I'll review it immediately."
+          text: "Thanks for the proposal!, I'll review it immediately.",
         });
       } catch (error) {
         this.loading = false;
         this.$store.commit("frontend/" + PROPOSAL_SNACK, {
           show: true,
           text: "Something went wrong, Try again later",
-          error: true
+          error: true,
         });
         console.log(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

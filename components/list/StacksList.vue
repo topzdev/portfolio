@@ -12,8 +12,6 @@
 
 <script>
 import StackListItem from "@/components/list/StackListItem";
-import gsap from "gsap";
-
 export default {
   components: { StackListItem },
   computed: {
@@ -135,7 +133,7 @@ export default {
     },
   },
 
-  created() {
+  mounted() {
     this.rowPerWidth(document.documentElement);
     window.addEventListener("resize", this.rowPerWidth);
   },
@@ -144,6 +142,7 @@ export default {
   },
 
   mounted() {
+    const gsap = this.$gsap;
     let controller = new ScrollMagic.Controller();
     let timeline = gsap.timeline();
 

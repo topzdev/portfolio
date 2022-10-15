@@ -1,5 +1,5 @@
 export default {
-  mode: "spa",
+  target: "static",
   /*
    ** Headers of the page
    */
@@ -187,12 +187,16 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~/plugins/global-components"],
+  plugins: ["~/plugins/global-components",],
 
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [["@nuxtjs/pwa", { icon: false }], "@nuxt/image"],
+  buildModules: [
+    ["@nuxtjs/pwa", { icon: false }],
+    "@nuxt/image",
+    'nuxt-gsap-module'
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -209,15 +213,26 @@ export default {
 
   image: {
     screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536,
-      "2xl": 1536
+      'mobile-s': 320,
+      'mobile-m': 375,
+      'mobile-lg': 600,
+      'tab-port': 768,
+      'tab-land': 900,
+      'laptop-s': 1000,
+      "laptop": 1264,
+      "desktop": 1940,
+      "big-desktop": 3840
     },
-    staticFilename: '[publicPath]/images/[name]-[hash][ext]'
+
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/topzdev/image/upload/portfolio'
+    }
+  },
+
+  gsap: {
+    extraPlugins: {
+      text: true
+    }
   },
 
   generate: {

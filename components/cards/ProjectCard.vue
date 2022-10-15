@@ -22,32 +22,33 @@
       loading="lazy"
       width="485"
       height="497"
+      provider="cloudinary"
     />
   </div>
 </template>
 
 <script>
-import gsap from "gsap";
 export default {
   mounted() {
+    const gsap = this.$gsap;
     const timeline = gsap.timeline({
       defaults: {
         ease: "Power4.easeOut",
         y: "25%",
-        autoAlpha: 0
-      }
+        autoAlpha: 0,
+      },
     });
     const controller = new ScrollMagic.Controller();
     timeline.from("#" + this.id, {
       duration: 5,
       x: this.isRight ? "30%" : "-30%",
-      rotate: this.isRight ? "-20deg" : "20deg"
+      rotate: this.isRight ? "-20deg" : "20deg",
     });
     const scene = new ScrollMagic.Scene({
       triggerElement: "#" + this.id,
       triggerHook: 1,
       duration: "200%",
-      offset: -80
+      offset: -80,
     })
       .setTween(timeline)
       .addTo(controller);
@@ -68,32 +69,32 @@ export default {
     },
     altImage() {
       return this.title + " project images";
-    }
+    },
   },
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     logo: {
-      type: String
+      type: String,
     },
     imagePrefix: {
-      type: String
+      type: String,
     },
     image: {
       type: String,
-      required: true
+      required: true,
     },
     link: {
       type: String,
-      default: "/"
+      default: "/",
     },
     id: {
-      type: String
+      type: String,
     },
-    isRight: Boolean
-  }
+    isRight: Boolean,
+  },
 };
 </script>
 
