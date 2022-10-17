@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import config from "~/configs";
 export default {
   computed: {
     alt() {
@@ -29,7 +30,7 @@ export default {
   props: {
     icon: {
       type: String,
-      default: require("@/assets/img/icons/icon_vue.svg"),
+      default: config.images.icon.vue,
     },
     title: {
       type: String,
