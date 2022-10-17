@@ -56,15 +56,6 @@ export default {
   },
 
   computed: {
-    smolImages() {
-      let images = [];
-      for (let i = 1; i <= 6; i++)
-        images.push(
-          require(`@/assets/img/projects/${this.imagePrefix}/${this.imagePrefix}-smol-${i}.jpg`)
-        );
-
-      return images;
-    },
     altLogo() {
       return this.title + " logo";
     },

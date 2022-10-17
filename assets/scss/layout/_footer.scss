@@ -8,7 +8,7 @@
     z-index: 0;
     &::after {
       @include ui-icon-float(
-        "~@/assets/img/ui_ellipse_red_gradient.svg",
+       $ui-ellipse-red-gradient,
         380px,
         380px,
         -8%,
@@ -28,7 +28,7 @@
         animation: rotate 10s infinite;
         transform: rotate(0);
         @include ui-icon-float(
-          "~@/assets/img/ui_ellipse_blue_gradient.svg",
+          $ui-ellipse-blue-gradient,
           420px,
           420px,
           0,

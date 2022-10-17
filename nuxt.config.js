@@ -1,3 +1,5 @@
+import config from "./configs";
+
 export default {
   ssr: true,
   target: "static",
@@ -5,7 +7,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: "TopzDev - Christian Lugod",
+    title: config.website.title,
     htmlAttrs: {
       lang: "en"
     },
@@ -26,12 +28,12 @@ export default {
       {
         hid: "description",
         name: "description",
-        content:
-          "UI/UX Designer, Fullstack Web developer from Manila, Philippines"
+        content: config.website.description
+
       },
       {
         name: "theme-color",
-        content: "#0993e5"
+        content: config.website.themeColor
       },
       {
         hid: "apple-mobile-web-app-capable",
@@ -46,33 +48,33 @@ export default {
       {
         hid: "og:title",
         property: "og:title",
-        content: `Christian Lugod | Portfolio`
+        content: config.website.ogTitle
       },
       {
         hid: "og:type",
         property: "og:type",
-        content: "portfolio"
+        content: config.website.type
       },
       {
         hid: "og:url",
         property: "og:url",
-        content: "https://topzdev.netlify.app/"
+        content: config.website.url
       },
       {
         hid: "og:image",
         property: "og:image",
-        content: "/seo-cover.jpg"
+        content: config.website.coverPhoto
       },
       {
         hid: "og:description",
         property: "og:description",
         content:
-          "UI/UX Designer, Fullstack Web developer from Manila, Philippines"
+          config.website.description
       },
       {
         hid: "og:site_name",
         property: "og:site_name",
-        content: "Christian Lugod | Portfolio"
+        content: config.website.title
       },
       {
         hid: "twitter:card",
@@ -82,60 +84,57 @@ export default {
       {
         hid: "twitter:title",
         name: "twitter:title",
-        content: `Christian Lugod | Portfolio`
+        content: config.website.title
       },
       {
         hid: "twitter:site",
         name: "twitter:site",
-        content: "@_christop_"
+        content: config.twittterUsername
       },
       {
         hid: "twitter:description",
         name: "twitter:description",
         content:
-          "UI/UX Designer, Fullstack Web developer from Manila, Philippines"
+          config.website.description
       },
       {
         hid: "twitter:image",
         name: "twitter:image",
-        content: "/seo-cover.jpg"
+        content: config.website.coverPhoto
       },
       {
         hid: "twitter:creator",
         name: "twitter:creator",
-        content: "@_christop_"
+        content: config.website.twittterUsername
       },
       {
         hid: "itemprop:name",
         itemprop: "name",
-        content: `Christian Lugod | Portfolio`
+        content: config.website.title
       },
       {
         hid: "itemprop:name",
         itemprop: "description",
         content:
-          "UI/UX Designer, Fullstack Web developer from Manila, Philippines"
+          config.website.description
       },
 
       {
         hid: "itemprop:image",
         itemprop: "image",
-        content: "/topzdev-logo.svg"
+        content: config.website.logo
       }
     ],
     link: [
       {
-        rel: "preload",
         type: "font/woff2",
         href: "~/assets/icon/icon-font/font/fontello.woff2"
       },
       {
-        rel: "preload",
         type: "font/woff",
         href: "~/assets/icon/icon-font/font/fontello.woff"
       },
       {
-        rel: "preload",
         type: "font/tff",
         href: "~/assets/icon/icon-font/font/fontello.ttf"
       },

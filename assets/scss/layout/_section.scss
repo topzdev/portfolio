@@ -67,7 +67,7 @@
       position: absolute;
       content: "";
       display: block;
-      background-image: url("~@/assets/img/ui_squre_grey.svg");
+      background-image: url($ui-square-grey);
       background-size: 750px;
       height: 750px;
       width: 750px;
@@ -112,7 +112,7 @@
       position: relative;
       &::before {
         @include ui-icon-float(
-          "~@/assets/img/ui_dots_grey.svg",
+          $ui-dots-grey,
           270px,
           270px,
           -20%,
@@ -144,7 +144,7 @@
       &::before {
         animation: updownblob 10s infinite;
         @include ui-icon-float(
-          "~@/assets/img/ui_float_blobs.svg",
+          $ui-float-blobs,
           850px,
           850px,
           -40%,
@@ -166,7 +166,7 @@
 
       &::after {
         @include ui-icon-float(
-          "~@/assets/img/ui_ellipse_violet_gradient.svg",
+          $ui-violet-gradient,
           160px,
           160px,
           45%,
@@ -200,8 +200,7 @@
       //   width: 100%;
       // }
       &::before {
-        @include ui-icon-float(
-          "~@/assets/img/ui_dots_grey.svg",
+        @include ui-icon-float($ui-dots-grey,
           220px,
           220px,
           -50%,
