@@ -3,11 +3,12 @@
     <a :href="link" rel="noopener" target="_blank" class="card--project__head">
       <nuxt-img
         format="webp"
-        :src="logo"
+        :src="logo.src"
         :alt="altLogo"
         class="card--project__logo"
         :draggable="false"
-        height="50"
+        :height="logo.height"
+        :width="logo.width"
         loading="lazy"
         provider="cloudinary"
       />
