@@ -39,7 +39,11 @@ export default {
       projects: [
         {
           title: "Shareitineray",
-          logo: "/logo/shareitinerary_logo_m4zqlq",
+          logo: {
+            src: "/logo/shareitinerary_logo_m4zqlq",
+            height: 50,
+            width: 213,
+          },
           image: "/projects/all/proj_sharetinerary_x0cqjn",
           imagePrefix: "shareitinerary",
           link: "https://shareitinerary.com/",
@@ -48,7 +52,11 @@ export default {
         {
           title: "Knovie",
           imagePrefix: "knowvie",
-          logo: "/logo/knowvie_logo_v1wb6a",
+          logo: {
+            src: "/logo/knowvie_logo_v1wb6a",
+            height: 50,
+            width: 47,
+          },
           image: "/projects/all/proj_knowvie_hi2qyh",
           link: "https://knowvie.herokuapp.com/",
           id: "project-2",
@@ -56,7 +64,11 @@ export default {
         {
           title: "PC Master Shop",
           imagePrefix: "pcmaster",
-          logo: "/logo/pcmaster_logo_ud6tcm",
+          logo: {
+            src: "/logo/pcmaster_logo_ud6tcm",
+            height: 50,
+            width:175,
+          },
           image: "/projects/all/proj_pcmaster_f0xrlx",
           link: "http://pcmastershop.herokuapp.com/",
           id: "project-3",
@@ -64,14 +76,22 @@ export default {
         {
           title: "Brocode",
           imagePrefix: "brocode",
-          logo: "/logo/brocode_logo_x3wynw",
+          logo: {
+            src: "/logo/brocode_logo_x3wynw",
+            height: 50,
+            width: 259,
+          },
           image: "/projects/all/proj_brocode_q6fknk",
           id: "project-4",
         },
         {
           title: "Luzon TSC",
           imagePrefix: "tsc",
-          logo: "/logo/tsc_logo_t2o9pc",
+          logo: {
+            src: "/logo/tsc_logo_t2o9pc",
+            height: 50,
+            width: 53,
+          },
           image: "/projects/all/proj_tsc_ggaleu",
           link: "https://luzontsc.com/",
           id: "project-5",
