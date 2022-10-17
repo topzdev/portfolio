@@ -4,10 +4,11 @@
       v-if="!blank"
       class="card--stack__icon"
       :draggable="false"
-      :src="icon"
+      :src="icon.src"
       :alt="alt"
       loading="lazy"
-      height="68"
+      :height="icon.height"
+      :width="icon.width"
       :placeholder="30"
       preset="stack"
       provider="cloudinary"
@@ -29,8 +30,12 @@ export default {
   },
   props: {
     icon: {
-      type: String,
-      default: config.images.icon.vue,
+      type: Object,
+      default: {
+        src: config.images.icon.vue,
+        height: 68,
+        width: 68,
+      },
     },
     title: {
       type: String,

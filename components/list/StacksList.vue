@@ -38,75 +38,147 @@ export default {
       list: [
         {
           title: "VueJS",
-          icon: "/icons/icon_vue_jhkfs6",
+          icon: {
+            src: "/icons/icon_vue_jhkfs6",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "NuxtJS",
-          icon: "/icons/icon_nuxt_mcbcyd",
+          icon: {
+            src: "/icons/icon_nuxt_mcbcyd",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "ReactJS",
-          icon: "/icons/icon_react_xnelsh",
+          icon: {
+            src: "/icons/icon_react_xnelsh",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "NextJS",
-          icon: "/icons/icon_nextjs_t8gyda",
+          icon: {
+            src: "/icons/icon_nextjs_t8gyda",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "Javascript",
-          icon: "/icons/icon_javascript_dfxxqk",
+          icon: {
+            src: "/icons/icon_javascript_dfxxqk",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "Typescript",
-          icon: "/icons/icon_typescript_fld2yp",
+          icon: {
+            src: "/icons/icon_typescript_fld2yp",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "JQuery",
-          icon: "/icons/icon_jquery_rp7qwu",
+          icon: {
+            src: "/icons/icon_jquery_rp7qwu",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "PostgreSQL",
-          icon: "/icons/icon_postgresql_yg7kxl",
+          icon: {
+            src: "/icons/icon_postgresql_yg7kxl",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "NodeJS",
-          icon: "/icons/icon_nodejs_rii0or",
+          icon: {
+            src: "/icons/icon_nodejs_rii0or",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "GraphQL",
-          icon: "/icons/icon_graphql_qathtj",
+          icon: {
+            src: "/icons/icon_graphql_qathtj",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "MongoDB",
-          icon: "/icons/icon_mongodb_qbu6q6",
+          icon: {
+            src: "/icons/icon_mongodb_qbu6q6",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "Figma",
-          icon: "/icons/icon_figma_qijjss",
+          icon: {
+            src: "/icons/icon_figma_qijjss",
+            height: 68,
+            width: 45,
+          },
         },
         {
           title: "HTML 5",
-          icon: "/icons/icon_html_iatcnq",
+          icon: {
+            src: "/icons/icon_html_iatcnq",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "CSS 3",
-          icon: "/icons/icon_css_pnlbyb",
+          icon: {
+            src: "/icons/icon_css_pnlbyb",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "SCSS",
-          icon: "/icons/icon_sass_pbvayy",
+          icon: {
+            src: "/icons/icon_sass_pbvayy",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "Vuetify",
-          icon: "/icons/icon_vuetify_nkvejh",
+          icon: {
+            src: "/icons/icon_vuetify_nkvejh",
+            height: 59,
+            width: 68,
+          },
         },
         {
           title: "Material UI",
-          icon: "/icons/icon_css_pnlbyb",
+          icon: {
+            src: "/icons/icon_css_pnlbyb",
+            height: 68,
+            width: 68,
+          },
         },
         {
           title: "Bootstrap",
-          icon: "/icons/icon_bootstrap_truxzr",
+          icon: {
+            src: "/icons/icon_bootstrap_truxzr",
+            height: 68,
+            width: 68,
+          },
         },
       ],
     };

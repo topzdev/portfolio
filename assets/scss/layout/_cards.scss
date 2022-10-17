@@ -41,6 +41,7 @@
     &__icon-blank {
       display: block;
       height: 68px;
+      width: auto;
       margin-bottom: 15px;
 
       @include respond(tab-port) {
