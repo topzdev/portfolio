@@ -1,6 +1,6 @@
 <template>
   <button v-bind="$attrs" :type="type" class="btn btn--icon">
-    <base-icon :icon="icon"></base-icon>
+    <component :is="iconComponent"></component>
   </button>
 </template>
 
@@ -8,15 +8,22 @@
 import inputMixin from "@/mixins/input";
 export default {
   mixins: [inputMixin],
+
+  computed: {
+    iconComponent() {
+      return () => import(`../icons/${this.icon}`);
+    },
+  },
+
   props: {
     icon: {
       type: String,
-      required: true
+      required: true,
     },
     type: {
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 };
 </script>
 

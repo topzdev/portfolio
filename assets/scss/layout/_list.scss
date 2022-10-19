@@ -116,6 +116,10 @@
       font-size: 22px;
       @include transition;
 
+      svg {
+        fill: $color-yellow;        
+      }
+
       @include respond(laptop-s) {
         font-size: 20px;
         height: 48px;
@@ -178,7 +182,10 @@
 
     li:hover &__icon {
       background: rgba($color-yellow, 1);
-      color: $footer-background;
+      
+      svg {
+        fill: $footer-background;
+       }
     }
   }
 }

@@ -31,11 +31,6 @@ export default {
   props: {
     icon: {
       type: Object,
-      default: {
-        src: config.images.icon.vue,
-        height: 68,
-        width: 68,
-      },
     },
     title: {
       type: String,

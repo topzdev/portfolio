@@ -70,7 +70,7 @@ export default {
       required: true,
     },
     logo: {
-      type: String,
+      type: Object,
     },
     imagePrefix: {
       type: String,

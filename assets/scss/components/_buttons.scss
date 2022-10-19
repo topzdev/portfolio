@@ -132,6 +132,11 @@
       font-size: 32px;
     }
 
+    svg {
+      height: 30px;
+      width: 30px;
+    }
+
     &:hover {
       background-color: darken($input-background, 3%);
       svg {

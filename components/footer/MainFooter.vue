@@ -29,22 +29,41 @@
 
 <script>
 import FooterList from "@/components/list/FooterList";
+// import PhoneIcon from "@/components/icons/PhoneIcon.vue";
+// import UpworkIcon from "@/components/icons/UpworkIcon.vue";
+// import GithubIcon from "@/components/icons/GithubIcon.vue";
+// // import InstagramIcon from "@/components/icons/InstragramIcon.vue";
+// import DribbleIcon from "@/components/icons/DribbleIcon.vue";
+// import LinkedInIcon from "@/components/icons/LinkedInIcon.vue";
+// import FacebookIcon from "@/components/icons/FacebookIcon.vue";
+// import TwitterIcon from "@/components/icons/TwitterIcon.vue";
 import gsap from "gsap";
 
 export default {
-  components: { FooterList },
+  components: {
+    FooterList,
+    // PhoneIcon,
+    // EmailIcon,
+    // UpworkIcon,
+    // GithubIcon,
+    // InstagramIcon,
+    // DribbleIcon,
+    // LinkedInIcon,
+    // FacebookIcon,
+    // TwitterIcon,
+  },
   created() {},
 
   data() {
     return {
       contactLinks: [
         {
-          icon: "icon_phone",
+          icon: "PhoneIcon.vue",
           label: "09286665903",
           link: "tel:09286665903",
         },
         {
-          icon: "icon_email",
+          icon: "EmailIcon.vue",
           label: "christianlugod05@gmail.com",
           link: "mailto:christianlugod05@gmail.com",
         },
@@ -52,37 +71,37 @@ export default {
 
       socialLinks: [
         {
-          icon: "icon_upwork",
+          icon: "UpworkIcon.vue",
           label: "Hire me at Upwork",
           link: "https://www.upwork.com/freelancers/~0183563188426b2c0c",
         },
         {
-          icon: "icon_github",
+          icon: "GithubIcon.vue",
           label: "Github",
           link: "https://github.com/topzdev",
         },
         {
-          icon: "icon_dribbble",
+          icon: "DribbleIcon.vue",
           label: "Dribbble",
           link: "https://dribbble.com/TopzTheDev",
         },
         {
-          icon: "icon_linkedin",
+          icon: "LinkedInIcon.vue",
           label: "LinkedIn",
           link: "https://www.linkedin.com/in/christopher-lugod-ba146b197/",
         },
         {
-          icon: "icon_facebook",
+          icon: "FacebookIcon.vue",
           label: "Facebook",
           link: "https://www.facebook.com/Christoplugod",
         },
         {
-          icon: "icon_twitter",
+          icon: "TwitterIcon.vue",
           label: "Twitter",
           link: "https://twitter.com/_christop_",
         },
         {
-          icon: "icon_instagram",
+          icon: "InstagramIcon.vue",
           label: "Instagram",
           link: "https://www.instagram.com/christoplugod/",
         },

@@ -9,7 +9,8 @@
         :label="item.label"
         :icon="item.icon"
         :link="item.link"
-      />
+      >
+      </footer-list-item>
     </ul>
   </div>
 </template>
@@ -23,7 +24,7 @@ export default {
 
   mounted() {
     const timeline = gsap.timeline({
-      defaults: { ease: "Back.easeOut.config(1.7)" }
+      defaults: { ease: "Back.easeOut.config(1.7)" },
     });
     const controller = new ScrollMagic.Controller();
 
@@ -33,13 +34,13 @@ export default {
         stagger: 0.2,
         duration: 1,
         y: -30,
-        autoAlpha: 1
+        autoAlpha: 1,
       });
 
     const Scene = new ScrollMagic.Scene({
       triggerElement: ".list--footer",
       triggerHook: "onEnter",
-      reverse: false
+      reverse: false,
     })
       .setTween(timeline)
       .addTo(controller);
@@ -49,9 +50,9 @@ export default {
     title: String,
     links: {
       type: Array,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 

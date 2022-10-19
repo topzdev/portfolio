@@ -51,7 +51,7 @@
         :title="fileValidation.name"
         :class="fileValidation.show"
         type="button"
-        icon="icon_attach"
+        icon="AttachIcon.vue"
         @click.native="openFileDrawer"
       />
     </div>

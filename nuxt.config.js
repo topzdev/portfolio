@@ -126,26 +126,38 @@ export default {
       }
     ],
     link: [
+      // {
+      //   type: "font/woff2",
+      //   href: "~/assets/icon/icon-font/font/fontello.woff2"
+      // },
+      // {
+      //   type: "font/woff",
+      //   href: "~/assets/icon/icon-font/font/fontello.woff"
+      // },
+      // {
+      //   type: "font/tff",
+      //   href: "~/assets/icon/icon-font/font/fontello.ttf"
+      // },
+      // {
+      //   href: "~/assets/icon/icon-font/font/fontello.svg"
+      // },
       {
-        type: "font/woff2",
-        href: "~/assets/icon/icon-font/font/fontello.woff2"
-      },
-      {
-        type: "font/woff",
-        href: "~/assets/icon/icon-font/font/fontello.woff"
-      },
-      {
-        type: "font/tff",
-        href: "~/assets/icon/icon-font/font/fontello.ttf"
-      },
-      {
-        href: "~/assets/icon/icon-font/font/fontello.svg"
-      },
-      {
-        rel: "stylesheet",
+        rel: "preconnect",
         href:
-          "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Poppins:wght@400;500;700&display=swap"
+          "https://fonts.googleapis.com"
       },
+
+      {
+        rel: 'preconnect',
+        href: "https://fonts.gstatic.com",
+        crossorigin: true
+      },
+
+      {
+        rel: 'stylesheet',
+        href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Poppins:wght@400;500;700&display=swap"
+      },
+
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "icon",
@@ -182,7 +194,7 @@ export default {
   css: [
     "~/assets/css/materialize-grid.css",
     "~/assets/scss/main.scss",
-    "~/assets/icon/icon-font/css/fontello.css"
+    // "~/assets/icon/icon-font/css/fontello.css"
   ],
   /*
    ** Plugins to load before mounting the App
@@ -272,7 +284,7 @@ export default {
     trimCustomFragments: true,
     useShortDoctype: true
   },
-  axios: { baseURL: "https://topzdev.netlify.app/" },
+  axios: { baseURL: "https://topz.dev/" },
   build: {
     /*
      ** You can extend webpack config here

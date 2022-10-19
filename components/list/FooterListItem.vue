@@ -2,7 +2,7 @@
   <li>
     <a :href="link" rel="noopener" target="_blank" class="list--footer__link">
       <span class="list--footer__icon">
-        <base-icon :icon="icon"></base-icon>
+        <component :is="iconComponent"></component>
       </span>
       <div class="list--footer__label" v-text="label" />
     </a>
@@ -12,24 +12,29 @@
 <script>
 export default {
   computed: {
-    iconName: function() {
+    iconName: function () {
       return this.label + " icon";
-    }
+    },
+
+    iconComponent() {
+      return () => import(`../icons/${this.icon}`);
+    },
   },
+
   props: {
     icon: {
       type: String,
-      required: true
+      required: true,
     },
     label: {
       type: String,
-      required: true
+      required: true,
     },
     link: {
       type: String,
-      default: "/"
-    }
-  }
+      default: "/",
+    },
+  },
 };
 </script>
 
