@@ -13,10 +13,12 @@ export default {
     },
     script: [
       {
+        defer: true,
         src:
           "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"
       },
       {
+        defer: true,
         src:
           "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"
       }
@@ -126,21 +128,6 @@ export default {
       }
     ],
     link: [
-      // {
-      //   type: "font/woff2",
-      //   href: "~/assets/icon/icon-font/font/fontello.woff2"
-      // },
-      // {
-      //   type: "font/woff",
-      //   href: "~/assets/icon/icon-font/font/fontello.woff"
-      // },
-      // {
-      //   type: "font/tff",
-      //   href: "~/assets/icon/icon-font/font/fontello.ttf"
-      // },
-      // {
-      //   href: "~/assets/icon/icon-font/font/fontello.svg"
-      // },
       {
         rel: "preconnect",
         href:
@@ -194,7 +181,6 @@ export default {
   css: [
     "~/assets/css/materialize-grid.css",
     "~/assets/scss/main.scss",
-    // "~/assets/icon/icon-font/css/fontello.css"
   ],
   /*
    ** Plugins to load before mounting the App

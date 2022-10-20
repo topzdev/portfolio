@@ -15,8 +15,6 @@
     "gsap": "^3.2.6",
     "nuxt": "2.15.8",
     "sass": "^1.55.0",
-    "scrollmagic": "^2.0.8",
-    "vue-scrollmagic": "^1.2.0",
     "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {

@@ -7,7 +7,7 @@ const config = {
 	},
 	website: {
 		title: 'TopzDev - Christian Lugod Portfolio',
-		description: "UI/UX Designer, SEO Specialist ,Backend ,Frontend ,Fullstack Web Developer from Manila, Philippines",
+		description: "UI/UX Designer,SEO Specialist,Backend,Frontend,Fullstack Web Developer from Manila,Philippines",
 		themeColor: '#0993e5',
 		ogTitle: 'Christian Lugod | Portfolio',
 		url: 'https://topz.dev',

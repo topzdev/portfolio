@@ -29,28 +29,10 @@
 
 <script>
 import FooterList from "@/components/list/FooterList";
-// import PhoneIcon from "@/components/icons/PhoneIcon.vue";
-// import UpworkIcon from "@/components/icons/UpworkIcon.vue";
-// import GithubIcon from "@/components/icons/GithubIcon.vue";
-// // import InstagramIcon from "@/components/icons/InstragramIcon.vue";
-// import DribbleIcon from "@/components/icons/DribbleIcon.vue";
-// import LinkedInIcon from "@/components/icons/LinkedInIcon.vue";
-// import FacebookIcon from "@/components/icons/FacebookIcon.vue";
-// import TwitterIcon from "@/components/icons/TwitterIcon.vue";
-import gsap from "gsap";
 
 export default {
   components: {
     FooterList,
-    // PhoneIcon,
-    // EmailIcon,
-    // UpworkIcon,
-    // GithubIcon,
-    // InstagramIcon,
-    // DribbleIcon,
-    // LinkedInIcon,
-    // FacebookIcon,
-    // TwitterIcon,
   },
   created() {},
 
