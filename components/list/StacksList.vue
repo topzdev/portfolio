@@ -43,31 +43,45 @@ export default {
             height: 68,
             width: 68,
           },
+          link: "https://vuejs.org/",
         },
         {
-          title: "NuxtJS",
+          title: "NuxtJs",
           icon: {
             src: "/icons/icon_nuxt_mcbcyd",
             height: 68,
             width: 68,
           },
+          link: "https://nuxt.com/",
         },
         {
-          title: "ReactJS",
+          title: "React and React Native",
           icon: {
             src: "/icons/icon_react_xnelsh",
             height: 68,
             width: 68,
           },
+          link: "https://react.dev/",
         },
         {
-          title: "NextJS",
+          title: "NextJs",
           icon: {
             src: "/icons/icon_nextjs_t8gyda",
             height: 68,
             width: 68,
           },
+          link: "https://nextjs.org/",
         },
+        {
+          title: "Expo",
+          icon: {
+            src: "/icons/icon_expo_wspzok",
+            height: 68,
+            width: 68,
+          },
+          link: "https://expo.dev/",
+        },
+
         {
           title: "Javascript",
           icon: {
@@ -75,6 +89,7 @@ export default {
             height: 68,
             width: 68,
           },
+          link: "",
         },
         {
           title: "Typescript",
@@ -83,6 +98,7 @@ export default {
             height: 68,
             width: 68,
           },
+          link: "https://www.typescriptlang.org/",
         },
         {
           title: "JQuery",
@@ -91,6 +107,7 @@ export default {
             height: 68,
             width: 68,
           },
+          link: "https://jquery.com/",
         },
         {
           title: "PostgreSQL",
@@ -99,6 +116,7 @@ export default {
             height: 68,
             width: 68,
           },
+          link: "https://www.postgresql.org/",
         },
         {
           title: "NodeJS",
@@ -107,23 +125,27 @@ export default {
             height: 68,
             width: 68,
           },
+          link: "https://nodejs.org/en",
         },
         {
-          title: "GraphQL",
+          title: "PHP",
           icon: {
-            src: "/icons/icon_graphql_qathtj",
+            src: "/icons/icon_php_xouhs3",
             height: 68,
             width: 68,
           },
+          link: "https://www.php.net/",
         },
         {
-          title: "MongoDB",
+          title: "Laravel",
           icon: {
-            src: "/icons/icon_mongodb_qbu6q6",
+            src: "/icons/icon_laravel_xtmrqn",
             height: 68,
             width: 68,
           },
+          link: "https://laravel.com/",
         },
+
         {
           title: "Figma",
           icon: {
@@ -131,23 +153,27 @@ export default {
             height: 68,
             width: 45,
           },
+          link: "https://www.figma.com/",
         },
         {
-          title: "HTML 5",
+          title: "HTML",
           icon: {
             src: "/icons/icon_html_iatcnq",
             height: 68,
             width: 68,
           },
+          link: "",
         },
         {
-          title: "CSS 3",
+          title: "CSS",
           icon: {
             src: "/icons/icon_css_pnlbyb",
             height: 68,
             width: 68,
           },
+          link: "",
         },
+
         {
           title: "SCSS",
           icon: {
@@ -155,7 +181,19 @@ export default {
             height: 68,
             width: 68,
           },
+          link: "https://sass-lang.com/",
         },
+
+        {
+          title: "TailwindCSS",
+          icon: {
+            src: "/icons/icon_tailwind-css_iw8ufr",
+            height: 68,
+            width: 68,
+          },
+          link: "https://tailwindcss.com/",
+        },
+
         {
           title: "Vuetify",
           icon: {
@@ -163,14 +201,16 @@ export default {
             height: 59,
             width: 68,
           },
+          link: "https://vuetifyjs.com/",
         },
         {
-          title: "Material UI",
+          title: "MUI",
           icon: {
-            src: "/icons/icon_css_pnlbyb",
+            src: "/icons/icon_mui_nsfsz2",
             height: 68,
             width: 68,
           },
+          link: "https://mui.com/",
         },
         {
           title: "Bootstrap",
@@ -179,6 +219,7 @@ export default {
             height: 68,
             width: 68,
           },
+          link: "https://getbootstrap.com/",
         },
       ],
     };
@@ -196,11 +237,11 @@ export default {
       if (width > 900 && width <= 1125) {
         this.listToShow = 3;
       } else if (width > 768 && width <= 900) {
-        this.listToShow = 4;
+        this.listToShow = 5;
       } else if (width > 600 && width <= 768) {
         this.listToShow = 5;
       } else if (width <= 600) {
-        this.listToShow = 6;
+        this.listToShow = 5;
       } else this.listToShow = 3;
     },
   },

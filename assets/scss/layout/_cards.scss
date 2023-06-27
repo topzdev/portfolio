@@ -12,16 +12,17 @@
     border-radius: 8px;
     user-select: none;
     @include transition;
+    text-decoration: none;
 
     @include respond(tab-port) {
-      width: 105px;
-      height: 148px;
+      width: 90px;
+      height: 133px;
     }
 
-    @include respond(mobile-lg) {
-      width: 100px;
-      height: 138px;
-    }
+    // @include respond(mobile-lg) {
+    //   width: 100px;
+    //   height: 138px;
+    // }
 
     @include respond(mobile-m) {
       width: 90px;
@@ -37,12 +38,37 @@
       filter: blur(4px);
     }
 
-    &__icon,
+    &__icon {
+      display: block;
+      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      margin-bottom: 15px;
+
+      @include respond(tab-port) {
+        height: 55px;
+      }
+
+      @include respond(mobile-lg) {
+        height: 50px;
+        margin-bottom: 12px;
+      }
+
+      @include respond(mobile-s) {
+        height: 45px;
+      }
+    }
+
     &__icon-blank {
       display: block;
+      width: 68px;
       height: 68px;
-      width: auto;
+      border-radius: 100%;
+      background-color: $base-color-1;
       margin-bottom: 15px;
+
 
       @include respond(tab-port) {
         height: 60px;
@@ -58,18 +84,13 @@
       }
     }
 
-    &__icon-blank {
-      width: 68px;
-      border-radius: 100%;
-      background-color: $base-color-1;
-    }
-
     &__title {
       font-weight: 600;
       font-size: 14px;
+      text-align: center;
 
       @include respond(mobile-lg) {
-        font-size: 10px;
+        font-size: 12px;
       }
 
       color: rgba($color-secondary, 0.6);
@@ -176,6 +197,7 @@
 
   &--testimony {
     display: flex;
+
     &__image {
       $box-size: 400px;
       overflow: hidden;
@@ -188,11 +210,12 @@
       height: $box-size;
       width: $box-size;
       min-width: $box-size;
+
       img {
         height: 100%;
         width: 100%;
       }
-      
+
       @include respond(laptop) {
         $box-size: 250px;
         height: $box-size;
@@ -233,6 +256,7 @@
       @include respond(laptop-s) {
         margin-left: 40px;
       }
+
       @include respond(tab-land) {
         margin-left: 35px;
       }
@@ -288,6 +312,7 @@
       @include respond(tab-land) {
         margin-top: 30px;
       }
+
       @include respond(tab-port) {
         font-size: 25px;
       }
@@ -305,6 +330,7 @@
         width: 50px;
         border-radius: 100%;
         margin-bottom: 20px;
+
         @include respond(mobile-lg) {
           display: block;
         }
@@ -318,6 +344,7 @@
       @include respond(laptop) {
         font-size: 32px;
       }
+
       @include respond(laptop-s) {
         font-size: 28px;
       }

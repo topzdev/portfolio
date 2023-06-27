@@ -1,11 +1,12 @@
 <template>
-  <div class="list--stack__row" :class="{'offset-up': offset}">
+  <div class="list--stack__row" :class="{ 'offset-up': offset }">
     <stack-card
       v-for="(item, idx) in list"
       :key="idx"
       :blank="item.blank"
       :title="item.title"
       :icon="item.icon"
+      :link="item.link"
     ></stack-card>
   </div>
 </template>
@@ -18,16 +19,16 @@ export default {
     stacks: Array,
     offset: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     list() {
       let blank = { blank: true };
       if (this.offset) return [blank, ...this.stacks, blank];
       return [blank, ...this.stacks, blank];
-    }
-  }
+    },
+  },
 };
 </script>
 

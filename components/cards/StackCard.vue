@@ -1,5 +1,11 @@
 <template>
-  <div class="card card--stack" :class="{ 'card--stack-blank': blank }">
+  <component
+    :is="link ? 'a' : 'div'"
+    :href="link ? link : ''"
+    target="_blank"
+    class="card card--stack"
+    :class="{ 'card--stack-blank': blank }"
+  >
     <nuxt-img
       v-if="!blank"
       class="card--stack__icon"
@@ -17,7 +23,7 @@
 
     <p v-if="!blank" class="card--stack__title" v-text="title"></p>
     <div v-else class="card--stack__title-blank"></div>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -34,11 +40,13 @@ export default {
     },
     title: {
       type: String,
-      default: "VueJS",
     },
     blank: {
       type: Boolean,
       default: false,
+    },
+    link: {
+      type: String,
     },
   },
 };

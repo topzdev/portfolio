@@ -37,7 +37,7 @@
     }
 
     @include respond(tab-land) {
-      height: 950px;
+      height: 1200px;
     }
 
     @include respond(tab-port) {
@@ -46,7 +46,7 @@
     }
 
     @include respond(mobile-lg) {
-      height: 1250px;
+      height: 1100px;
     }
 
     @include respond(mobile-m) {
@@ -110,14 +110,13 @@
 
     .container {
       position: relative;
+
       &::before {
-        @include ui-icon-float(
-          $ui-dots-grey,
+        @include ui-icon-float($ui-dots-grey,
           270px,
           270px,
           -20%,
-          0
-        );
+          0);
         opacity: 0.8;
 
         @include respond(mobile-lg) {
@@ -141,15 +140,14 @@
 
     .container {
       position: relative;
+
       &::before {
         animation: updownblob 10s infinite;
-        @include ui-icon-float(
-          $ui-float-blobs,
+        @include ui-icon-float($ui-float-blobs,
           850px,
           850px,
           -40%,
-          -70%
-        );
+          -70%);
 
         @include respond(tab-land) {
           background-size: 600px;
@@ -165,13 +163,11 @@
       }
 
       &::after {
-        @include ui-icon-float(
-          $ui-violet-gradient,
+        @include ui-icon-float($ui-violet-gradient,
           160px,
           160px,
           45%,
-          12%
-        );
+          12%);
 
         @include respond(tab-land) {
           top: 20% !important;
@@ -183,6 +179,7 @@
         }
       }
     }
+
     &__intro {
       position: relative;
       z-index: 3;
@@ -204,8 +201,7 @@
           220px,
           220px,
           -50%,
-          -20%
-        );
+          -20%);
         opacity: 0.8;
         transform: rotate(50deg);
 
@@ -227,6 +223,7 @@
         width: 70%;
         margin-top: 30px;
         margin-left: 0;
+
         .heading--secondary {
           display: none;
         }

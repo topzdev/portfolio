@@ -5,12 +5,12 @@
 
       <div class="paragraph--primary mt-3" id="intro-anim">
         Hello! My name is Christian Lugod, and I'm currently a full-stack web
-        developer working in the city Capital of Manila, Philippines. A
-        Technological University of the Philippines Information Technology
-        graduate. I'm highly passionate about this profession and it shall show
-        in my skills and experience in the subject. This very passion of mine
-        also drives me to a lifetime commitment to constantly improving my web
-        application development skills.
+        developer working in the capital city of Manila, Philippines. I
+        graduated from the Technological University of the Philippines with a
+        degree in Information Technology. I am extremely passionate about this
+        profession, and my dedication reflects in my skills and experience in
+        the field. This passion also fuels my lifelong commitment to
+        continuously enhance my web and mobile application development skills
       </div>
 
       <btn-secondary class="mt-2" :link="cv" label="Download my Resume" />
