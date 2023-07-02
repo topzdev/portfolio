@@ -58,7 +58,7 @@ export default {
             width: 47,
           },
           image: "/projects/all/proj_knowvie_hi2qyh",
-          link: "https://knowvie.herokuapp.com/",
+          link: "https://knovie.vercel.app/",
           id: "project-2",
         },
         {
@@ -67,10 +67,10 @@ export default {
           logo: {
             src: "/logo/pcmaster_logo_ud6tcm",
             height: 50,
-            width:175,
+            width: 175,
           },
           image: "/projects/all/proj_pcmaster_f0xrlx",
-          link: "http://pcmastershop.herokuapp.com/",
+          link: "https://pcmastershop.vercel.app/",
           id: "project-3",
         },
         {
