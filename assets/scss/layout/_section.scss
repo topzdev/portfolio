@@ -45,16 +45,21 @@
       padding: 80px 0;
     }
 
+
     @include respond(mobile-lg) {
       height: 1100px;
     }
 
-    @include respond(mobile-m) {
-      height: 1200px;
+    @media (max-width: 28.125em) {
+      height: 1350px;
     }
 
+    // @include respond(mobile-m) {
+    //   height: 1300px;
+    // }
+
     @include respond(mobile-s) {
-      height: 1080px;
+      height: 1200px;
     }
   }
 

@@ -240,8 +240,10 @@ export default {
         this.listToShow = 5;
       } else if (width > 600 && width <= 768) {
         this.listToShow = 5;
-      } else if (width <= 600) {
+      } else if (width > 450 && width <= 600) {
         this.listToShow = 5;
+      } else if (width <= 450) {
+        this.listToShow = 7;
       } else this.listToShow = 3;
     },
   },

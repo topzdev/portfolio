@@ -13,7 +13,13 @@
         continuously enhance my web and mobile application development skills
       </div>
 
-      <btn-secondary class="mt-2" :link="cv" label="Download my Resume" />
+      <btn-secondary
+        class="mt-2"
+        :link="cv"
+        target="blank"
+        :download="cv"
+        label="Download my Resume"
+      />
     </div>
   </section>
 </template>
@@ -25,7 +31,7 @@ import splitText from "@/utils/splitText";
 export default {
   data() {
     return {
-      cv: "/christian-lugod-resume-2022.pdf",
+      cv: "/christian-lugod-resume-2023.pdf",
     };
   },
   mounted() {
