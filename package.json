@@ -13,7 +13,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "gsap": "^3.2.6",
-    "nuxt": "2.15.8",
+    "nuxt": "3.0.0",
     "sass": "^1.55.0",
     "vue-scrollto": "^2.18.1"
   },
@@ -21,6 +21,6 @@
     "@nuxt/image": "^0.7.1",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "nuxt-gsap-module": "^1.7.2",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.4.1"
   }
 }
