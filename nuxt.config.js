@@ -288,5 +288,10 @@ export default {
         loader: "file-loader"
       });
     }
+  },
+  watchers: {
+    webpack: {
+      poll: true
+    }
   }
 };

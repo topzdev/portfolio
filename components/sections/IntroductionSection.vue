@@ -1,9 +1,12 @@
 <template>
-  <section id="intro" class="section section--intro">
+  <section id="intro"
+           class="section section--intro">
     <div class="container">
-      <heading-primary overline="Introduction" title="Know more about me" />
+      <heading-primary overline="Introduction"
+                       title="Know more about me" />
 
-      <div class="paragraph--primary mt-3" id="intro-anim">
+      <div class="paragraph--primary mt-3"
+           id="intro-anim">
         Hello! My name is Christian Lugod, and I'm currently a full-stack web
         developer working in the capital city of Manila, Philippines. I
         graduated from the Technological University of the Philippines with a
@@ -13,13 +16,10 @@
         continuously enhance my web and mobile application development skills
       </div>
 
-      <btn-secondary
-        class="mt-2"
-        :link="cv"
-        target="blank"
-        :download="cv"
-        label="Download my Resume"
-      />
+      <btn-secondary class="mt-2"
+                     :link="cv"
+                     target="_blank"
+                     label="Download my Resume" />
     </div>
   </section>
 </template>
@@ -31,7 +31,7 @@ import splitText from "@/utils/splitText";
 export default {
   data() {
     return {
-      cv: "/christian-lugod-resume-2023.pdf",
+      cv: "christian-lugod-resume.pdf?v=" + Date.now(),
     };
   },
   mounted() {

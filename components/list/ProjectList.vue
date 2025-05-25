@@ -2,29 +2,25 @@
   <div class="list--project">
     <div class="row">
       <div class="col s12 m6 list--project__first">
-        <project-card
-          v-for="(item, idx) in projects.slice(0, 2)"
-          :title="item.title"
-          :logo="item.logo"
-          :id="item.id"
-          :link="item.link"
-          :image="item.image"
-          :image-prefix="item.imagePrefix"
-          :key="idx"
-        ></project-card>
+        <project-card v-for="(item, idx) in projects.slice(0, 2)"
+                      :title="item.title"
+                      :logo="item.logo"
+                      :id="item.id"
+                      :link="item.link"
+                      :image="item.image"
+                      :image-prefix="item.imagePrefix"
+                      :key="idx"></project-card>
       </div>
       <div class="col s12 m6 list--project__last">
-        <project-card
-          v-for="(item, idx) in projects.slice(2, 5)"
-          :title="item.title"
-          :logo="item.logo"
-          :id="item.id"
-          :link="item.link"
-          :image="item.image"
-          :image-prefix="item.imagePrefix"
-          :key="idx"
-          :isRight="true"
-        ></project-card>
+        <project-card v-for="(item, idx) in projects.slice(2, 5)"
+                      :title="item.title"
+                      :logo="item.logo"
+                      :id="item.id"
+                      :link="item.link"
+                      :image="item.image"
+                      :image-prefix="item.imagePrefix"
+                      :key="idx"
+                      :isRight="true"></project-card>
       </div>
     </div>
   </div>
@@ -37,19 +33,6 @@ export default {
   data() {
     return {
       projects: [
-          {
-          title: "Shareitineray",
-          logo: {
-            src: "/logo/shareitinerary_logo_m4zqlq",
-            height: 50,
-            width: 213,
-          },
-          image: "/projects/all/proj_sharetinerary_x0cqjn",
-          imagePrefix: "shareitinerary",
-          link: "https://shareitinerary.com/",
-          id: "project-3",
-        },
-
         {
           title: "Linktree Clone",
           logo: {
@@ -62,12 +45,26 @@ export default {
           link: "https://linktree-clone-topzdev.vercel.app/",
           id: "project-2",
         },
-          {
+        {
+          title: "Shareitineray",
+          logo: {
+            src: "/logo/shareitinerary_logo_m4zqlq",
+            height: 50,
+            width: 213,
+          },
+          image: "/projects/all/proj_sharetinerary_x0cqjn",
+          imagePrefix: "shareitinerary",
+          link: "https://shareitinerary.com/",
+          id: "project-3",
+        },
+
+
+        {
           title: "HomeOfDevs",
           logo: {
-            src: "/logo/homeofdevs_bn82xm",
-            height: 35,
-            width: 200,
+            src: "/logo/homeofdevs_qpa2gr",
+            height: 100,
+            width: 286 * 2,
           },
           image: "/projects/all/homeofdevs_qqgfbk",
           imagePrefix: "homeofdevs",
