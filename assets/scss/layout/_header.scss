@@ -1,4 +1,3 @@
-
 .header {
   display: flex;
   position: relative;
@@ -23,30 +22,53 @@
   }
 
   &__me {
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
+    margin-top: -150px;
+    height: 150px;
+    width: 150px;
+    margin-bottom: 12px;
 
     @include respond(laptop) {
-      display: none;
+      margin-top: -100px;
+      height: 100px;
+      width: 100px;
+
+
     }
+
+    @include respond(tablet) {
+      margin-top: -50px;
+      height: 50px;
+      width: 50px;
+    }
+
+    // height: 100%;
+    // position: absolute;
+    // right: 0;
+    // top: 0;
+
+    // @include respond(laptop) {
+    //   display: none;
+    // }
   }
 
   &__intro {
     position: relative;
     width: 100%;
-    &::before {
-      @include ui-icon-float(
-        $ui-dots-light-blue,
-        175px,
-        175px,
-        -25%,
-        -10%
-      );
-    }
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    & > * {
+    // &::before {
+    //   @include ui-icon-float($ui-dots-light-blue,
+    //     175px,
+    //     175px,
+    //     -0%,
+    //     43%);
+    // }
+
+    &>* {
       position: relative;
       z-index: 1;
     }

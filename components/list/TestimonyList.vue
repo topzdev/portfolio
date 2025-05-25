@@ -1,15 +1,13 @@
 <template>
   <div class="list--testimony">
     <div class="list--testimony__slider">
-      <testimony-card
-        v-for="(item, idx) in testimonies"
-        :key="idx"
-        :image="item.image"
-        :testimony="item.testimony"
-        :name="item.name"
-        :position="item.position"
-        :index="idx"
-      ></testimony-card>
+      <testimony-card v-for="(item, idx) in testimonies"
+                      :key="idx"
+                      :image="item.image"
+                      :testimony="item.testimony"
+                      :name="item.name"
+                      :position="item.position"
+                      :index="idx"></testimony-card>
     </div>
 
     <div class="testimony__list__progress">
@@ -32,11 +30,10 @@ export default {
           testimony:
             "Christian is not only great for design and development, he is a problem solver who always delivers an exceptional quality of work. Highly recommended",
           name: "Miko Suarez",
-          position: "Project Manager",
+          position: "COO of Webdev200",
         },
       ],
     };
   },
 };
 </script>
-

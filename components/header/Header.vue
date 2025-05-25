@@ -2,15 +2,22 @@
   <header class="header">
     <div class="container">
       <div class="header__intro">
+        <nuxt-img src="/topzdev-memoji"
+                  class="header__me"
+                  width="150"
+                  height="150"
+                  provider="cloudinary"></nuxt-img>
         <h1 class="heading--intro">
-          <div id="name-anim" class="name">
+          <div id="name-anim"
+               class="name">
             <span class="name-intro">
               Hello,
               <span id="im-anim"></span>
             </span>
             <span id="me-anim">World!</span>
           </div>
-          <div id="title-anim" class="title">
+          <div id="title-anim"
+               class="title">
             <div class="title-job title-job-1">
               <span>UI/UX</span>
               <span>Designer</span>
@@ -33,24 +40,22 @@
             </div>
           </div>
         </h1>
-        <btn-primary
-          id="btn-anim"
-          rounded
-          class="pulse"
-          label="Hire Me"
-          v-scroll-to="scrollHireMe"
-        ></btn-primary>
+        <btn-primary id="btn-anim"
+                     rounded
+                     class="pulse"
+                     label="Hire Me"
+                     v-scroll-to="scrollHireMe"></btn-primary>
       </div>
     </div>
 
-    <nuxt-img
+    <!-- <nuxt-img
       preload
       :src="me_image"
       class="header__me"
       width="650"
       height="933"
       provider="cloudinary"
-    ></nuxt-img>
+    ></nuxt-img> -->
   </header>
 </template>
 
@@ -178,4 +183,3 @@ export default {
   },
 };
 </script>
-
