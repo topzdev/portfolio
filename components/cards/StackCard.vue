@@ -1,28 +1,29 @@
 <template>
-  <component
-    :is="link ? 'a' : 'div'"
-    :href="link ? link : ''"
-    target="_blank"
-    class="card card--stack"
-    :class="{ 'card--stack-blank': blank }"
-  >
-    <nuxt-img
-      v-if="!blank"
-      class="card--stack__icon"
-      :draggable="false"
-      :src="icon.src"
-      :alt="alt"
-      loading="lazy"
-      :height="icon.height"
-      :width="icon.width"
-      :placeholder="30"
-      preset="stack"
-      provider="cloudinary"
-    />
-    <div v-else class="card--stack__icon-blank"></div>
+  <component :is="link ? 'a' : 'div'"
+             :href="link ? link : ''"
+             target="_blank"
+             class="card card--stack"
+             :class="{ 'card--stack-blank': blank }"
+             :style="style">
+    <nuxt-img v-if="!blank"
+              class="card--stack__icon"
+              :draggable="false"
+              :src="icon.src"
+              :alt="alt"
+              loading="lazy"
+              :height="icon.height"
+              :width="icon.width"
+              :placeholder="30"
+              preset="stack"
+              provider="cloudinary" />
+    <div v-else
+         class="card--stack__icon-blank"></div>
 
-    <p v-if="!blank" class="card--stack__title" v-text="title"></p>
-    <div v-else class="card--stack__title-blank"></div>
+    <p v-if="!blank"
+       class="card--stack__title"
+       v-html="title"></p>
+    <div v-else
+         class="card--stack__title-blank"></div>
   </component>
 </template>
 
@@ -48,9 +49,12 @@ export default {
     link: {
       type: String,
     },
+    style: {
+      type: String,
+      default: "",
+    },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>

@@ -1,5 +1,6 @@
 <template>
-  <footer id="footer" class="footer footer--main blue">
+  <footer id="footer"
+          class="footer footer--main blue">
     <div class="container">
       <div class="footer--main__intro">
         <h1 class="heading heading--footer">
@@ -12,8 +13,10 @@
       </div>
 
       <div class="footer--main__group">
-        <footer-list title="Contacts" :links="contactLinks" />
-        <footer-list title="Social Links" :links="socialLinks" />
+        <footer-list title="Contacts"
+                     :links="contactLinks" />
+        <footer-list title="Social Links"
+                     :links="socialLinks" />
       </div>
 
       <div class="footer--main__copyright">
@@ -34,7 +37,7 @@ export default {
   components: {
     FooterList,
   },
-  created() {},
+  created() { },
 
   data() {
     return {
@@ -53,40 +56,33 @@ export default {
 
       socialLinks: [
         {
-          icon: "UpworkIcon.vue",
-          label: "Hire me at Upwork",
-          link: "https://www.upwork.com/freelancers/~0183563188426b2c0c",
-        },
-        {
           icon: "GithubIcon.vue",
           label: "Github",
           link: "https://github.com/topzdev",
         },
         {
-          icon: "DribbleIcon.vue",
-          label: "Dribbble",
-          link: "https://dribbble.com/TopzTheDev",
-        },
-        {
           icon: "LinkedInIcon.vue",
           label: "LinkedIn",
-          link: "https://www.linkedin.com/in/christopher-lugod-ba146b197/",
+          link: "https://www.linkedin.com/in/christianlugod15/",
+        },
+        {
+          icon: "InstagramIcon.vue",
+          label: "Instagram",
+          link: "https://www.instagram.com/_christopz",
+        },
+        {
+          icon: "ThreadsIcon.vue",
+          label: "Threads",
+          link: "https://www.threads.com/@_christopz",
         },
         {
           icon: "FacebookIcon.vue",
           label: "Facebook",
           link: "https://www.facebook.com/Christoplugod",
         },
-        {
-          icon: "TwitterIcon.vue",
-          label: "Twitter",
-          link: "https://twitter.com/_christop_",
-        },
-        {
-          icon: "InstagramIcon.vue",
-          label: "Instagram",
-          link: "https://www.instagram.com/christoplugod/",
-        },
+
+
+
       ],
     };
   },

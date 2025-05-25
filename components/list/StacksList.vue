@@ -1,12 +1,10 @@
 <template>
   <div class="list--stack">
-    <stack-list-item
-      v-for="(item, idx) in stacksFormat"
-      :stacks="item.stacks"
-      :offset="item.offset"
-      :key="idx"
-      :class="setAnimClass(item.offset)"
-    ></stack-list-item>
+    <stack-list-item v-for="(item, idx) in stacksFormat"
+                     :stacks="item.stacks"
+                     :offset="item.offset"
+                     :key="idx"
+                     :class="setAnimClass(item.offset)"></stack-list-item>
   </div>
 </template>
 
@@ -37,23 +35,17 @@ export default {
       listToShow: 3,
       list: [
         {
-          title: "VueJS",
+          title: "AI & LLM<br><small style='font-size: 10px;opacity: 0.75;'>ChatGPT, Claude, V0 & Cursor</small>",
           icon: {
-            src: "/icons/icon_vue_jhkfs6",
+            src: "/icons/ai_f5zcc6",
             height: 68,
             width: 68,
           },
-          link: "https://vuejs.org/",
+          link: "",
+          // ai gradient backgroundf
+          style: "background: linear-gradient(180deg, #4A90E2 0%, #50E3C2 100%)",
         },
-        {
-          title: "NuxtJs",
-          icon: {
-            src: "/icons/icon_nuxt_mcbcyd",
-            height: 68,
-            width: 68,
-          },
-          link: "https://nuxt.com/",
-        },
+
         {
           title: "React and React Native",
           icon: {
@@ -73,6 +65,25 @@ export default {
           link: "https://nextjs.org/",
         },
         {
+          title: "VueJS",
+          icon: {
+            src: "/icons/icon_vue_jhkfs6",
+            height: 68,
+            width: 68,
+          },
+          link: "https://vuejs.org/",
+        },
+        {
+          title: "NuxtJs",
+          icon: {
+            src: "/icons/icon_nuxt_mcbcyd",
+            height: 68,
+            width: 68,
+          },
+          link: "https://nuxt.com/",
+        },
+
+        {
           title: "Expo",
           icon: {
             src: "/icons/icon_expo_wspzok",
@@ -80,6 +91,15 @@ export default {
             width: 68,
           },
           link: "https://expo.dev/",
+        },
+        {
+          title: "Typescript",
+          icon: {
+            src: "/icons/icon_typescript_fld2yp",
+            height: 68,
+            width: 68,
+          },
+          link: "https://www.typescriptlang.org/",
         },
 
         {
@@ -91,15 +111,7 @@ export default {
           },
           link: "",
         },
-        {
-          title: "Typescript",
-          icon: {
-            src: "/icons/icon_typescript_fld2yp",
-            height: 68,
-            width: 68,
-          },
-          link: "https://www.typescriptlang.org/",
-        },
+
         {
           title: "JQuery",
           icon: {
@@ -110,15 +122,6 @@ export default {
           link: "https://jquery.com/",
         },
         {
-          title: "PostgreSQL",
-          icon: {
-            src: "/icons/icon_postgresql_yg7kxl",
-            height: 68,
-            width: 68,
-          },
-          link: "https://www.postgresql.org/",
-        },
-        {
           title: "NodeJS",
           icon: {
             src: "/icons/icon_nodejs_rii0or",
@@ -127,6 +130,16 @@ export default {
           },
           link: "https://nodejs.org/en",
         },
+        {
+          title: "AdonisJS",
+          icon: {
+            src: "/icons/adonis_jdvxsq",
+            height: 68,
+            width: 68,
+          },
+          link: "https://adonisjs.com/",
+        },
+
         {
           title: "PHP",
           icon: {
@@ -145,6 +158,47 @@ export default {
           },
           link: "https://laravel.com/",
         },
+
+        {
+          title: "PostgreSQL",
+          icon: {
+            src: "/icons/icon_postgresql_yg7kxl",
+            height: 68,
+            width: 68,
+          },
+          link: "https://www.postgresql.org/",
+        },
+
+        {
+          title: "TailwindCSS",
+          icon: {
+            src: "/icons/icon_tailwind-css_iw8ufr",
+            height: 68,
+            width: 68,
+          },
+          link: "https://tailwindcss.com/",
+        },
+
+        {
+          title: "Shadcn UI",
+          icon: {
+            src: "/icons/shadcn-ui_ycf2n3",
+            height: 68,
+            width: 68,
+          },
+          link: "https://ui.shadcn.com/",
+        },
+
+        {
+          title: "Docker",
+          icon: {
+            src: "/icons/docker_vnzxw4",
+            height: 68,
+            width: 68,
+          },
+          link: "https://www.docker.com/",
+        },
+
 
         {
           title: "Figma",
@@ -184,43 +238,10 @@ export default {
           link: "https://sass-lang.com/",
         },
 
-        {
-          title: "TailwindCSS",
-          icon: {
-            src: "/icons/icon_tailwind-css_iw8ufr",
-            height: 68,
-            width: 68,
-          },
-          link: "https://tailwindcss.com/",
-        },
 
-        {
-          title: "Vuetify",
-          icon: {
-            src: "/icons/icon_vuetify_nkvejh",
-            height: 59,
-            width: 68,
-          },
-          link: "https://vuetifyjs.com/",
-        },
-        {
-          title: "MUI",
-          icon: {
-            src: "/icons/icon_mui_nsfsz2",
-            height: 68,
-            width: 68,
-          },
-          link: "https://mui.com/",
-        },
-        {
-          title: "Bootstrap",
-          icon: {
-            src: "/icons/icon_bootstrap_truxzr",
-            height: 68,
-            width: 68,
-          },
-          link: "https://getbootstrap.com/",
-        },
+
+
+
       ],
     };
   },

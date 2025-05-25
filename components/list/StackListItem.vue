@@ -1,13 +1,13 @@
 <template>
-  <div class="list--stack__row" :class="{ 'offset-up': offset }">
-    <stack-card
-      v-for="(item, idx) in list"
-      :key="idx"
-      :blank="item.blank"
-      :title="item.title"
-      :icon="item.icon"
-      :link="item.link"
-    ></stack-card>
+  <div class="list--stack__row"
+       :class="{ 'offset-up': offset }">
+    <stack-card v-for="(item, idx) in list"
+                :key="idx"
+                :blank="item.blank"
+                :title="item.title"
+                :icon="item.icon"
+                :link="item.link"
+                :style="item.style"></stack-card>
   </div>
 </template>
 
@@ -32,5 +32,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
