@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       projects: [
-        {
+          {
           title: "Shareitineray",
           logo: {
             src: "/logo/shareitinerary_logo_m4zqlq",
@@ -47,8 +47,34 @@ export default {
           image: "/projects/all/proj_sharetinerary_x0cqjn",
           imagePrefix: "shareitinerary",
           link: "https://shareitinerary.com/",
+          id: "project-3",
+        },
+
+        {
+          title: "Linktree Clone",
+          logo: {
+            src: "/logo/linktree_gwkwvu",
+            height: 142,
+            width: 353,
+          },
+          image: "/projects/all/linktree-clone_ktfxzc",
+          imagePrefix: "linktree",
+          link: "https://linktree-clone-topzdev.vercel.app/",
+          id: "project-2",
+        },
+          {
+          title: "HomeOfDevs",
+          logo: {
+            src: "/logo/homeofdevs_bn82xm",
+            height: 35,
+            width: 200,
+          },
+          image: "/projects/all/homeofdevs_qqgfbk",
+          imagePrefix: "homeofdevs",
+          link: "https://homeofdevs.com/",
           id: "project-1",
         },
+
         {
           title: "Knovie",
           imagePrefix: "knowvie",
@@ -59,7 +85,7 @@ export default {
           },
           image: "/projects/all/proj_knowvie_hi2qyh",
           link: "https://knovie.vercel.app/",
-          id: "project-2",
+          id: "project-4",
         },
         {
           title: "PC Master Shop",
@@ -71,7 +97,7 @@ export default {
           },
           image: "/projects/all/proj_pcmaster_f0xrlx",
           link: "https://pcmastershop.vercel.app/",
-          id: "project-3",
+          id: "project-5",
         },
         {
           title: "Brocode",
@@ -82,7 +108,7 @@ export default {
             width: 259,
           },
           image: "/projects/all/proj_brocode_q6fknk",
-          id: "project-4",
+          id: "project-6",
         },
         {
           title: "Luzon TSC",
@@ -94,7 +120,7 @@ export default {
           },
           image: "/projects/all/proj_tsc_ggaleu",
           link: "https://luzontsc.com/",
-          id: "project-5",
+          id: "project-7",
         },
       ],
     };
