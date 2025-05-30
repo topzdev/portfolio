@@ -81,7 +81,7 @@ export default {
             width: 47,
           },
           image: "/projects/all/proj_knowvie_hi2qyh",
-          link: "https://knovie.vercel.app/",
+          link: "https://knovie.topz.dev/",
           id: "project-4",
         },
         {
