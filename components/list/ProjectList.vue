@@ -2,25 +2,29 @@
   <div class="list--project">
     <div class="row">
       <div class="col s12 m6 list--project__first">
-        <project-card v-for="(item, idx) in projects.slice(0, 2)"
-                      :title="item.title"
-                      :logo="item.logo"
-                      :id="item.id"
-                      :link="item.link"
-                      :image="item.image"
-                      :image-prefix="item.imagePrefix"
-                      :key="idx"></project-card>
+        <project-card
+          v-for="(item, idx) in projects.slice(0, 2)"
+          :title="item.title"
+          :logo="item.logo"
+          :id="item.id"
+          :link="item.link"
+          :image="item.image"
+          :image-prefix="item.imagePrefix"
+          :key="idx"
+        ></project-card>
       </div>
       <div class="col s12 m6 list--project__last">
-        <project-card v-for="(item, idx) in projects.slice(2, 5)"
-                      :title="item.title"
-                      :logo="item.logo"
-                      :id="item.id"
-                      :link="item.link"
-                      :image="item.image"
-                      :image-prefix="item.imagePrefix"
-                      :key="idx"
-                      :isRight="true"></project-card>
+        <project-card
+          v-for="(item, idx) in projects.slice(2, 5)"
+          :title="item.title"
+          :logo="item.logo"
+          :id="item.id"
+          :link="item.link"
+          :image="item.image"
+          :image-prefix="item.imagePrefix"
+          :key="idx"
+          :isRight="true"
+        ></project-card>
       </div>
     </div>
   </div>
@@ -58,7 +62,6 @@ export default {
           id: "project-3",
         },
 
-
         {
           title: "HomeOfDevs",
           logo: {
@@ -81,7 +84,7 @@ export default {
             width: 47,
           },
           image: "/projects/all/proj_knowvie_hi2qyh",
-          link: "https://knovie.topz.dev/",
+          link: "https://knovieapp.topz.dev/",
           id: "project-4",
         },
         {
