@@ -1,1 +1,0 @@
-export const PROPOSAL_SNACK = "PROPOSAL_SNACK";
