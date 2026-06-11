@@ -189,3 +189,34 @@ Rebuild should:
 | Footer link stagger | Optional; keep subtle |
 | Pulse CTA button | Subtle hover scale or remove infinite pulse |
 | Decorative blob animations | Remove for minimal aesthetic |
+
+## Rebuild Implementation (Current)
+
+**Library:** GSAP 3.15 + ScrollTrigger via `@gsap/react` (`useGSAP`).
+
+**Utilities:**
+
+| File | Purpose |
+|------|---------|
+| `lib/animations/gsap.ts` | Plugin registration, `prefersReducedMotion()` helper |
+| `lib/animations/useSectionReveal.ts` | Single container fade-up on scroll |
+| `lib/animations/useTextReveal.ts` | Word stagger via `[data-reveal-word]` |
+| `lib/animations/useStaggerReveal.ts` | Child stagger via `[data-reveal-item]` |
+
+**Section mapping:**
+
+| Section | Animation |
+|---------|-----------|
+| Hero | Name sequence with typing: World! → I'm TopzDev → Christian Lugod (`typeText.ts`). Title carousel fades down through Frontend → Backend → SEO → UI/UX → **Fullstack Developer** (stays). See `useHeroIntro.ts` |
+| About | `useTextReveal` on bio words (`AnimatedText`) |
+| Skills | One-time column entrance (`useSkillsColumnScroll`) — odd columns from above, even from below, settle to zigzag layout via blank cards on offset columns (`once: true`) |
+| Projects | `useStaggerReveal` on project cards (fade + y, no rotation) |
+| Experience | `useStaggerReveal` on timeline cards |
+| Testimonials | `useSectionReveal` on testimonial card |
+| Contact | `useStaggerReveal` on form fields |
+| Navigation | Intersection Observer active state (no GSAP) |
+| Hero CTA | `MagneticButton` subtle pointer-follow (CSS transform) |
+
+**Reduced motion:** Checked in all animation hooks; global CSS override in `app/globals.css`. Scroll uses `behavior: "auto"` when reduced motion is preferred via `scrollToSection()`.
+
+**Not implemented:** Lenis, infinite hero carousel, ScrollMagic, decorative blob keyframes.

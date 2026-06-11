@@ -92,7 +92,7 @@ export const footerQuote = {
 };
 
 export const contactSection = {
-  id: "hireme",
+  id: "contact",
   title: "Got a project? Hmmm... Let's Talk",
   subtitle: "Don't hesitate, lets talk about your idea and make it happen.",
   formTitle: "Estimate your project? Let me know here.",

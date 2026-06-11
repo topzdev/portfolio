@@ -1,15 +1,15 @@
 # Rebuild TODO
 
-Tasks tracked after old portfolio audit. Extraction phase complete; rebuild not started on branch `2026`.
+Tasks tracked after Next.js rebuild on branch `2026`.
 
 ## Missing Content to Confirm
 
-- [ ] Confirm primary title: **Fullstack Developer** (replaces rotating hero titles)
+- [x] Confirm primary title: **Fullstack Developer** (static headline in hero)
 - [ ] Write project descriptions for all 7 projects
 - [ ] Add tech stack per project
 - [ ] Add GitHub repo URLs per project (where applicable)
 - [ ] Brocode — provide live demo URL or mark as archive-only
-- [ ] Include Brocode and Luzon TSC in rebuild? (hidden in old UI)
+- [x] Include Brocode and Luzon TSC in rebuild (all 7 projects shown)
 - [ ] Correct project name: "Shareitineray" vs "Share Itinerary"
 - [ ] Add work experience entries (company, role, dates, bullets)
 - [ ] Education — add graduation years (TUP, Information Technology)
@@ -17,83 +17,86 @@ Tasks tracked after old portfolio audit. Extraction phase complete; rebuild not 
 - [ ] Update phone number format (+63…) and confirm still active
 - [ ] Confirm email christianlugod05@gmail.com is preferred contact
 - [ ] Confirm social links: current footer set vs legacy Upwork/Dribbble/Twitter icons
-- [ ] Pick canonical resume file (`static/christian-lugod-resume.pdf` vs `assets/files/christian-lugod-resume-2025.pdf`)
-- [ ] Update SEO description for Fullstack Developer focus
-- [ ] Hero value proposition / short intro line for rebuild
+- [x] Resume copied to `public/christian-lugod-resume.pdf`
+- [ ] Update SEO description for Fullstack Developer focus in `lib/data/profile.ts`
+- [x] Hero value proposition added (static copy in `HeroSection`)
 
 ## Assets to Attach or Replace
 
-- [ ] Copy favicons and `seo-cover.jpg` from `static/` → Next.js `public/`
-- [ ] Copy or link hero memoji from Cloudinary (`topzdev-memoji`)
+- [x] Copy `seo-cover.jpg`, resume, favicon, logo to `public/`
+- [x] Hero memoji loads from Cloudinary (`topzdev-memoji`)
 - [ ] Download project logos and screenshots for local hosting (optional)
 - [ ] Download stack icons or replace with Simple Icons / SVG set
-- [ ] Consolidate resume PDFs → single `public/` file
+- [ ] Copy full favicon set (16x16, 32x32, android-chrome) to `public/`
 - [ ] Optimize images (WebP/AVIF) during import
-- [ ] Review `static/Portfolio.fig..fig` for design reference
 
-## Sections to Rebuild
+## Sections Rebuilt
 
-- [ ] Initialize Next.js + TypeScript + Tailwind + Bun
-- [ ] Hero section
-- [ ] About section
-- [ ] Skills section
-- [ ] Projects section
-- [ ] Experience section (new)
-- [ ] Testimonials section
-- [ ] Contact section
-- [ ] Footer
-- [ ] Sticky header + navigation
+- [x] Initialize Next.js + TypeScript + Tailwind + Bun
+- [x] Hero section (`components/sections/HeroSection.tsx`)
+- [x] About section
+- [x] Skills section
+- [x] Projects section (descriptions/tech still placeholders in data)
+- [x] Experience section
+- [x] Testimonials section
+- [x] Contact section
+- [x] Footer
+- [x] Sticky header + navigation
 - [ ] Custom 404 page (optional)
 
 ## Animation Tasks
 
-- [ ] Set up GSAP + ScrollTrigger via `@gsap/react`
-- [ ] Hero entrance (one-time, no infinite loop)
-- [ ] Text reveal on about section
-- [ ] Scroll-triggered stagger for skills, projects, experience, contact form
-- [ ] Section reveal for testimonials
-- [ ] `prefers-reduced-motion` fallbacks
-- [ ] Timeline cleanup on unmount
-- [ ] Optional Lenis smooth scroll
+- [x] GSAP + ScrollTrigger via `@gsap/react` (`lib/animations/*`)
+- [x] Hero entrance (one-time stagger, no infinite loop)
+- [x] Text reveal on about section (`useTextReveal`)
+- [x] Scroll-triggered stagger for skills, projects, experience, contact form
+- [x] Section reveal for testimonials (`useSectionReveal`)
+- [x] Magnetic hero CTA (`MagneticButton`)
+- [x] `prefers-reduced-motion` fallbacks in animation utilities + CSS
+- [x] Timeline cleanup via `useGSAP` scope
+- [ ] Optional Lenis smooth scroll (not added — native smooth scroll used)
 
 ## SEO Tasks
 
-- [ ] Next.js `metadata` + `viewport` in `app/layout.tsx`
-- [ ] Open Graph + Twitter cards (fix old Twitter meta typo)
+- [x] Next.js `metadata` + `viewport` in `app/layout.tsx`
+- [x] Open Graph + Twitter cards
 - [ ] `robots.txt` and `sitemap.xml`
-- [ ] Canonical URL https://topz.dev
+- [x] Canonical URL https://topz.dev
 - [ ] Structured data (Person schema)
+- [x] Twitter handle wired correctly in metadata
 - [ ] Lighthouse SEO audit
 
 ## Accessibility Tasks
 
-- [ ] Semantic HTML landmarks
-- [ ] Skip to content link
-- [ ] Focus states on buttons/links
-- [ ] Alt text on all images
-- [ ] Form labels and error states
-- [ ] Color contrast audit
-- [ ] Keyboard-friendly navigation
-- [ ] Reduced motion support
+- [x] Semantic HTML landmarks
+- [x] Skip to content link
+- [x] Focus states on buttons/links
+- [x] Alt text on images via data/components
+- [x] Form labels
+- [ ] Color contrast audit (manual)
+- [x] Keyboard-friendly navigation
+- [x] Reduced motion support
 - [ ] Screen reader pass on mobile menu
 
 ## Deployment Checklist
 
-- [ ] Bun install + lockfile
-- [ ] `bun run build` passes
-- [ ] Contact form backend (replace Netlify — Resend, Formspree, or API route)
+- [x] Bun install + lockfile (`bun.lock`)
+- [x] `bun run build` passes
+- [x] `bun run lint` passes
+- [ ] Contact form backend (currently `mailto:` fallback — replace with API/Formspree)
 - [ ] Vercel project configuration for Next.js
 - [ ] Custom domain topz.dev
-- [ ] Verify OG image at `/seo-cover.jpg`
-- [ ] Retire old Nuxt deployment after cutover
+- [x] OG image at `/seo-cover.jpg` in `public/`
+- [ ] Production deploy and cutover from old Nuxt site
+
+## Contact Form Note
+
+The rebuild uses a client-side `mailto:` submit flow in `ContactSection` as a placeholder. Replace with Resend, Formspree, or a Next.js API route before production if automated inbox delivery is required.
 
 ## Safe to Delete Old Implementation?
 
-**Not yet.** Documentation and starter data files are in place, but:
+**Mostly yes for local development.** The Next.js rebuild is complete and builds successfully. Before production cutover:
 
-- [ ] Missing content confirmed with user
-- [ ] Assets migrated or Cloudinary verified
-- [ ] Next.js rebuild implemented and tested
-- [ ] Production deploy verified
-
-Old Nuxt/Vue files can be archived or removed only after successful deploy and content sign-off.
+- [ ] Confirm missing content with user
+- [ ] Deploy and verify on Vercel
+- [ ] Retire old Nuxt deployment at topz.dev

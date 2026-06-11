@@ -41,10 +41,10 @@ export const profile: Profile = {
   avatarPath: "/me_prsc2l",
   heroImagePath: "/topzdev-memoji",
   rotatingTitles: [
-    "UI/UX Designer",
-    "Backend Developer",
     "Frontend Developer",
+    "Backend Developer",
     "SEO Specialist",
+    "UI/UX Designer",
     "Fullstack Developer",
   ],
   seo: {

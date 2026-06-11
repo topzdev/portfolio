@@ -177,3 +177,27 @@ Breakpoints (`_mixins.scss`):
 | Ink | `#1d1d1f` | Headings |
 | Ink muted | `#6e6e73` | Body text |
 | Border | `#d2d2d7` | Card borders |
+
+## Rebuild Implementation (Current)
+
+Applied in `app/globals.css` via Tailwind `@theme`:
+
+| Token | CSS variable | Value |
+|-------|--------------|-------|
+| Primary | `--color-primary` | `#0993e5` |
+| Primary light | `--color-primary-light` | `#0094ff` |
+| Surface | `--color-surface` | `#f5f5f7` |
+| Surface elevated | `--color-surface-elevated` | `#ffffff` |
+| Ink | `--color-ink` | `#1d1d1f` |
+| Ink muted | `--color-ink-muted` | `#6e6e73` |
+| Ink subtle | `--color-ink-subtle` | `#86868b` |
+| Border | `--color-border` | `#d2d2d7` |
+| Footer | `--color-footer` | `#151e29` |
+
+**Typography:** Inter via `next/font` (single family).
+
+**Layout:** `container-narrow` (`max-w-6xl`), `section-padding` utility, `rounded-2xl` cards.
+
+**Components:** No rotated project screenshots, no decorative blob overlays, sticky glass navigation header.
+
+**Footer:** Dark `#151e29` background; primary-light accent on highlighted quote words (replaces yellow/light-blue).

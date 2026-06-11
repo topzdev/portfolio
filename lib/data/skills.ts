@@ -201,3 +201,14 @@ export const skills: Skill[] = [
 
 export const skillsByCategory = (category: SkillCategory): Skill[] =>
   skills.filter((s) => s.category === category);
+
+/** Groups skills into vertical columns (3 per column → 7 columns). */
+export function getSkillsColumns(itemsPerColumn = 3): Skill[][] {
+  const columns: Skill[][] = [];
+
+  for (let index = 0; index < skills.length; index += itemsPerColumn) {
+    columns.push(skills.slice(index, index + itemsPerColumn));
+  }
+
+  return columns;
+}
