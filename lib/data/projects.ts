@@ -176,3 +176,13 @@ export function projectsHeadingYears(
 
 export const displayedProjects = (): Project[] =>
   projects.filter((p) => p.displayedInOldUi);
+
+/** Alternating split: left = even indices, right = odd indices */
+export function splitProjectsTwoColumns(projectList: Project[] = projects): {
+  left: Project[];
+  right: Project[];
+} {
+  const left = projectList.filter((_, i) => i % 2 === 1);
+  const right = projectList.filter((_, i) => i % 2 === 0);
+  return { left, right };
+}

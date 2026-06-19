@@ -99,11 +99,12 @@ Loaded via Google Fonts in `nuxt.config.js`.
 - Centered icon + label
 - Blank decorative cards with blur filter at row edges
 
-### Project card
+### Project card (new build)
 
-- 485×580px lavender background, 10px radius, rotated screenshot (-10deg)
-- Logo in header area, screenshot overflows bottom-right
-- Shadow: `0 4px 50px rgba(0,0,0,0.18)`
+- Aspect ratio ~485:580, rounded corners, soft shadow
+- Screenshot fills card as background (`object-cover`); logo pinned top-left
+- No description or tech stack on card
+- Two-column staggered layout; right column offset upward on desktop
 
 ### Testimony card
 

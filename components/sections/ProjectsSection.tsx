@@ -1,20 +1,18 @@
 "use client";
 
-import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { useStaggerReveal } from "@/lib/animations/useStaggerReveal";
 import {
   projects,
   projectsHeadingYears,
   projectsSection,
+  splitProjectsTwoColumns,
 } from "@/lib/data/projects";
+import { cn } from "@/lib/utils";
 
 export function ProjectsSection() {
-  const gridRef = useRef<HTMLDivElement>(null);
-  useStaggerReveal(gridRef);
-
+  const { left, right } = splitProjectsTwoColumns(projects);
   const years = projectsHeadingYears();
   const heading = projectsSection.headingTemplate(years);
 
@@ -33,12 +31,28 @@ export function ProjectsSection() {
           </Button>
         </div>
 
-        <div
-          ref={gridRef}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+        <div className="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-20">
+          {left.map((project, index) => (
+            <div
+              key={project.id}
+              className="w-full max-w-[420px] mx-auto lg:mx-0 lg:justify-self-start lg:col-start-1"
+              style={{ order: index * 2, gridRow: index + 1 }}
+            >
+              <ProjectCard project={project} column="left" />
+            </div>
+          ))}
+
+          {right.map((project, index) => (
+            <div
+              key={project.id}
+              className={cn(
+                "w-full max-w-[420px] mx-auto lg:mx-0 lg:justify-self-end lg:col-start-2 lg:-mt-52 xl:-mt-70",
+                index === 0 && "",
+              )}
+              style={{ order: index * 2 + 1, gridRow: index + 1 }}
+            >
+              <ProjectCard project={project} column="right" />
+            </div>
           ))}
         </div>
       </div>
