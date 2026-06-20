@@ -15,7 +15,7 @@ export function TestimonialsSection() {
           overline={testimonialsSection.overline}
           title={testimonialsSection.title}
           centered
-          className="mx-auto"
+          className="mx-auto sm:mb-0"
         />
 
         <TestimonialCarousel items={testimonials} />

@@ -108,7 +108,7 @@ export type Testimonial = {
   name: string;
   position: string;
   quote: string;
-  imagePath: string;
+  imagePath: string | null;
 };
 
 export const testimonials: Testimonial[] = [
@@ -117,21 +117,23 @@ export const testimonials: Testimonial[] = [
     position: "COO of Webdev200",
     quote:
       "Christian is not only great for design and development, he is a problem solver who always delivers an exceptional quality of work. Highly recommended",
-    imagePath: "/profiles/client_sir_miko_wrknfx",
+    imagePath: "/profiles/miko_suarez_vgxzkv",
   },
   {
     name: "Aldrin Plata",
     position: "OM of Webdev200",
     quote:
-      "Christian is not only great for design and development, he is a problem solver who always delivers an exceptional quality of work. Highly recommended",
-    imagePath: "/profiles/client_sir_miko_wrknfx",
+      "I've worked with Christian on several projects and am always impressed by his dedication and problem-solving skills. He's a true professional and creative asset.",
+ 
+    imagePath: null,
   },
   {
     name: "Sebastian Lavarias",
     position: "Senior Fullstack Developer",
     quote:
-      "Christian is not only great for design and development, he is a problem solver who always delivers an exceptional quality of work. Highly recommended",
-    imagePath: "/profiles/client_sir_miko_wrknfx",
+      "Christian is a great friend and collaborator. We’ve worked on projects together and he always brings energy, ideas, and support. I highly recommend him.",
+ 
+    imagePath: '/profiles/basti_laravarias_vj96kd',
   },
  
 ];
