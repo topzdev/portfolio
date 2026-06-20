@@ -114,7 +114,7 @@ export function Navigation() {
 
   const linkClass = (id: string) =>
     cn(
-      "rounded-full px-3 py-1.5 text-left text-sm transition-colors duration-300 lg:px-0 lg:py-0 lg:text-right",
+      "rounded-full px-3 py-1.5 text-left text-lg transition-colors duration-300 lg:px-0 lg:py-0 lg:text-right",
       activeId === id ? styles.active : styles.idle,
     );
 

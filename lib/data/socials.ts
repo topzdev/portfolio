@@ -47,12 +47,7 @@ export const socialLinks: SocialLink[] = [
     url: "https://www.instagram.com/_christopz",
     icon: "InstagramIcon",
   },
-  {
-    platform: "threads",
-    label: "Threads",
-    url: "https://www.threads.com/@_christopz",
-    icon: "ThreadsIcon",
-  },
+ 
   {
     platform: "facebook",
     label: "Facebook",
@@ -86,9 +81,21 @@ export const legacySocialLinks: SocialLink[] = [
   },
 ];
 
+export type FooterQuotePart = {
+  text: string;
+  accent?: "yellow" | "blue" | "darkBlue";
+};
+
 export const footerQuote = {
-  text: "Never stop learning, Never give up your dream. We don't just come here to lose, Keep fighting for your dreams.",
-  highlights: ["Never", "dream", "fighting"] as const,
+  parts: [
+    { text: "Always " },
+    { text: "learning", accent: "yellow" },
+    { text: ". Always " },
+    { text: "building", accent: "blue" },
+    { text: ". Always " },
+    { text: "moving forward", accent: "darkBlue" },
+    { text: "." },
+  ] satisfies FooterQuotePart[],
 };
 
 export const contactSection = {
