@@ -33,7 +33,7 @@ function getActiveSectionId(): string {
     }
   }
 
-  let fallback = sectionIds[0];
+  let fallback: (typeof sectionIds)[number] = sectionIds[0];
   for (const id of sectionIds) {
     const element = document.getElementById(id);
     if (!element) continue;
