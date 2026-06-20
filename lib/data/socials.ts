@@ -119,4 +119,18 @@ export const testimonials: Testimonial[] = [
       "Christian is not only great for design and development, he is a problem solver who always delivers an exceptional quality of work. Highly recommended",
     imagePath: "/profiles/client_sir_miko_wrknfx",
   },
+  {
+    name: "Miko Suarez",
+    position: "COO of Webdev200",
+    quote:
+      "Christian is not only great for design and development, he is a problem solver who always delivers an exceptional quality of work. Highly recommended",
+    imagePath: "/profiles/client_sir_miko_wrknfx",
+  },
+  {
+    name: "Miko Suarez",
+    position: "COO of Webdev200",
+    quote:
+      "Christian is not only great for design and development, he is a problem solver who always delivers an exceptional quality of work. Highly recommended",
+    imagePath: "/profiles/client_sir_miko_wrknfx",
+  },
 ];

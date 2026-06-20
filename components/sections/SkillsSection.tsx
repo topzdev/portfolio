@@ -123,7 +123,7 @@ export function SkillsSection() {
     <section
       id="skills"
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#f3f4fb] section-padding"
+      className="relative overflow-hidden bg-[#f3f4fb] max-h-[90vh]"
     >
       <div
         aria-hidden
@@ -145,7 +145,7 @@ export function SkillsSection() {
         ))}
       </div>
 
-      <div className="container-narrow relative">
+      <div className="container-narrow relativ py-20">
         <SectionHeading
           overline={skillsSection.overline}
           title={skillsSection.title}

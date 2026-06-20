@@ -21,7 +21,6 @@ export function AboutSection() {
           <Button href={profile.resumeUrl} variant="secondary">
             {aboutSection.resumeLabel}
           </Button>
-          <span className="text-sm text-ink-subtle">{profile.location}</span>
         </div>
       </div>
     </section>

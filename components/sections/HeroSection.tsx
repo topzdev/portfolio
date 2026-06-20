@@ -25,7 +25,7 @@ export function HeroSection() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative flex min-h-screen items-center section-padding pt-28"
+      className="relative flex min-h-screen items-center section-padding"
     >
       <div className="container-narrow w-full">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
