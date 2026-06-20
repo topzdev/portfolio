@@ -84,16 +84,17 @@ export const legacySocialLinks: SocialLink[] = [
 export type FooterQuotePart = {
   text: string;
   accent?: "yellow" | "blue" | "darkBlue";
+  className?: string;
 };
 
 export const footerQuote = {
   parts: [
     { text: "Always " },
-    { text: "learning", accent: "yellow" },
+    { text: "learning", accent: "yellow", className: "font-semibold" },
     { text: ". Always " },
-    { text: "building", accent: "blue" },
+    { text: "building", accent: "blue", className: "font-semibold" },
     { text: ". Always " },
-    { text: "moving forward", accent: "darkBlue" },
+    { text: "moving forward", accent: "darkBlue", className: "italic font-bold" },
     { text: "." },
   ] satisfies FooterQuotePart[],
 };

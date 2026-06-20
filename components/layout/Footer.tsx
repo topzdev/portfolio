@@ -84,10 +84,10 @@ export function Footer() {
       />
 
       <div className="container-narrow relative z-[1] px-5 py-20 sm:px-8 lg:px-12">
-        <blockquote className="max-w-[70%] text-[1.75rem] font-medium leading-[1.6] sm:text-[2rem] lg:text-[2.125rem]">
+        <blockquote className="max-w-[60%] text-[1.75rem] font-medium leading-[1.6] sm:text-[2rem] lg:text-[2.125rem]">
           {footerQuote.parts.map((part, index) =>
             part.accent ? (
-              <span key={index} className={accentClass[part.accent]}>
+              <span key={index} className={cn(accentClass[part.accent], part.className)}>
                 {part.text}
               </span>
             ) : (
