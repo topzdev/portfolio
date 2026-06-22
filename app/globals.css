@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-primary: #0993e5;
   --color-primary-light: #0094ff;
@@ -9,13 +11,29 @@
   --color-ink-muted: #6e6e73;
   --color-ink-subtle: #86868b;
   --color-border: #d2d2d7;
+  --color-skills: #f3f4fb;
   --color-footer: #151e29;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+html.dark {
+  --color-surface: #0b0f14;
+  --color-surface-elevated: #151b24;
+  --color-ink: #f3f6fa;
+  --color-ink-muted: #9aa4b2;
+  --color-ink-subtle: #7b8794;
+  --color-border: #2a3441;
+  --color-skills: #10161f;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -33,7 +51,7 @@
   }
 
   body {
-    @apply bg-surface text-ink antialiased;
+    @apply bg-surface text-ink antialiased transition-colors duration-300;
     font-family: var(--font-sans);
   }
 

@@ -33,7 +33,7 @@ const CARD_SIZE =
   "h-[130px] w-[96px] shrink-0 flex-col items-center justify-center rounded-lg p-2 text-center";
 
 const CARD_SHADOW =
-  "shadow-[0_4px_40px_rgba(237,237,237,1)] transition-shadow hover:shadow-[0_6px_32px_rgba(237,237,237,1)]";
+  "shadow-[0_4px_40px_rgba(237,237,237,1)] transition-shadow hover:shadow-[0_6px_32px_rgba(237,237,237,1)] dark:shadow-[0_4px_40px_rgba(0,0,0,0.35)] dark:hover:shadow-[0_6px_32px_rgba(0,0,0,0.45)]";
 
 function BlankSkillCard() {
   return (
@@ -43,12 +43,12 @@ function BlankSkillCard() {
         "flex",
         CARD_SIZE,
         CARD_SHADOW,
-        "border border-white/60 bg-white/70 blur-[2px]",
+        "border border-white/60 bg-white/45 blur-[2px] opacity-75 dark:border-white/10 dark:bg-white/[0.04] dark:opacity-60",
       )}
     >
       <div className="flex flex-col items-center justify-center">
-        <div className="mb-2 h-10 w-10 rounded-full bg-[#f3f4fb]" />
-        <div className="h-2.5 w-12 rounded-full bg-[#f3f4fb]" />
+        <div className="mb-2 h-10 w-10 rounded-full bg-skills dark:bg-white/10" />
+        <div className="h-2.5 w-12 rounded-full bg-skills dark:bg-white/10" />
       </div>
     </div>
   );
@@ -65,7 +65,7 @@ function SkillCard({ skill }: { skill: Skill }) {
         CARD_SHADOW,
         isGradient
           ? "border-transparent text-white"
-          : "border border-white/80 bg-white",
+          : "border border-white/80 bg-white dark:border-white/10 dark:bg-surface-elevated",
       )}
       style={
         isGradient
@@ -146,7 +146,7 @@ export function SkillsSection() {
     <section
       id="skills"
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#f3f4fb]"
+      className="relative overflow-hidden bg-skills"
     >
       <div
         aria-hidden
@@ -175,7 +175,7 @@ export function SkillsSection() {
           title={skillsSection.title}
         />
 
-        <div className="relative -my-60  z-10 xl:-mx-12">
+        <div className="relative -mt-60 -mb-60  z-10 xl:-mx-12">
           <div
             ref={columnsRef}
             className="flex w-max min-w-full items-start justify-between gap-6 px-5 pb-6 pt-4 sm:gap-8 sm:px-8 md:gap-10 lg:mx-auto lg:gap-12 lg:px-12"

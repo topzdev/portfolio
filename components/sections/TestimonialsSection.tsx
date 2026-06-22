@@ -8,7 +8,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="section-padding overflow-hidden bg-gradient-to-br from-primary/10 via-surface to-surface-elevated"
+      className="section-padding overflow-hidden bg-gradient-to-br from-primary/10 via-surface to-surface-elevated dark:from-primary/20 dark:via-surface dark:to-surface-elevated"
     >
       <div className="container-narrow">
         <SectionHeading

@@ -310,7 +310,7 @@ export function TestimonialCarousel({ items }: TestimonialCarouselProps) {
                   }}
                   aria-hidden={index !== activeIndex}
                 >
-                  <figure className="rounded-2xl border border-border bg-surface-elevated p-7 shadow-[0_24px_64px_rgba(0,0,0,0.08)] sm:p-9">
+                  <figure className="rounded-2xl border border-border bg-surface-elevated p-7 shadow-[0_24px_64px_rgba(0,0,0,0.08)] dark:shadow-[0_24px_64px_rgba(0,0,0,0.35)] sm:p-9">
                     <blockquote className="text-lg leading-relaxed text-ink sm:text-xl md:text-2xl">
                       &ldquo;{testimonial.quote}&rdquo;
                     </blockquote>

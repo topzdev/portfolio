@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTheme } from "@/components/providers/ThemeProvider";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { cn, scrollToSection } from "@/lib/utils";
 
 type NavTheme = "light" | "dark";
@@ -67,7 +69,8 @@ const themeStyles: Record<
   },
 };
 
-function resolveTheme(activeId: string): NavTheme {
+function resolveTheme(activeId: string, isSiteDark: boolean): NavTheme {
+  if (isSiteDark) return "dark";
   if (activeId === "footer") return "dark";
   const item = navItems.find((entry) => entry.id === activeId);
   return item?.theme ?? "light";
@@ -76,7 +79,8 @@ function resolveTheme(activeId: string): NavTheme {
 export function Navigation() {
   const [activeId, setActiveId] = useState<string>("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
-  const theme = resolveTheme(activeId);
+  const { resolvedTheme } = useTheme();
+  const theme = resolveTheme(activeId, resolvedTheme === "dark");
   const styles = themeStyles[theme];
 
   useEffect(() => {
@@ -120,6 +124,15 @@ export function Navigation() {
 
   return (
     <>
+      <ThemeToggle
+        className={cn(
+          "fixed right-4 top-4 z-[60] h-11 w-11 border bg-surface-elevated/90 shadow-sm transition-colors duration-300",
+          theme === "dark"
+            ? "border-white/15 bg-footer/90 text-white hover:text-white"
+            : "border-border/80 text-ink",
+        )}
+      />
+
       {mobileOpen ? (
         <button
           type="button"
@@ -131,8 +144,9 @@ export function Navigation() {
 
       <nav
         aria-label="Primary"
-        className="fixed right-4 top-4 z-50 lg:right-8 lg:top-1/2 lg:-translate-y-1/2"
+        className="fixed right-[4.5rem] top-4 z-50 lg:right-8 lg:top-1/2 lg:-translate-y-1/2"
       >
+        <div className="relative">
         <button
           type="button"
           className={cn(
@@ -203,6 +217,7 @@ export function Navigation() {
               </li>
             ))}
           </ul>
+        </div>
         </div>
       </nav>
     </>

@@ -28,7 +28,7 @@ export function ProjectCard({ project, column, className }: ProjectCardProps) {
     <article
       ref={cardRef}
       className={cn(
-        "group relative aspect-[485/580] w-full max-w-[420px] overflow-hidden rounded-2xl shadow-xl transition-shadow hover:shadow-2xl",
+        "group relative aspect-[485/580] w-full max-w-[420px] overflow-hidden rounded-2xl bg-white shadow-xl transition-shadow hover:shadow-2xl dark:bg-white/60",
         className,
       )}
     >

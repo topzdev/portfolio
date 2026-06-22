@@ -99,7 +99,7 @@ export function HeroSection() {
 
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[70vh] bg-gradient-to-b from-primary/[0.04] to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[70vh] bg-gradient-to-b from-primary/[0.04] to-transparent dark:from-primary/[0.08]"
       />
     </section>
   );
