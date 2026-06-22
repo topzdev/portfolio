@@ -32,7 +32,7 @@ export const skillsSection = {
 export const skills: Skill[] = [
   {
     name: "AI & LLM",
-    subtitle: "ChatGPT, Claude, V0 & Cursor",
+    subtitle: "ChatGPT, Claude, Gemini & Cursor",
     iconPath: "/icons/ai_f5zcc6",
     iconWidth: 68,
     iconHeight: 68,

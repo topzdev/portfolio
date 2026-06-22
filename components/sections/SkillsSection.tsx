@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { useSkillsColumnScroll } from "@/lib/animations/useSkillsColumnScroll";
 import { cloudinaryUrl } from "@/lib/data/profile";
@@ -11,6 +11,12 @@ import {
   type Skill,
   skillsSection,
 } from "@/lib/data/skills";
+import { useHasMounted } from "@/lib/hooks/useHasMounted";
+import {
+  mediaQueries,
+  useIsMobile,
+  useMediaQuery,
+} from "@/lib/hooks/useMediaQuery";
 import { cn } from "@/lib/utils";
 
 const BACKDROP_ICONS = [
@@ -64,9 +70,9 @@ function SkillCard({ skill }: { skill: Skill }) {
       style={
         isGradient
           ? {
-              background:
-                "linear-gradient(180deg, #4A90E2 0%, #50E3C2 100%)",
-            }
+            background:
+              "linear-gradient(180deg, #4A90E2 0%, #50E3C2 100%)",
+          }
           : undefined
       }
     >
@@ -117,13 +123,30 @@ export function SkillsSection() {
 
   useSkillsColumnScroll(sectionRef, columnsRef);
 
-  const columns = getSkillsColumns(3);
+  const hasMounted = useHasMounted();
+  const isMobile = useIsMobile();
+  const isTablet = useMediaQuery(mediaQueries.tablet);
+  const isLaptop = useMediaQuery(mediaQueries.laptop);
+
+  const columns = useMemo(() => {
+    if (!hasMounted) return getSkillsColumns(3);
+
+    if (isMobile) return getSkillsColumns(7);
+    if (isTablet) return getSkillsColumns(6);
+    if (isLaptop) return getSkillsColumns(4);
+    return getSkillsColumns(3);
+  }, [hasMounted, isMobile, isTablet, isLaptop]);
+
+  const maxColumnLength = useMemo(
+    () => Math.max(...columns.map((column) => column.length), 0),
+    [columns],
+  );
 
   return (
     <section
       id="skills"
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#f3f4fb] max-h-[90vh]"
+      className="relative overflow-hidden bg-[#f3f4fb]"
     >
       <div
         aria-hidden
@@ -145,19 +168,20 @@ export function SkillsSection() {
         ))}
       </div>
 
-      <div className="container-narrow relativ py-20">
+      <div className="container-narrow relative pt-30">
         <SectionHeading
+          className="px-5 xl:px-0"
           overline={skillsSection.overline}
           title={skillsSection.title}
         />
 
-        <div className="relative -mx-5 sm:-mx-8 lg:-mx-12 -mt-25 z-10">
+        <div className="relative -my-60  z-10 xl:-mx-12">
           <div
             ref={columnsRef}
             className="flex w-max min-w-full items-start justify-between gap-6 px-5 pb-6 pt-4 sm:gap-8 sm:px-8 md:gap-10 lg:mx-auto lg:gap-12 lg:px-12"
           >
             {columns.map((column, columnIndex) => {
-              const isOffsetColumn = columnIndex % 2 === 1;
+              const isOffsetColumn = columnIndex % 2 === 0;
 
               return (
                 <div
@@ -166,11 +190,18 @@ export function SkillsSection() {
                   data-skills-offset={isOffsetColumn ? "true" : "false"}
                   className={cn("flex shrink-0 flex-col gap-6", isOffsetColumn ? "-mt-25" : "")}
                 >
-                  <BlankSkillCard /> 
+                  <BlankSkillCard />
+                  <BlankSkillCard />
                   {column.map((skill) => (
                     <SkillCardLink key={skill.name} skill={skill} />
                   ))}
+                  {Array.from({
+                    length: maxColumnLength - column.length,
+                  }).map((_, padIndex) => (
+                    <BlankSkillCard key={`pad-${columnIndex}-${padIndex}`} />
+                  ))}
 
+                  <BlankSkillCard />
                   <BlankSkillCard />
                 </div>
               );
