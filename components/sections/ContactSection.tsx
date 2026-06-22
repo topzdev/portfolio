@@ -6,34 +6,60 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { useStaggerReveal } from "@/lib/animations/useStaggerReveal";
 import { profile } from "@/lib/data/profile";
 import { contactSection } from "@/lib/data/socials";
+import { cn } from "@/lib/utils";
+
+const inputClassName =
+  "w-full rounded-xl border border-border bg-surface px-4 py-3 text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20";
+
+const fileInputClassName = cn(
+  inputClassName,
+  "cursor-pointer file:mr-4 file:cursor-pointer file:rounded-lg file:border-0 file:bg-primary/10 file:px-4 file:py-2 file:text-sm file:font-medium file:text-primary hover:file:bg-primary/15",
+);
 
 export function ContactSection() {
-  const formRef = useRef<HTMLFormElement>(null);
-  useStaggerReveal(formRef, { selector: "[data-reveal-item]" });
+  const sectionRef = useRef<HTMLDivElement>(null);
+  useStaggerReveal(sectionRef, { selector: "[data-reveal-item]" });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const name = formData.get("name")?.toString() ?? "";
-    const email = formData.get("email")?.toString() ?? "";
-    const message = formData.get("message")?.toString() ?? "";
+    setIsSubmitting(true);
+    setError(null);
 
-    const subject = encodeURIComponent(`Project inquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${message}`,
-    );
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    formData.set("form-name", contactSection.formName);
 
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      setSubmitted(true);
+      form.reset();
+    } catch {
+      setError(contactSection.errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="contact" className="section-padding bg-surface-elevated">
       <div className="container-narrow">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
+        <div
+          ref={sectionRef}
+          className="grid gap-12 lg:grid-cols-2 lg:gap-16"
+        >
+          <div data-reveal-item>
             <SectionHeading
               title={contactSection.title}
               subtitle={contactSection.subtitle}
@@ -41,7 +67,10 @@ export function ContactSection() {
           </div>
 
           <div>
-            <h3 className="mb-6 text-xl font-semibold text-ink">
+            <h3
+              data-reveal-item
+              className="mb-6 text-xl font-semibold text-ink"
+            >
               {contactSection.formTitle}
             </h3>
 
@@ -50,23 +79,32 @@ export function ContactSection() {
                 data-reveal-item
                 className="rounded-2xl border border-primary/20 bg-primary/5 p-6 text-ink-muted"
               >
-                Your email client should open shortly. If it doesn&apos;t,
-                reach me directly at{" "}
-                <a
-                  href={`mailto:${profile.email}`}
-                  className="font-medium text-primary hover:underline"
-                >
-                  {profile.email}
-                </a>
-                .
+                {contactSection.successMessage}
               </p>
             ) : (
               <form
-                ref={formRef}
+                name={contactSection.formName}
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                encType="multipart/form-data"
                 onSubmit={handleSubmit}
                 className="space-y-5"
                 noValidate
               >
+                <input
+                  type="hidden"
+                  name="form-name"
+                  value={contactSection.formName}
+                />
+
+                <p className="hidden" aria-hidden>
+                  <label>
+                    Don&apos;t fill this out:
+                    <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                  </label>
+                </p>
+
                 <div data-reveal-item>
                   <label
                     htmlFor="name"
@@ -80,7 +118,8 @@ export function ContactSection() {
                     type="text"
                     required
                     autoComplete="name"
-                    className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+                    disabled={isSubmitting}
+                    className={inputClassName}
                   />
                 </div>
 
@@ -97,7 +136,8 @@ export function ContactSection() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+                    disabled={isSubmitting}
+                    className={inputClassName}
                   />
                 </div>
 
@@ -113,13 +153,53 @@ export function ContactSection() {
                     name="message"
                     required
                     rows={5}
-                    className="w-full resize-y rounded-xl border border-border bg-surface px-4 py-3 text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+                    disabled={isSubmitting}
+                    className={cn(inputClassName, "resize-y")}
                   />
                 </div>
 
                 <div data-reveal-item>
-                  <Button type="submit" className="w-full sm:w-auto">
-                    Send it!
+                  <label
+                    htmlFor="attachment"
+                    className="mb-2 block text-sm font-medium text-ink"
+                  >
+                    {contactSection.fileLabel}
+                  </label>
+                  <input
+                    id="attachment"
+                    name="attachment"
+                    type="file"
+                    accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.gif,.webp,.zip"
+                    disabled={isSubmitting}
+                    className={fileInputClassName}
+                  />
+                  <p className="mt-2 text-sm text-ink-muted">
+                    {contactSection.fileHint}
+                  </p>
+                </div>
+
+                {error && (
+                  <p
+                    role="alert"
+                    className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+                  >
+                    {error}{" "}
+                    <a
+                      href={`mailto:${profile.email}`}
+                      className="font-medium underline"
+                    >
+                      {profile.email}
+                    </a>
+                  </p>
+                )}
+
+                <div data-reveal-item>
+                  <Button
+                    type="submit"
+                    className="w-full sm:w-auto"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : "Send it!"}
                   </Button>
                 </div>
               </form>

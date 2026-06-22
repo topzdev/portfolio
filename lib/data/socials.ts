@@ -105,6 +105,13 @@ export const contactSection = {
   subtitle: "Don't hesitate, lets talk about your idea and make it happen.",
   formTitle: "Estimate your project? Let me know here.",
   hireMeCta: "Hire Me",
+  formName: "contact",
+  successMessage:
+    "Thanks for reaching out! I received your message and will get back to you soon.",
+  errorMessage:
+    "Something went wrong while sending your message. Please try again or email me directly.",
+  fileLabel: "Attach a file (optional)",
+  fileHint: "PDF, images, or documents up to 10MB.",
 };
 
 export const testimonialsSection = {

@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import { FooterIcon, type FooterIconName } from "@/components/icons/FooterIcons";
+import { useStaggerReveal } from "@/lib/animations/useStaggerReveal";
 import { profile } from "@/lib/data/profile";
 import {
   contactLinks,
@@ -30,6 +33,7 @@ function FooterLinkItem({
   return (
     <a
       href={href}
+      data-footer-icon
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       className="group flex items-center gap-3 text-[#bdbdbd] transition-colors hover:text-white"
@@ -71,6 +75,8 @@ function FooterLinkColumn({
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const linksRef = useRef<HTMLDivElement>(null);
+  useStaggerReveal(linksRef, { selector: "[data-footer-icon]", stagger: 0.1 });
 
   return (
     <footer id="footer" className="relative overflow-hidden bg-footer text-white">
@@ -96,7 +102,7 @@ export function Footer() {
           )}
         </blockquote>
 
-        <div className="mt-24 flex flex-col gap-16 lg:flex-row lg:gap-20">
+        <div ref={linksRef} className="mt-24 flex flex-col gap-16 lg:flex-row lg:gap-20">
           <FooterLinkColumn title="Contacts">
             {contactLinks.map((link) => (
               <li key={link.href} className="list-none">

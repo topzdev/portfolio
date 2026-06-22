@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { StatusBubble } from "@/components/ui/StatusBubble";
 import { useHeroIntro, splitJobTitle } from "@/lib/animations/useHeroIntro";
 import { heroImageUrl, profile } from "@/lib/data/profile";
 import { contactSection } from "@/lib/data/socials";
@@ -29,14 +30,20 @@ export function HeroSection() {
     >
       <div className="container-narrow w-full">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <div className="mb-10 sm:mb-12">
+          <div className="relative mb-10 inline-block sm:mb-12">
+            <StatusBubble
+              messages={profile.statusBubble.messages}
+              intervalMs={profile.statusBubble.intervalMs}
+              initialDelayMs={profile.statusBubble.initialDelayMs}
+              className="bottom-full left-1/2 mb-2 -translate-x-1/2 sm:mb-3"
+            />
             <Image
               src={heroImageUrl()}
               alt={`${profile.name} avatar`}
               width={150}
               height={150}
               priority
-              className="mx-auto"
+              className="mx-auto block"
             />
           </div>
 

@@ -38,15 +38,18 @@ export function useStaggerReveal(
         return;
       }
 
-      gsap.from(items, {
-        opacity: 0,
-        y,
+      gsap.set(items, { opacity: 0, y });
+
+      gsap.to(items, {
+        opacity: 1,
+        y: 0,
         duration,
         stagger,
         ease: "power3.out",
         scrollTrigger: {
           trigger: container,
           start,
+          toggleActions: "play none none none",
           once: true,
         },
       });

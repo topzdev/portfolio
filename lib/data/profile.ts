@@ -21,6 +21,11 @@ export type Profile = {
   avatarPath: string;
   heroImagePath: string;
   rotatingTitles: string[];
+  statusBubble: {
+    messages: string[];
+    intervalMs: number;
+    initialDelayMs: number;
+  };
   seo: ProfileSeo;
 };
 
@@ -47,6 +52,14 @@ export const profile: Profile = {
     "UI/UX Designer",
     "Fullstack Developer",
   ],
+  statusBubble: {
+    messages: [
+      "Expanding my skills in AI/ML🤖",
+      "Open to new opportunities🚀",
+    ],
+    intervalMs: 10000,
+    initialDelayMs: 2800,
+  },
   seo: {
     title: "TopzDev - Christian Lugod Portfolio",
     description:
