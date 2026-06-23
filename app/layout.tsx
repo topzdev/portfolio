@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { ChatProvider } from "@/components/providers/ChatProvider";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 import { profile } from "@/lib/data/profile";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
@@ -60,13 +62,16 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-surface"
-          >
-            Skip to content
-          </a>
-          {children}
+          <ChatProvider>
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-surface"
+            >
+              Skip to content
+            </a>
+            {children}
+            <ChatWidget />
+          </ChatProvider>
         </ThemeProvider>
       </body>
     </html>

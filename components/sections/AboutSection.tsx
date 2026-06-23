@@ -1,9 +1,10 @@
 import { AnimatedText } from "@/components/ui/AnimatedText";
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ChatCta } from "@/components/chat/ChatCta";
 import { aboutSection, profile } from "@/lib/data/profile";
-
 export function AboutSection() {
+
   return (
     <section id="about" className="section-padding bg-surface-elevated">
       <div className="container-narrow">
@@ -21,7 +22,9 @@ export function AboutSection() {
           <Button href={profile.resumeUrl} variant="secondary">
             {aboutSection.resumeLabel}
           </Button>
+          <ChatCta />
         </div>
+
       </div>
     </section>
   );

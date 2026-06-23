@@ -17,7 +17,7 @@ export function ProjectsSection() {
   const heading = projectsSection.headingTemplate(years);
 
   return (
-    <section id="projects" className="section-padding bg-surface-elevated">
+    <section id="projects" className="section-padding bg-surface-elevated overflow-hidden">
       <div className="container-narrow">
         <SectionHeading
           overline={projectsSection.overline}

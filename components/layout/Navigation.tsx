@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "@/components/providers/ThemeProvider";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { cn, scrollToSection } from "@/lib/utils";
+import { useChat } from "../providers/ChatProvider";
 
 type NavTheme = "light" | "dark";
 
@@ -77,6 +78,7 @@ function resolveTheme(activeId: string, isSiteDark: boolean): NavTheme {
 }
 
 export function Navigation() {
+  const { isOpen, closeChat} = useChat();
   const [activeId, setActiveId] = useState<string>("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
   const { resolvedTheme } = useTheme();
@@ -106,6 +108,9 @@ export function Navigation() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+
+    closeChat();
+
     return () => {
       document.body.style.overflow = "";
     };
