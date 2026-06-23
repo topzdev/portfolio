@@ -45,7 +45,7 @@ export function ChatWidget() {
         onClick={toggleChat}
         className={cn(
           "fixed bottom-5 right-4 z-[35] sm:bottom-6 sm:right-6 ml-auto flex h-14 w-14 items-center justify-center rounded-full border border-border bg-surface-elevated text-primary shadow-[0_8px_32px_rgba(9,147,229,0.25)] transition-all hover:scale-105 hover:bg-primary hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
-          isOpen && "bg-primary text-white",
+          isOpen && "bg-primary dark:text-white",
         )}
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close portfolio assistant" : "Open portfolio assistant"}

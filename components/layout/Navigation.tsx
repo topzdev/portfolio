@@ -109,7 +109,7 @@ export function Navigation() {
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
 
-    closeChat();
+    closeChat()
 
     return () => {
       document.body.style.overflow = "";
