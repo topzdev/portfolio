@@ -97,6 +97,17 @@ html.dark {
       display: none;
     }
   }
+
+  .hero-cta-pulse button {
+    animation: hero-cta-pulse 2.4s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-cta-pulse button {
+      animation: none;
+      box-shadow: 0 0 30px rgba(9, 147, 229, 0.35);
+    }
+  }
 }
 
 @keyframes status-bubble-enter {
@@ -131,5 +142,18 @@ html.dark {
   50%,
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes hero-cta-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 22px rgba(9, 147, 229, 0.28);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 0 42px rgba(9, 147, 229, 0.55);
+    transform: scale(1.03);
   }
 }

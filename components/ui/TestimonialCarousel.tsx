@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { CloudinaryImage } from "@/components/ui/CloudinaryImage";
 import { gsap, prefersReducedMotion, registerGsap } from "@/lib/animations/gsap";
 import { cloudinaryUrl } from "@/lib/data/profile";
 import type { Testimonial } from "@/lib/data/socials";
@@ -100,7 +100,7 @@ function TestimonialAvatar({
   }
 
   return (
-    <Image
+    <CloudinaryImage
       src={cloudinaryUrl(imagePath)}
       alt={name}
       width={56}

@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useRef } from "react";
+import { CloudinaryImage } from "@/components/ui/CloudinaryImage";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { useSkillsColumnScroll } from "@/lib/animations/useSkillsColumnScroll";
 import { cloudinaryUrl } from "@/lib/data/profile";
@@ -76,13 +76,12 @@ function SkillCard({ skill }: { skill: Skill }) {
           : undefined
       }
     >
-      <Image
+      <CloudinaryImage
         src={cloudinaryUrl(skill.iconPath)}
         alt=""
         width={skill.iconWidth}
         height={skill.iconHeight}
         className="mb-2 h-10 w-10 object-contain"
-        unoptimized
         aria-hidden
       />
       <p className="text-[11px] font-semibold leading-snug text-inherit">
@@ -153,7 +152,7 @@ export function SkillsSection() {
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
         {BACKDROP_ICONS.map((icon, index) => (
-          <Image
+          <CloudinaryImage
             key={icon}
             src={cloudinaryUrl(icon)}
             alt=""

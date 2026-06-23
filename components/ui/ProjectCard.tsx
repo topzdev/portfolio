@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import { CloudinaryImage } from "@/components/ui/CloudinaryImage";
 import {
   useProjectCardReveal,
   type ProjectCardColumn,
@@ -33,7 +33,7 @@ export function ProjectCard({ project, column, className }: ProjectCardProps) {
       )}
     >
      <div className="relative w-full h-full -bottom-20 left-10">
-     <Image
+     <CloudinaryImage
         src={imageUrl}
         alt={project.image.alt}
         fill
@@ -45,7 +45,7 @@ export function ProjectCard({ project, column, className }: ProjectCardProps) {
       <div className="absolute inset-0" aria-hidden />
 
       <div className="absolute top-6 left-6 z-10">
-        <Image
+        <CloudinaryImage
           src={logoUrl}
           alt={`${project.title} logo`}
           width={project.logo.width}

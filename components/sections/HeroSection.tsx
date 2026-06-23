@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useRef } from "react";
+import { CloudinaryImage } from "@/components/ui/CloudinaryImage";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { StatusBubble } from "@/components/ui/StatusBubble";
 import { useHeroIntro, splitJobTitle } from "@/lib/animations/useHeroIntro";
@@ -37,7 +37,7 @@ export function HeroSection() {
               initialDelayMs={profile.statusBubble.initialDelayMs}
               className="bottom-full left-1/2 mb-2 -translate-x-1/2 sm:mb-3"
             />
-            <Image
+            <CloudinaryImage
               src={heroImageUrl()}
               alt={`${profile.name} avatar`}
               width={150}
@@ -89,7 +89,7 @@ export function HeroSection() {
           <div className="mt-10 md:mt-12">
             <MagneticButton
               onClick={() => scrollToSection(contactSection.id)}
-              className="[&_button]:px-14 [&_button]:py-4 [&_button]:text-base [&_button]:font-semibold [&_button]:uppercase [&_button]:tracking-[0.2em] [&_button]:shadow-[0_0_30px_rgba(9,147,229,0.35)]"
+              className="hero-cta-pulse [&_button]:px-14 [&_button]:py-4 [&_button]:text-base [&_button]:font-semibold [&_button]:uppercase [&_button]:tracking-[0.2em]"
             >
               {contactSection.hireMeCta}
             </MagneticButton>
