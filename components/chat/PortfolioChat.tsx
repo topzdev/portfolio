@@ -1,60 +1,186 @@
 "use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { ChatAssistantIcon } from "@/components/chat/ChatAssistantIcon";
+import { FormattedMessage } from "@/components/chat/FormattedMessage";
+import { useChat } from "@/components/providers/ChatProvider";
 import {
   CHAT_SUGGESTED_QUESTIONS,
   CHAT_WELCOME_MESSAGE,
 } from "@/lib/data/chatbot";
+import { checkClientRateLimit } from "@/lib/chat/clientRateLimit";
+import { navigateToWebsiteSection } from "@/lib/chat/navigateToSection";
+import {
+  loadStoredChatMessages,
+  saveStoredChatMessages,
+} from "@/lib/chat/storage";
+import type { ChatMessage } from "@/lib/chat/types";
+import { useTypewriter } from "@/lib/chat/useTypewriter";
 import { cn } from "@/lib/utils";
-import { HugeiconsArtificialIntelligence08 } from "./ChatWidget";
 
-export type ChatMessage = {
-  id: string;
-  role: "user" | "assistant";
-  content: string;
-};
+export type { ChatMessage } from "@/lib/chat/types";
 
 type PortfolioChatProps = {
   variant?: "widget" | "page";
   className?: string;
   onClose?: () => void;
+  fullscreen?: boolean;
+};
+
+type PendingReply = {
+  id: string;
+  text: string;
 };
 
 function createId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
 }
 
+function createWelcomeMessage(): ChatMessage {
+  return { id: "welcome", role: "assistant", content: CHAT_WELCOME_MESSAGE };
+}
+
+function AssistantTypingBubble({
+  text,
+  onComplete,
+  onSectionNavigate,
+}: {
+  text: string;
+  onComplete: () => void;
+  onSectionNavigate?: (sectionId: string) => void;
+}) {
+  const completedRef = useRef(false);
+  const handleComplete = useCallback(() => {
+    if (completedRef.current) return;
+    completedRef.current = true;
+    onComplete();
+  }, [onComplete]);
+
+  const displayed = useTypewriter(text, true, handleComplete);
+
+  return (
+    <div className="flex justify-start">
+      <div className="max-w-[88%] rounded-2xl rounded-bl-md border border-border bg-surface px-3.5 py-2.5 text-sm leading-relaxed text-ink">
+        <FormattedMessage
+          content={displayed}
+          showCaret
+          onSectionNavigate={onSectionNavigate}
+        />
+      </div>
+    </div>
+  );
+}
+
 export function PortfolioChat({
   variant = "widget",
   className,
   onClose,
+  fullscreen = false,
 }: PortfolioChatProps) {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    { id: "welcome", role: "assistant", content: CHAT_WELCOME_MESSAGE },
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [ready, setReady] = useState(false);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [pendingReply, setPendingReply] = useState<PendingReply | null>(null);
   const [error, setError] = useState<string | null>(null);
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const lastSentAtRef = useRef(0);
+  const recentSendsRef = useRef<number[]>([]);
+
+  const pathname = usePathname();
+  const { closeChat } = useChat();
+
+  const handleSectionNavigate = useCallback(
+    (sectionId: string) => {
+      navigateToWebsiteSection(sectionId, {
+        pathname: pathname ?? "/",
+        closeChat: variant === "widget" ? closeChat : undefined,
+      });
+    },
+    [closeChat, pathname, variant],
+  );
 
   const isPage = variant === "page";
+  const isBusy = isLoading || pendingReply !== null;
   const showSuggestions =
-    messages.length === 1 && messages[0]?.id === "welcome" && !isLoading;
+    ready &&
+    messages.length === 1 &&
+    messages[0]?.id === "welcome" &&
+    !isBusy;
+
+  useEffect(() => {
+    const stored = loadStoredChatMessages();
+    setMessages(stored ?? [createWelcomeMessage()]);
+    setReady(true);
+  }, []);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({
       top: scrollRef.current.scrollHeight,
       behavior: "smooth",
     });
-  }, [messages, isLoading]);
+  }, [messages, isLoading, pendingReply, ready]);
+
+  useEffect(() => {
+    if (!pendingReply) return;
+
+    const timer = window.setInterval(() => {
+      scrollRef.current?.scrollTo({
+        top: scrollRef.current.scrollHeight,
+      });
+    }, 80);
+
+    return () => window.clearInterval(timer);
+  }, [pendingReply]);
+
+  const persistMessages = useCallback((nextMessages: ChatMessage[]) => {
+    saveStoredChatMessages(nextMessages);
+  }, []);
+
+  const handleTypingComplete = useCallback(() => {
+    if (!pendingReply) return;
+
+    const assistantMessage: ChatMessage = {
+      id: pendingReply.id,
+      role: "assistant",
+      content: pendingReply.text,
+    };
+
+    setMessages((current) => {
+      const next = [...current, assistantMessage];
+      persistMessages(next);
+      return next;
+    });
+
+    setPendingReply(null);
+    inputRef.current?.focus();
+  }, [pendingReply, persistMessages]);
 
   const sendMessage = async (text: string) => {
     const trimmed = text.trim();
-    if (!trimmed || isLoading) return;
+    if (!trimmed || isBusy) return;
+
+    const rateLimit = checkClientRateLimit(
+      lastSentAtRef.current,
+      recentSendsRef.current,
+    );
+
+    if (!rateLimit.allowed) {
+      setError(rateLimit.message ?? "Please wait before sending another message.");
+      return;
+    }
 
     setError(null);
     setInput("");
+
+    const now = Date.now();
+    lastSentAtRef.current = now;
+    recentSendsRef.current = [...recentSendsRef.current, now].filter(
+      (timestamp) => now - timestamp < 60_000,
+    );
 
     const userMessage: ChatMessage = {
       id: createId(),
@@ -62,11 +188,13 @@ export function PortfolioChat({
       content: trimmed,
     };
 
-    setMessages((current) => [...current, userMessage]);
+    const nextMessages = [...messages, userMessage];
+    setMessages(nextMessages);
+    persistMessages(nextMessages);
     setIsLoading(true);
 
     try {
-      const history = [...messages, userMessage]
+      const history = nextMessages
         .filter((message) => message.id !== "welcome")
         .map((message) => ({
           role: message.role,
@@ -82,6 +210,9 @@ export function PortfolioChat({
       const data = (await response.json()) as { reply?: string; error?: string };
 
       if (!response.ok) {
+        if (response.status === 429) {
+          throw new Error(data.error ?? "Too many requests. Please wait a moment.");
+        }
         throw new Error(data.error ?? "Failed to get a response.");
       }
 
@@ -90,17 +221,13 @@ export function PortfolioChat({
         throw new Error("Empty response from assistant.");
       }
 
-      setMessages((current) => [
-        ...current,
-        { id: createId(), role: "assistant", content: reply },
-      ]);
+      setPendingReply({ id: createId(), text: reply });
     } catch (err) {
       setError(
         err instanceof Error ? err.message : "Something went wrong. Try again.",
       );
     } finally {
       setIsLoading(false);
-      inputRef.current?.focus();
     }
   };
 
@@ -109,20 +236,42 @@ export function PortfolioChat({
     void sendMessage(input);
   };
 
+  if (!ready) {
+    return (
+      <div
+        className={cn(
+          "flex items-center justify-center border border-border bg-surface-elevated",
+          isPage
+            ? "min-h-[min(70vh,640px)] rounded-2xl"
+            : "h-full rounded-2xl",
+          className,
+        )}
+      >
+        <div className="flex items-center gap-1.5">
+          <span className="h-2 w-2 animate-bounce rounded-full bg-primary [animation-delay:-0.2s]" />
+          <span className="h-2 w-2 animate-bounce rounded-full bg-primary [animation-delay:-0.1s]" />
+          <span className="h-2 w-2 animate-bounce rounded-full bg-primary" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(
         "flex flex-col overflow-hidden border border-border bg-surface-elevated",
         isPage
           ? "min-h-[min(70vh,640px)] rounded-2xl shadow-lg"
-          : "h-full rounded-2xl shadow-2xl",
+          : fullscreen
+            ? "h-full rounded-none border-0 shadow-none"
+            : "h-full rounded-2xl shadow-2xl",
         className,
       )}
     >
-      <header className="flex items-center justify-between gap-3 border-b border-border bg-surface px-4 py-3">
+      <header className="flex shrink-0 items-center justify-between gap-3 border-b border-border bg-surface px-4 py-3">
         <div className="flex min-w-0 items-center gap-3">
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-            <HugeiconsArtificialIntelligence08 className="w-6 h-6" />
+            <ChatAssistantIcon className="h-6 w-6" />
           </span>
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-ink">
@@ -173,7 +322,14 @@ export function PortfolioChat({
                   : "rounded-bl-md border border-border bg-surface text-ink",
               )}
             >
-              {message.content}
+              {message.role === "assistant" ? (
+                <FormattedMessage
+                  content={message.content}
+                  onSectionNavigate={handleSectionNavigate}
+                />
+              ) : (
+                <span className="whitespace-pre-wrap">{message.content}</span>
+              )}
             </div>
           </div>
         ))}
@@ -189,7 +345,8 @@ export function PortfolioChat({
                   key={question}
                   type="button"
                   onClick={() => void sendMessage(question)}
-                  className="rounded-full border border-border bg-surface px-3 py-1.5 text-left text-xs text-ink-muted transition-colors hover:border-primary/40 hover:text-primary"
+                  disabled={isBusy}
+                  className="rounded-full border border-border bg-surface px-3 py-1.5 text-left text-xs text-ink-muted transition-colors hover:border-primary/40 hover:text-primary disabled:opacity-50"
                 >
                   {question}
                 </button>
@@ -207,19 +364,26 @@ export function PortfolioChat({
             </div>
           </div>
         ) : null}
+
+        {pendingReply ? (
+          <AssistantTypingBubble
+            key={pendingReply.id}
+            text={pendingReply.text}
+            onComplete={handleTypingComplete}
+            onSectionNavigate={handleSectionNavigate}
+          />
+        ) : null}
       </div>
 
-
-
       {error ? (
-        <p className="px-4 pb-2 text-xs text-red-600 dark:text-red-400" role="alert">
+        <p className="shrink-0 px-4 pb-2 text-xs text-red-600 dark:text-red-400" role="alert">
           {error}
         </p>
       ) : null}
 
       <form
         onSubmit={handleSubmit}
-        className="flex items-center gap-2 border-t border-border p-3"
+        className="flex shrink-0 items-center gap-2 border-t border-border p-3"
       >
         <input
           ref={inputRef}
@@ -227,13 +391,13 @@ export function PortfolioChat({
           value={input}
           onChange={(event) => setInput(event.target.value)}
           placeholder="Ask about skills, projects, experience..."
-          disabled={isLoading}
+          disabled={isBusy}
           className="min-w-0 flex-1 rounded-xl border border-border bg-surface px-3 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-ink-subtle focus:border-primary focus:ring-2 focus:ring-primary/20 disabled:opacity-60"
           aria-label="Chat message"
         />
         <button
           type="submit"
-          disabled={isLoading || !input.trim()}
+          disabled={isBusy || !input.trim()}
           className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-white transition-colors hover:bg-primary-light disabled:cursor-not-allowed disabled:opacity-50"
           aria-label="Send message"
         >

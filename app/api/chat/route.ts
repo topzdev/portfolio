@@ -1,4 +1,8 @@
 import { getPortfolioChatReply } from "@/lib/chatbot/getReply";
+import {
+  checkServerRateLimit,
+  getClientIdFromRequest,
+} from "@/lib/chatbot/rateLimit";
 
 export const runtime = "nodejs";
 
@@ -9,6 +13,21 @@ type ChatRequestBody = {
 
 export async function POST(request: Request) {
   try {
+    const clientId = getClientIdFromRequest(request);
+    const rateLimit = checkServerRateLimit(clientId);
+
+    if (!rateLimit.allowed) {
+      return Response.json(
+        { error: rateLimit.message ?? "Too many requests." },
+        {
+          status: 429,
+          headers: rateLimit.retryAfterMs
+            ? { "Retry-After": String(Math.ceil(rateLimit.retryAfterMs / 1000)) }
+            : undefined,
+        },
+      );
+    }
+
     const body = (await request.json()) as ChatRequestBody;
     const message = body.message?.trim();
 

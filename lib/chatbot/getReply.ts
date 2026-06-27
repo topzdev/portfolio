@@ -21,8 +21,10 @@ RULES (follow strictly):
 "${CHAT_UNKNOWN_REPLY}"
 5. Keep replies concise (2-5 sentences unless listing skills or projects). Be friendly and professional.
 6. You may summarize and combine context entries but must not add new information.
+7. Format replies in clean Markdown. When listing grouped items (e.g. skills by category), put each category on its own line as "**Category:** item, item" or use "-" bullet points. Always separate sections with a newline. Never run multiple bold headings together on one line.
+8. When the question relates to website content (contact, testimonials, projects on the site, skills section, about, etc.), follow the WEBSITE NAVIGATION rules in the context and include the appropriate [label](#section-id) link.
 
-RESUME AND PORTFOLIO CONTEXT:
+RESUME, WEBSITE, AND NAVIGATION CONTEXT:
 ${PORTFOLIO_CHAT_CONTEXT}`;
 
 type ChatMessage = {
@@ -75,15 +77,19 @@ function getFallbackReply(message: string): string {
   const lower = message.toLowerCase();
 
   if (/contact|email|phone|reach|hire|get in touch/.test(lower)) {
-    return "You can contact Christian at christianlugod05@gmail.com or (+63) 92-866-65903. His website is topz.dev and GitHub is github.com/topzdev.";
+    return "You can contact Christian at christianlugod05@gmail.com or (+63) 92-866-65903. His website is topz.dev and GitHub is github.com/topzdev.\n\n[View contact details](#footer) · [Send a message](#contact)";
+  }
+
+  if (/testimonial|recommend|people say|colleague|review/.test(lower)) {
+    return "Colleagues praise Christian's problem-solving, dedication, and quality of work — including Miko Suarez (COO of WebDev200), Aldrin Plata (OM of WebDev200), and Sebastian Lavarias (Senior Fullstack Developer).\n\n[View testimonials](#testimonials)";
   }
 
   if (/skill|tech|stack|framework|language/.test(lower)) {
-    return "Christian's core skills include React, Next.js, Vue, Nuxt, TypeScript, Node.js, Laravel, PHP, PostgreSQL, MySQL, MongoDB, Tailwind CSS, Docker, Figma, and AI tools like Cursor and ChatGPT. He also works with React Native and Expo for mobile.";
+    return "Christian's core skills include React, Next.js, Vue, Nuxt, TypeScript, Node.js, Laravel, PHP, PostgreSQL, MySQL, MongoDB, Tailwind CSS, Docker, Figma, and AI tools like Cursor and ChatGPT. He also works with React Native and Expo for mobile.\n\n[View skills section](#skills)";
   }
 
   if (/project/.test(lower)) {
-    return "Featured projects include BulkApparel (e-commerce), VDOWorks (job portal), GoNurse (AI health assistant), HRIS (employee management), HomeOfDevs (portfolio platform), and a TUP Manila capstone voting system. Ask about a specific project for more detail.";
+    return "Featured projects include BulkApparel (e-commerce), VDOWorks (job portal), GoNurse (AI health assistant), HRIS (employee management), HomeOfDevs (portfolio platform), and a TUP Manila capstone voting system. Ask about a specific project for more detail.\n\n[View projects](#projects)";
   }
 
   if (/experience|work|job|career|webdev200|freelance/.test(lower)) {
@@ -103,7 +109,7 @@ function getFallbackReply(message: string): string {
   }
 
   if (/who is|about christian|summary|introduce/.test(lower)) {
-    return "Christian Lugod is a Full Stack Web Developer based in Manila, Philippines, with 7+ years of experience building scalable, responsive, and SEO-friendly web applications.";
+    return "Christian Lugod is a Full Stack Web Developer based in Manila, Philippines, with 7+ years of experience building scalable, responsive, and SEO-friendly web applications.\n\n[View about section](#about)";
   }
 
   if (/service|available|availability|freelanc/.test(lower)) {
