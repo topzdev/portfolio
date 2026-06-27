@@ -19,7 +19,7 @@ export function AboutSection() {
         />
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
-          <Button href={profile.resumeUrl} variant="secondary">
+          <Button target="_blank" href={profile.resumeUrl} variant="secondary">
             {aboutSection.resumeLabel}
           </Button>
           <ChatCta />

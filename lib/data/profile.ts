@@ -38,11 +38,11 @@ export const profile: Profile = {
   alias: "TopzDev",
   title: "Fullstack Developer",
   headline: "Hello, I'm Christian Lugod",
-  bio: `Hello! My name is Christian Lugod, and I'm currently a full-stack web developer working in the capital city of Manila, Philippines. I graduated from the Technological University of the Philippines with a degree in Information Technology. I am extremely passionate about this profession, and my dedication reflects in my skills and experience in the field. This passion also fuels my lifelong commitment to continuously enhance my web and mobile application development skills`,
-  location: "Manila, Philippines",
+  bio: `Hello! My name is Christian Lugod, and I’m a Full Stack Web Developer based in Mandaluyong, Metro Manila, Philippines. I graduated from the Technological University of the Philippines with a degree in Information Technology. I’m passionate about building web and mobile applications, and that passion is reflected in the skills and experience I’ve gained throughout my career. It also drives my commitment to continuous learning and improving my craft as a developer.`,
+  location: "Mandaluyong, Metro Manila, Philippines",
   email: "christianlugod05@gmail.com",
   phone: "09286665903",
-  resumeUrl: "/christian-lugod-resume.pdf",
+  resumeUrl: "/christian_lugod_resume.pdf",
   avatarPath: "/me_prsc2l",
   heroImagePath: "/topzdev-memoji",
   rotatingTitles: [
@@ -63,7 +63,7 @@ export const profile: Profile = {
   seo: {
     title: "TopzDev - Christian Lugod Portfolio",
     description:
-      "UI/UX Designer, SEO Specialist, Backend, Frontend, Fullstack Web Developer from Manila, Philippines",
+      "UI/UX Designer, SEO Specialist, Backend, Frontend, Fullstack Web Developer from Mandaluyong, Metro Manila, Philippines",
     ogTitle: "Christian Lugod | Portfolio",
     ogImage: "/seo-cover.jpg",
     url: "https://topz.dev",
