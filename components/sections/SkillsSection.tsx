@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useRef } from "react";
 import { CloudinaryImage } from "@/components/ui/CloudinaryImage";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -78,11 +77,10 @@ function SkillCard({ skill }: { skill: Skill }) {
     >
       <CloudinaryImage
         src={cloudinaryUrl(skill.iconPath)}
-        alt=""
+        alt={`${skill.name} icon`}
         width={skill.iconWidth}
         height={skill.iconHeight}
         className="mb-2 h-10 w-10 object-contain"
-        aria-hidden
       />
       <p className="text-[11px] font-semibold leading-snug text-inherit">
         {skill.name}
@@ -93,26 +91,6 @@ function SkillCard({ skill }: { skill: Skill }) {
         </p>
       )}
     </div>
-  );
-}
-
-function SkillCardLink({ skill }: { skill: Skill }) {
-  const card = <SkillCard skill={skill} />;
-
-  if (!skill.url) {
-    return card;
-  }
-
-  return (
-    <Link
-      href={skill.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-      aria-label={`Learn more about ${skill.name}`}
-    >
-      {card}
-    </Link>
   );
 }
 
@@ -155,7 +133,7 @@ export function SkillsSection() {
           <CloudinaryImage
             key={icon}
             src={cloudinaryUrl(icon)}
-            alt=""
+            alt={`Background icon ${icon}`}
             width={120}
             height={120}
             className="absolute opacity-[0.07] blur-2xl"
@@ -192,7 +170,7 @@ export function SkillsSection() {
                   <BlankSkillCard />
                   <BlankSkillCard />
                   {column.map((skill) => (
-                    <SkillCardLink key={skill.name} skill={skill} />
+                    <SkillCard key={skill.name} skill={skill} />
                   ))}
                   {Array.from({
                     length: maxColumnLength - column.length,

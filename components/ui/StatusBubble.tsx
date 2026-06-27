@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { prefersReducedMotion } from "@/lib/animations/gsap";
-import { playBubbleSound } from "@/lib/sounds/playBubbleSound";
+import { playBubbleSound, primeBubbleSound } from "@/lib/sounds/playBubbleSound";
 import { cn } from "@/lib/utils";
 
 type StatusBubbleProps = {
@@ -17,7 +17,7 @@ const CHAR_DELAY_MS = 42;
 export function StatusBubble({
   messages,
   intervalMs = 10000,
-  initialDelayMs = 2800,
+  initialDelayMs = 1000,
   className,
 }: StatusBubbleProps) {
   const [visible, setVisible] = useState(false);
@@ -27,6 +27,10 @@ export function StatusBubble({
   const hasPlayedSound = useRef(false);
 
   const message = messages[messageIndex] ?? messages[0] ?? "";
+
+  // useEffect(() => {
+  //   primeBubbleSound();
+  // }, []);
 
   useEffect(() => {
     const timer = window.setTimeout(() => setVisible(true), initialDelayMs);
@@ -43,12 +47,12 @@ export function StatusBubble({
     return () => window.clearInterval(timer);
   }, [visible, messages.length, intervalMs]);
 
-  useEffect(() => {
-    if (visible && !hasPlayedSound.current) {
-      hasPlayedSound.current = true;
-      playBubbleSound();
-    }
-  }, [visible]);
+  // useEffect(() => {
+  //   if (visible && !hasPlayedSound.current) {
+  //     hasPlayedSound.current = true;
+  //     playBubbleSound();
+  //   }
+  // }, [visible]);
 
   useEffect(() => {
     if (!message) return;

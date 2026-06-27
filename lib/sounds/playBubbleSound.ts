@@ -1,12 +1,24 @@
 import { prefersReducedMotion } from "@/lib/animations/gsap";
 
-let audioContext: AudioContext | null = null;
-let hasUnlocked = false;
+type WindowWithWebkitAudio = Window &
+  typeof globalThis & {
+    webkitAudioContext?: typeof AudioContext;
+  };
 
-function getAudioContext(): AudioContext {
+let audioContext: AudioContext | null = null;
+let pendingPlay = false;
+let unlockAttached = false;
+
+function getAudioContext(): AudioContext | null {
+  if (typeof window === "undefined") return null;
+
   if (!audioContext) {
-    audioContext = new AudioContext();
+    const Ctor =
+      window.AudioContext ?? (window as WindowWithWebkitAudio).webkitAudioContext;
+    if (!Ctor) return null;
+    audioContext = new Ctor();
   }
+
   return audioContext;
 }
 
@@ -34,25 +46,47 @@ function playChime(ctx: AudioContext): void {
   tone2.stop(now + 0.28);
 }
 
-function unlockAudio(): void {
-  if (hasUnlocked) return;
-  hasUnlocked = true;
-
-  const ctx = getAudioContext();
-  void ctx.resume().then(() => playChime(ctx));
+function flushPendingPlay(ctx: AudioContext): void {
+  if (!pendingPlay) return;
+  pendingPlay = false;
+  playChime(ctx);
 }
 
-function listenForUnlock(): void {
-  if (hasUnlocked || typeof document === "undefined") return;
+function attachUnlockListener(): void {
+  if (unlockAttached || typeof document === "undefined") return;
+  unlockAttached = true;
 
   const onInteract = () => {
     document.removeEventListener("pointerdown", onInteract);
     document.removeEventListener("keydown", onInteract);
-    unlockAudio();
+    document.removeEventListener("touchstart", onInteract);
+    unlockAttached = false;
+
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    void ctx.resume().then(() => flushPendingPlay(ctx));
   };
 
-  document.addEventListener("pointerdown", onInteract, { once: true });
-  document.addEventListener("keydown", onInteract, { once: true });
+  document.addEventListener("pointerdown", onInteract);
+  document.addEventListener("keydown", onInteract);
+  document.addEventListener("touchstart", onInteract);
+}
+
+/**
+ * Attach the audio-unlock listener early (e.g. on mount) so the FIRST user
+ * gesture resumes the AudioContext. Without this, an interaction that happens
+ * before the bubble appears is wasted and the chime is delayed until the next one.
+ */
+export function primeBubbleSound(): void {
+  if (prefersReducedMotion() || typeof window === "undefined") return;
+
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  if (ctx.state === "suspended") {
+    attachUnlockListener();
+  }
 }
 
 export function playBubbleSound(): void {
@@ -60,13 +94,21 @@ export function playBubbleSound(): void {
 
   try {
     const ctx = getAudioContext();
+    if (!ctx) return;
 
-    if (ctx.state === "suspended") {
-      listenForUnlock();
+    if (ctx.state === "running") {
+      playChime(ctx);
       return;
     }
 
-    playChime(ctx);
+    pendingPlay = true;
+    void ctx.resume().then(() => {
+      if (ctx.state === "running") {
+        flushPendingPlay(ctx);
+      } else {
+        attachUnlockListener();
+      }
+    });
   } catch {
     // Audio may be unavailable in some environments.
   }

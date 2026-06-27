@@ -1,6 +1,7 @@
 export type ProfileSeo = {
   title: string;
   description: string;
+  ogDescription: string;
   ogTitle: string;
   ogImage: string;
   url: string;
@@ -61,14 +62,14 @@ export const profile: Profile = {
     initialDelayMs: 2800,
   },
   seo: {
-    title: "TopzDev - Christian Lugod Portfolio",
-    description:
-      "UI/UX Designer, SEO Specialist, Backend, Frontend, Fullstack Web Developer from Mandaluyong, Metro Manila, Philippines",
-    ogTitle: "Christian Lugod | Portfolio",
+    title: "Christian Lugod | Full Stack Web Developer Portfolio", 
+    description: "Full Stack Web Developer from Mandaluyong, Metro Manila, skilled in React, Next.js, Vue, Nuxt, Laravel, Node.js, UI/UX, SEO, and web performance.", 
+    ogTitle: "Christian Lugod | Full Stack Web Developer Portfolio", 
+    ogDescription: "Explore Christian Lugod’s portfolio, featured projects, skills, work experience, and full-stack web development expertise.", 
     ogImage: "/seo-cover.jpg",
-    url: "https://topz.dev",
-    themeColor: "#0993e5",
-    twitterHandle: "_christop_",
+     url: "https://topz.dev", 
+     themeColor: "#0993e5", 
+     twitterHandle: "_christop_",
   },
 };
 

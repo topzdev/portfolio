@@ -78,7 +78,7 @@ function resolveTheme(activeId: string, isSiteDark: boolean): NavTheme {
 }
 
 export function Navigation() {
-  const { isOpen, closeChat} = useChat();
+  const { isOpen, closeChat } = useChat();
   const [activeId, setActiveId] = useState<string>("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
   const { resolvedTheme } = useTheme();
@@ -131,7 +131,7 @@ export function Navigation() {
     <>
       <ThemeToggle
         className={cn(
-          "fixed right-4 top-4 z-[60] h-11 w-11 border bg-surface-elevated/90 shadow-sm transition-colors duration-300",
+          "fixed right-18 lg:right-4 top-4 z-[60] h-11 w-11 border bg-surface-elevated/90 shadow-sm transition-colors duration-300",
           theme === "dark"
             ? "border-white/15 bg-footer/90 text-white hover:text-white"
             : "border-border/80 text-ink",
@@ -149,80 +149,80 @@ export function Navigation() {
 
       <nav
         aria-label="Primary"
-        className="fixed right-[4.5rem] top-4 z-50 lg:right-8 lg:top-1/2 lg:-translate-y-1/2"
+        className="fixed right-4 lg:right-4 top-4 z-50 lg:top-1/2 lg:-translate-y-1/2"
       >
         <div className="relative">
-        <button
-          type="button"
-          className={cn(
-            "flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-300 lg:hidden",
-            styles.menuButton,
-          )}
-          onClick={() => setMobileOpen((open) => !open)}
-          aria-expanded={mobileOpen}
-          aria-controls="side-nav-panel"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-        >
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
-            {mobileOpen ? (
-              <path
-                d="M4 4l10 10M14 4L4 14"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-            ) : (
-              <path
-                d="M3 5.5h12M3 9h12M3 12.5h8"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
+          <button
+            type="button"
+            className={cn(
+              "flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-300 lg:hidden",
+              styles.menuButton,
             )}
-          </svg>
-        </button>
-
-        <div
-          id="side-nav-panel"
-          className={cn(
-            "absolute right-0 top-[calc(100%+0.75rem)] min-w-[11rem] rounded-2xl border p-3 shadow-lg transition-all duration-300 lg:static lg:min-w-0 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none",
-            styles.panel,
-            mobileOpen
-              ? "pointer-events-auto translate-y-0 opacity-100"
-              : "pointer-events-none translate-y-2 opacity-0 lg:pointer-events-auto lg:translate-y-0 lg:opacity-100",
-          )}
-        >
-          <ul className="flex flex-col gap-1 lg:items-end lg:gap-2">
-            <li className="lg:hidden">
-              <button
-                type="button"
-                onClick={() => handleNavClick("hero")}
-                className={linkClass("hero")}
-              >
-                Home
-              </button>
-            </li>
-            {navItems.map((item) => (
-              <li key={item.id} className="relative lg:flex lg:items-center lg:justify-end lg:gap-3">
-                <span
-                  aria-hidden
-                  className={cn(
-                    "absolute -left-2 top-1/2 hidden h-1.5 w-1.5 -translate-y-1/2 rounded-full transition-opacity duration-300 lg:block",
-                    styles.indicator,
-                    activeId === item.id ? "opacity-100" : "opacity-0",
-                  )}
+            onClick={() => setMobileOpen((open) => !open)}
+            aria-expanded={mobileOpen}
+            aria-controls="side-nav-panel"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
+              {mobileOpen ? (
+                <path
+                  d="M4 4l10 10M14 4L4 14"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
                 />
+              ) : (
+                <path
+                  d="M3 5.5h12M3 9h12M3 12.5h8"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              )}
+            </svg>
+          </button>
+
+          <div
+            id="side-nav-panel"
+            className={cn(
+              "absolute right-0 top-[calc(100%+0.75rem)] min-w-[11rem] rounded-2xl border p-3 shadow-lg transition-all duration-300 lg:static lg:min-w-0 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none",
+              styles.panel,
+              mobileOpen
+                ? "pointer-events-auto translate-y-0 opacity-100"
+                : "pointer-events-none translate-y-2 opacity-0 lg:pointer-events-auto lg:translate-y-0 lg:opacity-100",
+            )}
+          >
+            <ul className="flex flex-col gap-1 lg:items-end lg:gap-2">
+              <li className="lg:hidden">
                 <button
                   type="button"
-                  onClick={() => handleNavClick(item.id)}
-                  className={linkClass(item.id)}
+                  onClick={() => handleNavClick("hero")}
+                  className={linkClass("hero")}
                 >
-                  {item.label}
+                  Home
                 </button>
               </li>
-            ))}
-          </ul>
-        </div>
+              {navItems.map((item) => (
+                <li key={item.id} className="relative lg:flex lg:items-center lg:justify-end lg:gap-3">
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "absolute -left-2 top-1/2 hidden h-1.5 w-1.5 -translate-y-1/2 rounded-full transition-opacity duration-300 lg:block",
+                      styles.indicator,
+                      activeId === item.id ? "opacity-100" : "opacity-0",
+                    )}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => handleNavClick(item.id)}
+                    className={linkClass(item.id)}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </nav>
     </>

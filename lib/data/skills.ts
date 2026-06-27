@@ -15,7 +15,6 @@ export type Skill = {
   iconPath: string;
   iconWidth: number;
   iconHeight: number;
-  url?: string;
   category: SkillCategory;
   /** Inline style from old portfolio (e.g. AI gradient card) */
   cardStyle?: string;
@@ -45,7 +44,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_react_xnelsh",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://react.dev/",
     category: "frontend",
   },
   {
@@ -53,7 +51,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_nextjs_t8gyda",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://nextjs.org/",
     category: "frontend",
   },
   {
@@ -61,7 +58,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_vue_jhkfs6",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://vuejs.org/",
     category: "frontend",
   },
   {
@@ -69,7 +65,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_nuxt_mcbcyd",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://nuxt.com/",
     category: "frontend",
   },
   {
@@ -77,7 +72,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_expo_wspzok",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://expo.dev/",
     category: "mobile",
   },
   {
@@ -85,7 +79,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_typescript_fld2yp",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://www.typescriptlang.org/",
     category: "frontend",
   },
   {
@@ -100,7 +93,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_jquery_rp7qwu",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://jquery.com/",
     category: "frontend",
   },
   {
@@ -108,7 +100,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_nodejs_rii0or",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://nodejs.org/en",
     category: "backend",
   },
   {
@@ -116,7 +107,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/adonis_jdvxsq",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://adonisjs.com/",
     category: "backend",
   },
   {
@@ -124,7 +114,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_php_xouhs3",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://www.php.net/",
     category: "backend",
   },
   {
@@ -132,7 +121,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_laravel_xtmrqn",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://laravel.com/",
     category: "backend",
   },
   {
@@ -140,7 +128,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_postgresql_yg7kxl",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://www.postgresql.org/",
     category: "database",
   },
   {
@@ -148,7 +135,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_tailwind-css_iw8ufr",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://tailwindcss.com/",
     category: "styling",
   },
   {
@@ -156,7 +142,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/shadcn-ui_ycf2n3",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://ui.shadcn.com/",
     category: "frontend",
   },
   {
@@ -164,7 +149,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/docker_vnzxw4",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://www.docker.com/",
     category: "devops",
   },
   {
@@ -172,7 +156,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_figma_qijjss",
     iconWidth: 45,
     iconHeight: 68,
-    url: "https://www.figma.com/",
     category: "design",
   },
   {
@@ -194,7 +177,6 @@ export const skills: Skill[] = [
     iconPath: "/icons/icon_sass_pbvayy",
     iconWidth: 68,
     iconHeight: 68,
-    url: "https://sass-lang.com/",
     category: "styling",
   },
 ];
