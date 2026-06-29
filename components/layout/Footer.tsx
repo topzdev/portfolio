@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRef, type ReactNode } from "react";
+import { GithubContributions } from "@/components/layout/GithubContributions";
 import { FooterIcon, type FooterIconName } from "@/components/icons/FooterIcons";
 import { useStaggerReveal } from "@/lib/animations/useStaggerReveal";
 import { profile } from "@/lib/data/profile";
@@ -12,6 +13,13 @@ import {
   socialLinks,
 } from "@/lib/data/socials";
 import { cn } from "@/lib/utils";
+
+const GITHUB_USERNAME =
+  socialLinks
+    .find((link) => link.platform === "github")
+    ?.url.replace(/\/+$/, "")
+    .split("/")
+    .pop() ?? "topzdev";
 
 const accentClass: Record<NonNullable<FooterQuotePart["accent"]>, string> = {
   yellow: "text-[#ffd600]",
@@ -102,7 +110,11 @@ export function Footer() {
           )}
         </blockquote>
 
-        <div ref={linksRef} className="mt-24 flex flex-col gap-16 lg:flex-row lg:gap-20">
+        {/* <div className="mt-10">
+          <GithubContributions username={GITHUB_USERNAME} />
+        </div> */}
+
+        <div ref={linksRef} className="mt-14 flex flex-col gap-16 lg:flex-row lg:gap-20">
           <FooterLinkColumn title="Contacts">
             {contactLinks.map((link) => (
               <li key={link.href} className="list-none">
