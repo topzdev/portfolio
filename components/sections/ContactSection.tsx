@@ -76,7 +76,7 @@ export function ContactSection() {
     formData.set("form-name", contactSection.formName);
 
     try {
-      const response = await fetch("/", {
+      const response = await fetch("/__forms.html", {
         method: "POST",
         body: formData,
       });
