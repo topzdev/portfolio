@@ -146,7 +146,7 @@ export const testimonials: Testimonial[] = [
     name: "Sebastian Lavarias",
     position: "Senior Fullstack Developer",
     quote:
-      "Christian is a great friend and collaborator. We’ve worked on projects together and he always brings energy, ideas, and support. I highly recommend him.",
+      "Christian is a great collaborator and a pleasure to work with. We’ve worked on projects together, and he consistently brings energy, ideas, and support. I highly recommend him.",
  
     imagePath: '/profiles/basti_laravarias_vj96kd',
   },
