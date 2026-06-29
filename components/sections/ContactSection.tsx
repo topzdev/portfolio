@@ -11,10 +11,42 @@ import { cn } from "@/lib/utils";
 const inputClassName =
   "w-full rounded-xl border border-border bg-surface px-4 py-3 text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20";
 
+const inputErrorClassName =
+  "border-red-400 focus:border-red-500 focus:ring-red-500/20 dark:border-red-500/70";
+
 const fileInputClassName = cn(
   inputClassName,
   "cursor-pointer file:mr-4 file:cursor-pointer file:rounded-lg file:border-0 file:bg-primary/10 file:px-4 file:py-2 file:text-sm file:font-medium file:text-primary hover:file:bg-primary/15",
 );
+
+type FieldErrors = {
+  name?: string;
+  email?: string;
+  message?: string;
+};
+
+function validateContactForm(form: HTMLFormElement): FieldErrors {
+  const errors: FieldErrors = {};
+  const name = (form.elements.namedItem("name") as HTMLInputElement).value.trim();
+  const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
+  const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim();
+
+  if (!name) {
+    errors.name = "Please enter your name.";
+  }
+
+  if (!email) {
+    errors.email = "Please enter your email address.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.email = "Please enter a valid email address.";
+  }
+
+  if (!message) {
+    errors.message = "Please tell me about your project.";
+  }
+
+  return errors;
+}
 
 export function ContactSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -23,13 +55,23 @@ export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsSubmitting(true);
-    setError(null);
 
     const form = event.currentTarget;
+    const validationErrors = validateContactForm(form);
+
+    if (Object.keys(validationErrors).length > 0) {
+      setFieldErrors(validationErrors);
+      setError(null);
+      return;
+    }
+
+    setFieldErrors({});
+    setIsSubmitting(true);
+    setError(null);
     const formData = new FormData(form);
     formData.set("form-name", contactSection.formName);
 
@@ -119,8 +161,21 @@ export function ContactSection() {
                     required
                     autoComplete="name"
                     disabled={isSubmitting}
-                    className={inputClassName}
+                    aria-invalid={Boolean(fieldErrors.name)}
+                    aria-describedby={fieldErrors.name ? "name-error" : undefined}
+                    onChange={() =>
+                      setFieldErrors((current) => ({ ...current, name: undefined }))
+                    }
+                    className={cn(
+                      inputClassName,
+                      fieldErrors.name && inputErrorClassName,
+                    )}
                   />
+                  {fieldErrors.name ? (
+                    <p id="name-error" role="alert" className="mt-2 text-sm text-red-600 dark:text-red-400">
+                      {fieldErrors.name}
+                    </p>
+                  ) : null}
                 </div>
 
                 <div data-reveal-item>
@@ -137,8 +192,21 @@ export function ContactSection() {
                     required
                     autoComplete="email"
                     disabled={isSubmitting}
-                    className={inputClassName}
+                    aria-invalid={Boolean(fieldErrors.email)}
+                    aria-describedby={fieldErrors.email ? "email-error" : undefined}
+                    onChange={() =>
+                      setFieldErrors((current) => ({ ...current, email: undefined }))
+                    }
+                    className={cn(
+                      inputClassName,
+                      fieldErrors.email && inputErrorClassName,
+                    )}
                   />
+                  {fieldErrors.email ? (
+                    <p id="email-error" role="alert" className="mt-2 text-sm text-red-600 dark:text-red-400">
+                      {fieldErrors.email}
+                    </p>
+                  ) : null}
                 </div>
 
                 <div data-reveal-item>
@@ -154,8 +222,22 @@ export function ContactSection() {
                     required
                     rows={5}
                     disabled={isSubmitting}
-                    className={cn(inputClassName, "resize-y")}
+                    aria-invalid={Boolean(fieldErrors.message)}
+                    aria-describedby={fieldErrors.message ? "message-error" : undefined}
+                    onChange={() =>
+                      setFieldErrors((current) => ({ ...current, message: undefined }))
+                    }
+                    className={cn(
+                      inputClassName,
+                      "resize-y",
+                      fieldErrors.message && inputErrorClassName,
+                    )}
                   />
+                  {fieldErrors.message ? (
+                    <p id="message-error" role="alert" className="mt-2 text-sm text-red-600 dark:text-red-400">
+                      {fieldErrors.message}
+                    </p>
+                  ) : null}
                 </div>
 
                 <div data-reveal-item>

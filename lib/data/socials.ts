@@ -140,7 +140,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "I've worked with Christian on several projects and am always impressed by his dedication and problem-solving skills. He's a true professional and creative asset.",
  
-    imagePath: null,
+    imagePath: '/profiles/aldrin-plata_dcnt7m',
   },
   {
     name: "Sebastian Lavarias",
