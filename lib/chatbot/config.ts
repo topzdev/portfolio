@@ -10,12 +10,12 @@ export const CHAT_MODEL_PROVIDER: ChatModelProvider = "gemini";
 export const chatModelSettings = {
   gemini: {
     /** Override via GEMINI_MODEL env var */
-    defaultModel: "gemini-2.0-flash",
+    defaultModel: "GEMINI_MODEL",
     apiKeyEnv: "GEMINI_API_KEY" as const,
   },
   openai: {
     /** Override via OPENAI_MODEL env var */
-    defaultModel: "gpt-4o-mini",
+    defaultModel: "OPENAI_MODEL",
     apiKeyEnv: "OPENAI_API_KEY" as const,
   },
 } as const satisfies Record<
